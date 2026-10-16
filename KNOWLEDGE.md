@@ -22,7 +22,15 @@
 - When the client supplies photos: save as `public/products/<id>.jpg` (≤200 KB) and set `"<id>": {"file":"/products/<id>.jpg","own":true}` in images.json — credit text then disappears automatically.
 - Option if the owner accepts the rights risk: brand press/media-kit images (Apple Newsroom, Sony, Samsung, DJI, Dyson) — not used, licence unverified.
 
+## Brand product images (added 2026-10-17, on the owner's instruction)
+- 19 products use the manufacturer's OWN official product-page image (Apple, Samsung, Sony/PlayStation, ASUS, DJI, Garmin, HP, Canon) — a TEMPORARY placeholder. Credited "© brand" on the product page and /credits/. Pipeline: `scripts/brand-images.mjs fetch` then `apply id,id` (resizes to WebP ≤900px with sharp; always eyeball the candidate sheet first — some og:images are logos/banners). Firecrawl found the official pages; its free tier rate-limited, so remaining pages were read with plain requests / the browser.
+- 10 more products use free-licence Wikimedia photos. Total 29 of 41 have images.
+- Still drawings (12): Dyson ×5 (site gives no clean image), GoPro Hero12, Insta360 X4, Lenovo Legion 5, Epson L3250, Galaxy Tab S9, PS5 Digital (only the disc-model image found), Samsung 25W charger.
+- RIGHTS: brand marketing images are not licensed to us. OK for a private client demo; before public launch the company must supply its own photos / distributor-approved images, or confirm it is an authorised dealer with image rights. Replace by adding public/products/<id>.jpg and `{"file":..., "own": true}` in src/data/images.json.
+- Some brand images show newer generations than the product name (e.g. iPad Air page is M4, MacBook Air page M5): visually near-identical, but the real client catalog should use exact images.
+
 ## Session log
+- 2026-10-17 (later): added brand images (19) via official product pages; credits page split brand vs free; redeployed; live check OK.
 - 2026-10-17: renamed to ENESAI TELECOM FZCO + real address; added photo pipeline + credits page; 70 pages; redeployed; live checks OK.
 - 2026-10-16 (later): deployed demo to Cloudflare; verified 200 on key pages, CSP/HSTS headers live, 404 page works.
 - 2026-10-16: scaffolded Astro project, 69 pages, 41 sample products, CSV importer, security checker + secure preview server; verified in browser under enforced CSP (home, category+brand filter, product, basket) — no console errors; npm audit 0.

@@ -21,7 +21,8 @@ const ld = {
     <div class="dgrid">
       <div>
         <div class:list={['dimg', `tone-${p.tone}`, { 'has-photo': !!photo }]}><ProductImg p={p} priority />{p.badge && <span class="pbadge">{p.badge}</span>}</div>
-        {photo && !photo.own && <p class="fine">Photo: {photo.author} · <a href={photo.licenseUrl || photo.source} target="_blank" rel="noopener noreferrer">{photo.license}</a> · <a href={photo.source} target="_blank" rel="noopener noreferrer">source</a>. Temporary image until the company supplies its own.</p>}
+        {photo && photo.kind === 'brand' && <p class="fine">Image © {photo.author}, from the manufacturer's official product page. Temporary image until the company supplies its own.</p>}
+        {photo && !photo.own && photo.kind !== 'brand' && <p class="fine">Photo: {photo.author} · <a href={photo.licenseUrl || photo.source} target="_blank" rel="noopener noreferrer">{photo.license}</a> · <a href={photo.source} target="_blank" rel="noopener noreferrer">source</a>. Temporary image until the company supplies its own.</p>}
       </div>
       <div class="dinfo">
         <a class="brandline" href={`/brand/${slugify(p.brand)}/`}>{p.brand}</a>

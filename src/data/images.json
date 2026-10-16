@@ -78,5 +78,157 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
     "source": "https://commons.wikimedia.org/wiki/File:MagSafe_(iPhone).png",
     "title": "MagSafe (iPhone).png"
+  },
+  "ipad-air-m2": {
+    "file": "/products/ipad-air-m2.webp",
+    "kind": "brand",
+    "author": "Apple",
+    "license": "Official manufacturer image",
+    "source": "https://www.apple.com/v/ipad-air/ah/images/overview/contrast/product-tile/ipad_air__bbsxw9xstope_large.png",
+    "title": "Apple iPad Air 11\" M2 128GB Wi-Fi"
+  },
+  "ipad-10": {
+    "file": "/products/ipad-10.webp",
+    "kind": "brand",
+    "author": "Apple",
+    "license": "Official manufacturer image",
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ipad-model-unselect-gallery-1-202503?wid=1200&hei=1200&fmt=jpeg&qlt=90",
+    "title": "Apple iPad 10th Generation 64GB Wi-Fi"
+  },
+  "macbook-air-m3": {
+    "file": "/products/macbook-air-m3.webp",
+    "kind": "brand",
+    "author": "Apple",
+    "license": "Official manufacturer image",
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/macbook-air-size-unselect-202601-gallery-1?wid=1200&hei=1200&fmt=jpeg&qlt=90",
+    "title": "Apple MacBook Air 13\" M3 8GB/256GB"
+  },
+  "macbook-pro-14": {
+    "file": "/products/macbook-pro-14.webp",
+    "kind": "brand",
+    "author": "Apple",
+    "license": "Official manufacturer image",
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/refurb-mbp14-m3-max-pro-spaceblack-202402?wid=1144&hei=1144&fmt=jpeg&qlt=90",
+    "title": "Apple MacBook Pro 14\" M3 Pro 18GB/512GB"
+  },
+  "apple-watch-ultra-2": {
+    "file": "/products/apple-watch-ultra-2.webp",
+    "kind": "brand",
+    "author": "Apple",
+    "license": "Official manufacturer image",
+    "source": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/refurb-49-ultra-black-titanium-ocean-black?wid=1144&hei=1144&fmt=jpeg&qlt=90",
+    "title": "Apple Watch Ultra 2 GPS + Cellular 49mm"
+  },
+  "apple-watch-s9": {
+    "file": "/products/apple-watch-s9.webp",
+    "kind": "brand",
+    "author": "Apple",
+    "license": "Official manufacturer image",
+    "source": "https://www.apple.com/shop/product/fr9a3lw/a/Refurbished-Apple-Watch-Series-9-GPS-45mm-Midnight-Aluminum-Case-with-M-L-Midnight-Sport-Band",
+    "title": "Apple Watch Series 9 GPS 45mm"
+  },
+  "galaxy-s24": {
+    "file": "/products/galaxy-s24.webp",
+    "kind": "brand",
+    "author": "Samsung",
+    "license": "Official manufacturer image",
+    "source": "https://www.samsung.com/us/smartphones/galaxy-s24/",
+    "title": "Samsung Galaxy S24 128GB"
+  },
+  "ps5-slim-disc": {
+    "file": "/products/ps5-slim-disc.webp",
+    "kind": "brand",
+    "author": "Sony",
+    "license": "Official manufacturer image",
+    "source": "https://www.playstation.com/en-us/ps5/",
+    "title": "Sony PlayStation 5 Slim Disc Edition"
+  },
+  "ps-portal": {
+    "file": "/products/ps-portal.webp",
+    "kind": "brand",
+    "author": "Sony",
+    "license": "Official manufacturer image",
+    "source": "https://www.playstation.com/en-us/accessories/playstation-portal-remote-player/",
+    "title": "Sony PlayStation Portal Remote Player"
+  },
+  "sony-wh-1000xm5": {
+    "file": "/products/sony-wh-1000xm5.webp",
+    "kind": "brand",
+    "author": "Sony",
+    "license": "Official manufacturer image",
+    "source": "https://electronics.sony.com/audio/headphones/headband/p/wh1000xm5-b",
+    "title": "Sony WH-1000XM5 Noise-Cancelling Headphones"
+  },
+  "asus-rog-strix-g16": {
+    "file": "/products/asus-rog-strix-g16.webp",
+    "kind": "brand",
+    "author": "ASUS",
+    "license": "Official manufacturer image",
+    "source": "https://rog.asus.com/laptops/rog-strix/rog-strix-g16-2026/",
+    "title": "ASUS ROG Strix G16 Core i7 / RTX 4070"
+  },
+  "dji-osmo-pocket-3": {
+    "file": "/products/dji-osmo-pocket-3.webp",
+    "kind": "brand",
+    "author": "DJI",
+    "license": "Official manufacturer image",
+    "source": "https://www.dji.com/mobile/osmo-pocket-3",
+    "title": "DJI Osmo Pocket 3 Creator Combo"
+  },
+  "dji-osmo-action-4": {
+    "file": "/products/dji-osmo-action-4.webp",
+    "kind": "brand",
+    "author": "DJI",
+    "license": "Official manufacturer image",
+    "source": "https://www.dji.com/mobile/osmo-action-4",
+    "title": "DJI Osmo Action 4 Adventure Combo"
+  },
+  "garmin-fenix-7": {
+    "file": "/products/garmin-fenix-7.webp",
+    "kind": "brand",
+    "author": "Garmin",
+    "license": "Official manufacturer image",
+    "source": "https://www.garmin.com/en-US/p/735520/",
+    "title": "Garmin fēnix 7 Sapphire Solar"
+  },
+  "hp-color-laserjet-m255": {
+    "file": "/products/hp-color-laserjet-m255.webp",
+    "kind": "brand",
+    "author": "HP",
+    "license": "Official manufacturer image",
+    "source": "https://www.hp.com/us-en/shop/pdp/hp-color-laserjet-pro-m255dw",
+    "title": "HP Color LaserJet Pro M255dw"
+  },
+  "canon-pixma-g3430": {
+    "file": "/products/canon-pixma-g3430.webp",
+    "kind": "brand",
+    "author": "Canon",
+    "license": "Official manufacturer image",
+    "source": "https://www.canon-europe.com/printers/pixma-g3430/",
+    "title": "Canon PIXMA G3430 Ink Tank Printer"
+  },
+  "galaxy-s24-ultra": {
+    "file": "/products/galaxy-s24-ultra.webp",
+    "kind": "brand",
+    "author": "Samsung",
+    "license": "Official manufacturer image",
+    "source": "https://images.samsung.com/is/image/samsung/assets/us/2501/pcd/smartphones/galaxy-s24-ultra/galaxy-S24-ultra-ft02-kv_DT.jpg?$1440_N_JPG$",
+    "title": "Samsung Galaxy S24 Ultra 256GB"
+  },
+  "pulse-elite": {
+    "file": "/products/pulse-elite.webp",
+    "kind": "brand",
+    "author": "Sony",
+    "license": "Official manufacturer image",
+    "source": "https://gmedia.playstation.com/is/image/SIEPDC/PULSE-Elite-headset-thumbnail-02-en-12sep23?$facebook$",
+    "title": "Sony PULSE Elite Wireless Headset"
+  },
+  "hp-laserjet-m141w": {
+    "file": "/products/hp-laserjet-m141w.webp",
+    "kind": "brand",
+    "author": "HP",
+    "license": "Official manufacturer image",
+    "source": "https://hk-media.apjonlinecdn.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/7/M/7MD74A-1_T1678934554.png",
+    "title": "HP LaserJet Pro MFP M141w Mono Printer"
   }
 }
