@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../lib/data';
+---
+<Base title="Privacy" description="How this website handles your information.">
+  <div class="wrap page prose">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <span>Privacy</span></nav>
+    <h1 class="h1m">Privacy</h1>
+    <p class="fine">Sample text — the company must review and approve its final privacy policy.</p>
+    <h2>What this website collects</h2>
+    <p>This website has no accounts, no payments, no tracking cookies and no third-party analytics. It does not send your details to any server.</p>
+    <h2>Your enquiry list</h2>
+    <p>Products you add to your enquiry list are saved only in your own browser (local storage) so the list survives a page refresh. You can clear it by removing items or clearing your browser data.</p>
+    <h2>Contacting us</h2>
+    <p>When you send an enquiry, your message opens in WhatsApp (a service run by WhatsApp/Meta under its own privacy policy). We use the name and phone number you share only to reply to you.</p>
+    <h2>Questions</h2>
+    <p>Contact {site.name} at <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+  </div>
+</Base>

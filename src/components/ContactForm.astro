@@ -1,0 +1,11 @@
+---
+// No server: the form only builds a WhatsApp message in the visitor's browser (see scripts/app.ts).
+interface Props { intro: string; placeholder?: string; button?: string }
+const { intro, placeholder = 'What are you looking for?', button = 'Send on WhatsApp' } = Astro.props;
+---
+<form class="cform" data-wa-form data-intro={intro}>
+  <input type="text" name="name" placeholder="Your name" required maxlength="60" autocomplete="name" aria-label="Your name" />
+  <input type="tel" name="phone" placeholder="Phone / WhatsApp" required maxlength="20" autocomplete="tel" aria-label="Phone" />
+  <textarea name="msg" rows="3" placeholder={placeholder} required maxlength="600" aria-label="Message"></textarea>
+  <button class="btn lg" type="submit">{button}</button>
+</form>

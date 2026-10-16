@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+<Base title="Wholesale & bulk orders" description="Trade prices on Apple, Samsung, PlayStation, DJI, Garmin, Dyson and printers for shops, offices and exporters.">
+  <div class="wrap page">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <span>Wholesale</span></nav>
+    <div class="split mt">
+      <div>
+        <span class="eyebrow">For shops &amp; businesses</span>
+        <h1 class="h1m">Wholesale &amp; bulk orders</h1>
+        <p class="lead mt-s">Tell us what you need and how many. We reply within 24 hours with a trade quote.</p>
+        <ul class="ticks"><li>Trade price list on request</li><li>Volume pricing from 5 units</li><li>Office printers and laptops for companies</li><li>Export documents and shipping arranged</li><li>Dedicated account manager</li></ul>
+        <p class="fine">Terms such as minimum order quantity and payment will be confirmed by the company (sample text).</p>
+      </div>
+      <div><ContactForm intro="I would like a wholesale quote for:" placeholder="Products and quantities, company name…" button="Request quote on WhatsApp" /></div>
+    </div>
+  </div>
+</Base>

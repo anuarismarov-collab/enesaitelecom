@@ -1,0 +1,12 @@
+---
+import Base from '../layouts/Base.astro';
+import Listing from '../components/Listing.astro';
+import { products } from '../lib/data';
+---
+<Base title="Shop all products" description="Browse original phones, tablets, laptops, PS5, cameras, smartwatches, Dyson and printers. Filter by brand and price.">
+  <div class="wrap page">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <span>Shop</span></nav>
+    <div class="page-head"><h1>All products</h1></div>
+    <Listing items={products} />
+  </div>
+</Base>

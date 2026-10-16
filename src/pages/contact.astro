@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { site, waLink } from '../lib/data';
+---
+<Base title="Contact us" description={`Visit ${site.name} or message us on WhatsApp. ${site.address}. ${site.hours}.`}>
+  <div class="wrap page">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <span>Contact</span></nav>
+    <div class="split mt">
+      <div>
+        <span class="eyebrow">Contact</span><h1 class="h1m">Visit us or message us</h1>
+        <ul class="cinfo">
+          <li><b>Address</b>{site.address}</li>
+          <li><b>Phone</b><a href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a></li>
+          <li><b>Email</b><a href={`mailto:${site.email}`}>{site.email}</a></li>
+          <li><b>Hours</b>{site.hours}</li><li><b>Licence</b>{site.licence}</li>
+        </ul>
+        <a class="btn" href={waLink(`Hello ${site.name}`)} target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+        <div class="mt"><ContactForm intro="I have a question:" /></div>
+      </div>
+      <div class="map"><div class="mapcap"><b>Map goes here</b><small>Google Maps embed of the shop (needs CSP update when added)</small></div></div>
+    </div>
+  </div>
+</Base>

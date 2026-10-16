@@ -1,0 +1,10 @@
+[
+  { "id": "phones-tablets", "name": "Phones & Tablets", "blurb": "iPhone, iPad, Samsung Galaxy", "art": "phone", "tone": "peach" },
+  { "id": "laptops", "name": "Laptops", "blurb": "MacBook, work & gaming laptops", "art": "laptop", "tone": "lime" },
+  { "id": "gaming", "name": "Gaming", "blurb": "PlayStation 5 & accessories", "art": "console", "tone": "blue" },
+  { "id": "cameras", "name": "Cameras & Drones", "blurb": "DJI, GoPro, Insta360", "art": "camera", "tone": "sand" },
+  { "id": "wearables", "name": "Watches & Audio", "blurb": "Apple Watch, Garmin, AirPods", "art": "watch", "tone": "lilac" },
+  { "id": "dyson", "name": "Dyson & Home", "blurb": "Vacuums, styling, air care", "art": "vacuum", "tone": "lilac" },
+  { "id": "office", "name": "Printers & Office", "blurb": "Office & home printers", "art": "printer", "tone": "blue" },
+  { "id": "accessories", "name": "Accessories", "blurb": "Chargers, mice & more", "art": "headset", "tone": "sand" }
+]

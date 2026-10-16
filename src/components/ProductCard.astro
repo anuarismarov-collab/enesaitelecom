@@ -1,0 +1,20 @@
+---
+import Art from './Art.astro';
+import { money, STOCK, catName, savePct, type Product } from '../lib/data';
+interface Props { p: Product }
+const { p } = Astro.props;
+const [stockText, stockKey] = STOCK[p.stock];
+const save = savePct(p);
+---
+<article class="pcard" data-brand={p.brand} data-price={p.price ?? 0} data-stock={p.stock} data-feat={p.featured ? 1 : 0}
+  data-name={p.name} data-search={`${p.name} ${p.brand} ${catName(p.cat)}`.toLowerCase()}>
+  {p.badge && <span class="pbadge">{p.badge}</span>}
+  <a href={`/product/${p.id}/`} class={`pimg tone-${p.tone}`} aria-label={p.name} tabindex="-1"><Art art={p.art} label={p.name} /></a>
+  <div class="pbody">
+    <small>{p.brand} · {catName(p.cat)}</small>
+    <h3><a href={`/product/${p.id}/`}>{p.name}</a></h3>
+    <div class="pr">{p.price ? <><b>{money(p.price)}</b>{p.was && <s>{money(p.was)}</s>}</> : <b>Ask for price</b>}</div>
+    <div class="prow"><span class={`pill ${stockKey}`}>{stockText}</span>{save > 0 && <span class="save">Save {save}%</span>}</div>
+    <button class={`btn block ${p.stock === 'out' ? 'ghost' : ''}`} type="button" data-add={p.id}>{p.stock === 'out' ? 'Ask when back' : 'Add to enquiry'}</button>
+  </div>
+</article>

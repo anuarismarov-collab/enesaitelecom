@@ -1,0 +1,15 @@
+---
+import Base from '../../layouts/Base.astro';
+import Listing from '../../components/Listing.astro';
+import { categories, productsOf } from '../../lib/data';
+export function getStaticPaths() { return categories.map((c) => ({ params: { id: c.id }, props: { c } })); }
+const { c } = Astro.props;
+const items = productsOf(c.id);
+---
+<Base title={`${c.name} — ${c.blurb}`} description={`Buy original ${c.name.toLowerCase()}: ${c.blurb}. Genuine products with warranty, fast delivery in the UAE.`}>
+  <div class="wrap page">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/shop/">Shop</a> / <span>{c.name}</span></nav>
+    <div class="page-head"><div><h1>{c.name}</h1><p class="muted">{c.blurb}</p></div></div>
+    <Listing items={items} activeCat={c.id} />
+  </div>
+</Base>

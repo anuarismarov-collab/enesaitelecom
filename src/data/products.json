@@ -1,0 +1,774 @@
+[
+  {
+    "id": "iphone-15-pro",
+    "name": "Apple iPhone 15 Pro 256GB",
+    "brand": "Apple",
+    "cat": "phones-tablets",
+    "price": 4399,
+    "was": 4599,
+    "stock": "in",
+    "warranty": "1 year",
+    "art": "phone",
+    "tone": "peach",
+    "featured": true,
+    "badge": "Hot",
+    "desc": "Titanium design, A17 Pro chip and a pro camera system with USB-C.",
+    "specs": {
+      "Storage": "256 GB",
+      "Display": "6.1\" Super Retina XDR",
+      "Chip": "A17 Pro",
+      "Camera": "48 MP main",
+      "Condition": "Brand new, sealed"
+    }
+  },
+  {
+    "id": "iphone-15",
+    "name": "Apple iPhone 15 128GB",
+    "brand": "Apple",
+    "cat": "phones-tablets",
+    "price": 2899,
+    "stock": "in",
+    "warranty": "1 year",
+    "art": "phone",
+    "tone": "peach",
+    "desc": "Dynamic Island, 48 MP camera and USB-C.",
+    "specs": {
+      "Storage": "128 GB",
+      "Display": "6.1\" Super Retina XDR",
+      "Chip": "A16 Bionic",
+      "Condition": "Brand new, sealed"
+    }
+  },
+  {
+    "id": "ipad-air-m2",
+    "name": "Apple iPad Air 11\" M2 128GB Wi-Fi",
+    "brand": "Apple",
+    "cat": "phones-tablets",
+    "price": 2599,
+    "stock": "in",
+    "warranty": "1 year",
+    "art": "tablet",
+    "tone": "blue",
+    "featured": true,
+    "desc": "Thin, light and powered by the M2 chip. Works with Apple Pencil Pro.",
+    "specs": {
+      "Storage": "128 GB",
+      "Display": "11\" Liquid Retina",
+      "Chip": "Apple M2",
+      "Condition": "Brand new, sealed"
+    }
+  },
+  {
+    "id": "ipad-10",
+    "name": "Apple iPad 10th Generation 64GB Wi-Fi",
+    "brand": "Apple",
+    "cat": "phones-tablets",
+    "price": 1499,
+    "was": 1649,
+    "stock": "in",
+    "warranty": "1 year",
+    "art": "tablet",
+    "tone": "sand",
+    "desc": "Colourful all-screen design with A14 Bionic and USB-C.",
+    "specs": {
+      "Storage": "64 GB",
+      "Display": "10.9\" Liquid Retina",
+      "Chip": "A14 Bionic",
+      "Condition": "Brand new, sealed"
+    }
+  },
+  {
+    "id": "galaxy-s24-ultra",
+    "name": "Samsung Galaxy S24 Ultra 256GB",
+    "brand": "Samsung",
+    "cat": "phones-tablets",
+    "price": 4299,
+    "stock": "in",
+    "warranty": "1 year",
+    "art": "phone",
+    "tone": "blue",
+    "featured": true,
+    "desc": "Galaxy AI, built-in S Pen and a 200 MP camera on a titanium frame.",
+    "specs": {
+      "Storage": "256 GB",
+      "Display": "6.8\" Dynamic AMOLED 2X",
+      "Camera": "200 MP main",
+      "Battery": "5000 mAh",
+      "Condition": "Brand new, sealed"
+    }
+  },
+  {
+    "id": "galaxy-s24",
+    "name": "Samsung Galaxy S24 128GB",
+    "brand": "Samsung",
+    "cat": "phones-tablets",
+    "price": 2699,
+    "was": 2899,
+    "stock": "low",
+    "warranty": "1 year",
+    "art": "phone",
+    "tone": "blue",
+    "desc": "Compact flagship with Galaxy AI and a bright 120 Hz display.",
+    "specs": {
+      "Storage": "128 GB",
+      "Display": "6.2\" Dynamic AMOLED 2X",
+      "Camera": "50 MP main",
+      "Condition": "Brand new, sealed"
+    }
+  },
+  {
+    "id": "galaxy-tab-s9",
+    "name": "Samsung Galaxy Tab S9 128GB Wi-Fi",
+    "brand": "Samsung",
+    "cat": "phones-tablets",
+    "price": 2799,
+    "stock": "in",
+    "warranty": "1 year",
+    "art": "tablet",
+    "tone": "lilac",
+    "desc": "Premium AMOLED tablet with S Pen included and IP68 water resistance.",
+    "specs": {
+      "Storage": "128 GB",
+      "Display": "11\" Dynamic AMOLED 2X",
+      "S Pen": "Included",
+      "Condition": "Brand new, sealed"
+    }
+  },
+  {
+    "id": "macbook-air-m3",
+    "name": "Apple MacBook Air 13\" M3 8GB/256GB",
+    "brand": "Apple",
+    "cat": "laptops",
+    "price": 4199,
+    "stock": "in",
+    "warranty": "1 year",
+    "art": "laptop",
+    "tone": "lime",
+    "featured": true,
+    "badge": "New",
+    "desc": "Thin, silent and fast with the Apple M3 chip and all-day battery life.",
+    "specs": {
+      "Chip": "Apple M3",
+      "Memory": "8 GB",
+      "Storage": "256 GB SSD",
+      "Display": "13.6\" Liquid Retina",
+      "Condition": "Brand new, sealed"
+    }
+  },
+  {
+    "id": "macbook-pro-14",
+    "name": "Apple MacBook Pro 14\" M3 Pro 18GB/512GB",
+    "brand": "Apple",
+    "cat": "laptops",
+    "price": 8499,
+    "stock": "low",
+    "warranty": "1 year",
+    "art": "laptop",
+    "tone": "lime",
+    "desc": "Pro performance with the M3 Pro chip and a brilliant XDR display.",
+    "specs": {
+      "Chip": "Apple M3 Pro",
+      "Memory": "18 GB",
+      "Storage": "512 GB SSD",
+      "Display": "14.2\" Liquid Retina XDR",
+      "Condition": "Brand new, sealed"
+    }
+  },
+  {
+    "id": "hp-pavilion-15",
+    "name": "HP Pavilion 15 Core i5 16GB/512GB",
+    "brand": "HP",
+    "cat": "laptops",
+    "price": 2299,
+    "stock": "in",
+    "warranty": "1 year",
+    "art": "laptop",
+    "tone": "lilac",
+    "desc": "Reliable everyday laptop for study, office work and streaming.",
+    "specs": {
+      "CPU": "Intel Core i5 13th Gen",
+      "Memory": "16 GB",
+      "Storage": "512 GB SSD",
+      "Display": "15.6\" FHD",
+      "Condition": "Brand new, sealed"
+    }
+  },
+  {
+    "id": "lenovo-legion-5",
+    "name": "Lenovo Legion 5 Ryzen 7 / RTX 4060",
+    "brand": "Lenovo",
+    "cat": "laptops",
+    "price": 4899,
+    "stock": "in",
+    "warranty": "2 years",
+    "art": "laptop",
+    "tone": "peach",
+    "featured": true,
+    "badge": "Gaming",
+    "desc": "Gaming laptop with RTX 4060 graphics and a fast 165 Hz display.",
+    "specs": {
+      "CPU": "AMD Ryzen 7",
+      "GPU": "NVIDIA RTX 4060 8GB",
+      "Memory": "16 GB",
+      "Storage": "1 TB SSD",
+      "Condition": "Brand new, sealed"
+    }
+  },
+  {
+    "id": "asus-rog-strix-g16",
+    "name": "ASUS ROG Strix G16 Core i7 / RTX 4070",
+    "brand": "ASUS",
+    "cat": "laptops",
+    "price": 6799,
+    "stock": "pre",
+    "warranty": "2 years",
+    "art": "laptop",
+    "tone": "sand",
+    "desc": "High-end gaming power with RTX 4070 and a 240 Hz QHD display.",
+    "specs": {
+      "CPU": "Intel Core i7",
+      "GPU": "NVIDIA RTX 4070 8GB",
+      "Memory": "16 GB",
+      "Display": "16\" QHD 240 Hz",
+      "Condition": "Brand new, sealed"
+    }
+  },
+  {
+    "id": "ps5-slim-disc",
+    "name": "Sony PlayStation 5 Slim Disc Edition",
+    "brand": "Sony",
+    "cat": "gaming",
+    "price": 1899,
+    "was": 2099,
+    "stock": "in",
+    "warranty": "1 year",
+    "art": "console",
+    "tone": "blue",
+    "featured": true,
+    "badge": "Best seller",
+    "desc": "Slimmer PS5 with 1 TB SSD, 4K gaming up to 120 fps. Includes one DualSense controller.",
+    "specs": {
+      "Storage": "1 TB SSD",
+      "Resolution": "4K up to 120 fps",
+      "Drive": "Ultra HD Blu-ray",
+      "Condition": "Brand new, sealed"
+    }
+  },
+  {
+    "id": "ps5-slim-digital",
+    "name": "Sony PlayStation 5 Slim Digital Edition",
+    "brand": "Sony",
+    "cat": "gaming",
+    "price": 1599,
+    "stock": "in",
+    "warranty": "1 year",
+    "art": "console",
+    "tone": "blue",
+    "desc": "All-digital PS5 with no disc drive. Download games from PlayStation Store.",
+    "specs": {
+      "Storage": "1 TB SSD",
+      "Resolution": "4K up to 120 fps",
+      "Drive": "None (digital)",
+      "Condition": "Brand new, sealed"
+    }
+  },
+  {
+    "id": "dualsense",
+    "name": "Sony DualSense Wireless Controller",
+    "brand": "Sony",
+    "cat": "gaming",
+    "price": 299,
+    "stock": "in",
+    "warranty": "6 months",
+    "art": "controller",
+    "tone": "blue",
+    "desc": "Haptic feedback and adaptive triggers for PS5 and PC.",
+    "specs": {
+      "Connection": "Bluetooth / USB-C",
+      "Compatible": "PS5, PC, mobile",
+      "Condition": "Brand new"
+    }
+  },
+  {
+    "id": "pulse-elite",
+    "name": "Sony PULSE Elite Wireless Headset",
+    "brand": "Sony",
+    "cat": "gaming",
+    "price": 649,
+    "stock": "in",
+    "warranty": "1 year",
+    "art": "headset",
+    "tone": "blue",
+    "desc": "Planar magnetic drivers and AI noise-rejecting mic for PS5.",
+    "specs": {
+      "Battery": "Up to 30 hours",
+      "Connection": "PlayStation Link",
+      "Compatible": "PS5, PC, mobile",
+      "Condition": "Brand new"
+    }
+  },
+  {
+    "id": "ps-portal",
+    "name": "Sony PlayStation Portal Remote Player",
+    "brand": "Sony",
+    "cat": "gaming",
+    "price": 1099,
+    "stock": "low",
+    "warranty": "1 year",
+    "art": "controller",
+    "tone": "sand",
+    "desc": "Stream your PS5 games over Wi-Fi to an 8-inch screen.",
+    "specs": {
+      "Screen": "8\" LCD, 1080p",
+      "Requires": "PS5 console + Wi-Fi",
+      "Condition": "Brand new, sealed"
+    }
+  },
+  {
+    "id": "dji-mini-4-pro",
+    "name": "DJI Mini 4 Pro Fly More Combo",
+    "brand": "DJI",
+    "cat": "cameras",
+    "price": 3999,
+    "stock": "in",
+    "warranty": "1 year",
+    "art": "drone",
+    "tone": "sand",
+    "featured": true,
+    "badge": "Under 249g",
+    "desc": "Compact 4K/60 HDR drone with omnidirectional obstacle sensing.",
+    "specs": {
+      "Weight": "Under 249 g",
+      "Video": "4K/60 fps HDR",
+      "Flight time": "Up to 34 min",
+      "Includes": "3 batteries + RC 2"
+    }
+  },
+  {
+    "id": "dji-osmo-pocket-3",
+    "name": "DJI Osmo Pocket 3 Creator Combo",
+    "brand": "DJI",
+    "cat": "cameras",
+    "price": 2299,
+    "stock": "in",
+    "warranty": "1 year",
+    "art": "camera",
+    "tone": "sand",
+    "desc": "Pocket gimbal camera with a 1-inch sensor and rotatable touchscreen.",
+    "specs": {
+      "Sensor": "1\" CMOS",
+      "Video": "4K/120 fps",
+      "Screen": "2\" rotatable OLED",
+      "Condition": "Brand new, sealed"
+    }
+  },
+  {
+    "id": "dji-osmo-action-4",
+    "name": "DJI Osmo Action 4 Adventure Combo",
+    "brand": "DJI",
+    "cat": "cameras",
+    "price": 1399,
+    "stock": "in",
+    "warranty": "1 year",
+    "art": "camera",
+    "tone": "peach",
+    "desc": "Rugged action camera with a large 1/1.3-inch sensor.",
+    "specs": {
+      "Video": "4K/120 fps",
+      "Waterproof": "18 m without case",
+      "Battery": "1770 mAh",
+      "Condition": "Brand new, sealed"
+    }
+  },
+  {
+    "id": "gopro-hero12",
+    "name": "GoPro HERO12 Black",
+    "brand": "GoPro",
+    "cat": "cameras",
+    "price": 1499,
+    "was": 1699,
+    "stock": "in",
+    "warranty": "1 year",
+    "art": "camera",
+    "tone": "lime",
+    "featured": true,
+    "badge": "Deal",
+    "desc": "5.3K video, HyperSmooth 6.0 stabilisation and longer battery life.",
+    "specs": {
+      "Video": "5.3K/60 fps",
+      "Waterproof": "10 m",
+      "Stabilisation": "HyperSmooth 6.0",
+      "Condition": "Brand new, sealed"
+    }
+  },
+  {
+    "id": "insta360-x4",
+    "name": "Insta360 X4 360° Camera",
+    "brand": "Insta360",
+    "cat": "cameras",
+    "price": 1799,
+    "stock": "low",
+    "warranty": "1 year",
+    "art": "camera",
+    "tone": "lilac",
+    "desc": "8K 360° video with invisible selfie stick effect and AI editing.",
+    "specs": {
+      "Video": "8K/30 fps 360°",
+      "Waterproof": "10 m",
+      "Battery": "2290 mAh",
+      "Condition": "Brand new, sealed"
+    }
+  },
+  {
+    "id": "apple-watch-s9",
+    "name": "Apple Watch Series 9 GPS 45mm",
+    "brand": "Apple",
+    "cat": "wearables",
+    "price": 1699,
+    "stock": "in",
+    "warranty": "1 year",
+    "art": "watch",
+    "tone": "lilac",
+    "featured": true,
+    "desc": "Brighter display, faster S9 chip and Double Tap gesture.",
+    "specs": {
+      "Size": "45 mm",
+      "Connectivity": "GPS",
+      "Display": "Always-On Retina",
+      "Condition": "Brand new, sealed"
+    }
+  },
+  {
+    "id": "apple-watch-ultra-2",
+    "name": "Apple Watch Ultra 2 GPS + Cellular 49mm",
+    "brand": "Apple",
+    "cat": "wearables",
+    "price": 3299,
+    "stock": "low",
+    "warranty": "1 year",
+    "art": "watch",
+    "tone": "peach",
+    "desc": "Rugged titanium watch with 36-hour battery and precision GPS.",
+    "specs": {
+      "Size": "49 mm",
+      "Connectivity": "GPS + Cellular",
+      "Battery": "Up to 36 hours",
+      "Condition": "Brand new, sealed"
+    }
+  },
+  {
+    "id": "garmin-fenix-7",
+    "name": "Garmin fēnix 7 Sapphire Solar",
+    "brand": "Garmin",
+    "cat": "wearables",
+    "price": 3399,
+    "stock": "in",
+    "warranty": "2 years",
+    "art": "watch",
+    "tone": "sand",
+    "featured": true,
+    "desc": "Multisport GPS smartwatch with solar charging and topo maps.",
+    "specs": {
+      "Case": "47 mm",
+      "Battery": "Up to 22 days (solar)",
+      "Lens": "Sapphire",
+      "Condition": "Brand new, sealed"
+    }
+  },
+  {
+    "id": "garmin-forerunner-265",
+    "name": "Garmin Forerunner 265 Running Watch",
+    "brand": "Garmin",
+    "cat": "wearables",
+    "price": 1599,
+    "was": 1749,
+    "stock": "in",
+    "warranty": "2 years",
+    "art": "watch",
+    "tone": "lime",
+    "desc": "AMOLED GPS running watch with training readiness insights.",
+    "specs": {
+      "Display": "1.3\" AMOLED",
+      "Battery": "Up to 13 days",
+      "Sensors": "GPS, HR, SpO2",
+      "Condition": "Brand new, sealed"
+    }
+  },
+  {
+    "id": "garmin-venu-3",
+    "name": "Garmin Venu 3 Smartwatch",
+    "brand": "Garmin",
+    "cat": "wearables",
+    "price": 1899,
+    "stock": "pre",
+    "warranty": "2 years",
+    "art": "watch",
+    "tone": "blue",
+    "desc": "Health and fitness smartwatch with sleep coach and calls on wrist.",
+    "specs": {
+      "Display": "1.4\" AMOLED",
+      "Battery": "Up to 14 days",
+      "Features": "Sleep coach, Garmin Pay",
+      "Condition": "Brand new, sealed"
+    }
+  },
+  {
+    "id": "airpods-pro-2",
+    "name": "Apple AirPods Pro (2nd generation) USB-C",
+    "brand": "Apple",
+    "cat": "wearables",
+    "price": 949,
+    "stock": "in",
+    "warranty": "1 year",
+    "art": "earbuds",
+    "tone": "sand",
+    "featured": true,
+    "desc": "Active noise cancellation, adaptive transparency and spatial audio.",
+    "specs": {
+      "Battery": "6 h (30 h with case)",
+      "Charging": "USB-C / MagSafe",
+      "ANC": "Yes",
+      "Condition": "Brand new, sealed"
+    }
+  },
+  {
+    "id": "dyson-v15",
+    "name": "Dyson V15 Detect Absolute Cordless Vacuum",
+    "brand": "Dyson",
+    "cat": "dyson",
+    "price": 2699,
+    "was": 2999,
+    "stock": "in",
+    "warranty": "2 years",
+    "art": "vacuum",
+    "tone": "lilac",
+    "featured": true,
+    "badge": "Deal",
+    "desc": "Laser reveals microscopic dust. Powerful suction with a piezo sensor that sizes particles.",
+    "specs": {
+      "Runtime": "Up to 60 min",
+      "Filtration": "Whole-machine HEPA",
+      "Bin": "0.77 L",
+      "Condition": "Brand new, sealed"
+    }
+  },
+  {
+    "id": "dyson-v12",
+    "name": "Dyson V12 Detect Slim Cordless Vacuum",
+    "brand": "Dyson",
+    "cat": "dyson",
+    "price": 2199,
+    "stock": "in",
+    "warranty": "2 years",
+    "art": "vacuum",
+    "tone": "lilac",
+    "desc": "Lightweight vacuum with laser dust detection for everyday homes.",
+    "specs": {
+      "Runtime": "Up to 60 min",
+      "Filtration": "Whole-machine HEPA",
+      "Weight": "2.2 kg",
+      "Condition": "Brand new, sealed"
+    }
+  },
+  {
+    "id": "dyson-airwrap",
+    "name": "Dyson Airwrap Multi-Styler Complete",
+    "brand": "Dyson",
+    "cat": "dyson",
+    "price": 2299,
+    "stock": "low",
+    "warranty": "2 years",
+    "art": "dryer",
+    "tone": "peach",
+    "featured": true,
+    "badge": "Gift pick",
+    "desc": "Curl, wave, smooth and dry with no extreme heat. Complete set with storage case.",
+    "specs": {
+      "Attachments": "6 + brushes",
+      "Heat": "Intelligent heat control",
+      "Includes": "Storage case",
+      "Condition": "Brand new, sealed"
+    }
+  },
+  {
+    "id": "dyson-supersonic",
+    "name": "Dyson Supersonic Hair Dryer",
+    "brand": "Dyson",
+    "cat": "dyson",
+    "price": 1599,
+    "was": 1749,
+    "stock": "in",
+    "warranty": "2 years",
+    "art": "dryer",
+    "tone": "peach",
+    "desc": "Fast drying with controlled heat to protect shine.",
+    "specs": {
+      "Motor": "Dyson V9 digital",
+      "Heat": "Intelligent heat control",
+      "Attachments": "5 magnetic",
+      "Condition": "Brand new, sealed"
+    }
+  },
+  {
+    "id": "dyson-purifier-cool",
+    "name": "Dyson Purifier Cool PC1 Air Purifier & Fan",
+    "brand": "Dyson",
+    "cat": "dyson",
+    "price": 1899,
+    "stock": "pre",
+    "warranty": "2 years",
+    "art": "vacuum",
+    "tone": "blue",
+    "desc": "Captures allergens and pollutants, cools you in summer. Remote controlled.",
+    "specs": {
+      "Filter": "HEPA + activated carbon",
+      "Control": "Remote & app",
+      "Oscillation": "350°",
+      "Condition": "Brand new, sealed"
+    }
+  },
+  {
+    "id": "hp-laserjet-m141w",
+    "name": "HP LaserJet Pro MFP M141w Mono Printer",
+    "brand": "HP",
+    "cat": "office",
+    "price": 799,
+    "stock": "in",
+    "warranty": "1 year",
+    "art": "printer",
+    "tone": "blue",
+    "featured": true,
+    "desc": "Compact mono laser all-in-one: print, scan and copy over Wi-Fi.",
+    "specs": {
+      "Type": "Mono laser, 3-in-1",
+      "Speed": "20 ppm",
+      "Connectivity": "Wi-Fi, USB",
+      "Condition": "Brand new, sealed"
+    }
+  },
+  {
+    "id": "canon-pixma-g3430",
+    "name": "Canon PIXMA G3430 Ink Tank Printer",
+    "brand": "Canon",
+    "cat": "office",
+    "price": 649,
+    "stock": "in",
+    "warranty": "1 year",
+    "art": "printer",
+    "tone": "sand",
+    "desc": "Refillable ink-tank all-in-one with very low cost per page.",
+    "specs": {
+      "Type": "Colour ink tank, 3-in-1",
+      "Connectivity": "Wi-Fi, USB",
+      "Yield": "Up to 6,000 pages (black)",
+      "Condition": "Brand new, sealed"
+    }
+  },
+  {
+    "id": "epson-ecotank-l3250",
+    "name": "Epson EcoTank L3250 Wi-Fi Printer",
+    "brand": "Epson",
+    "cat": "office",
+    "price": 699,
+    "was": 779,
+    "stock": "in",
+    "warranty": "1 year",
+    "art": "printer",
+    "tone": "lime",
+    "desc": "Cartridge-free printing with refillable ink tanks, print/scan/copy.",
+    "specs": {
+      "Type": "Colour ink tank, 3-in-1",
+      "Connectivity": "Wi-Fi, Wi-Fi Direct",
+      "Condition": "Brand new, sealed"
+    }
+  },
+  {
+    "id": "hp-color-laserjet-m255",
+    "name": "HP Color LaserJet Pro M255dw",
+    "brand": "HP",
+    "cat": "office",
+    "price": 1399,
+    "stock": "low",
+    "warranty": "1 year",
+    "art": "printer",
+    "tone": "lilac",
+    "desc": "Fast colour laser printer with auto double-sided printing for offices.",
+    "specs": {
+      "Type": "Colour laser",
+      "Speed": "22 ppm",
+      "Duplex": "Automatic",
+      "Condition": "Brand new, sealed"
+    }
+  },
+  {
+    "id": "mx-master-3s",
+    "name": "Logitech MX Master 3S Wireless Mouse",
+    "brand": "Logitech",
+    "cat": "accessories",
+    "price": 399,
+    "stock": "in",
+    "warranty": "1 year",
+    "art": "mouse",
+    "tone": "sand",
+    "desc": "Ergonomic productivity mouse with quiet clicks and 8K DPI sensor.",
+    "specs": {
+      "Sensor": "8000 DPI",
+      "Battery": "Up to 70 days",
+      "Connection": "Bluetooth / USB receiver"
+    }
+  },
+  {
+    "id": "sony-wh-1000xm5",
+    "name": "Sony WH-1000XM5 Noise-Cancelling Headphones",
+    "brand": "Sony",
+    "cat": "accessories",
+    "price": 1199,
+    "was": 1399,
+    "stock": "in",
+    "warranty": "1 year",
+    "art": "headset",
+    "tone": "sand",
+    "featured": true,
+    "badge": "Deal",
+    "desc": "Industry-leading noise cancelling with 30-hour battery life.",
+    "specs": {
+      "Battery": "Up to 30 hours",
+      "Connection": "Bluetooth 5.2",
+      "ANC": "Adaptive"
+    }
+  },
+  {
+    "id": "apple-magsafe-charger",
+    "name": "Apple MagSafe Charger (1m)",
+    "brand": "Apple",
+    "cat": "accessories",
+    "price": 169,
+    "stock": "in",
+    "warranty": "1 year",
+    "art": "plug",
+    "tone": "lilac",
+    "desc": "Wireless charging that snaps on to iPhone 12 and later.",
+    "specs": {
+      "Output": "Up to 15 W",
+      "Cable": "1 m USB-C",
+      "Compatible": "iPhone 12 or later"
+    }
+  },
+  {
+    "id": "samsung-25w-charger",
+    "name": "Samsung 25W Super Fast Charger + Cable",
+    "brand": "Samsung",
+    "cat": "accessories",
+    "price": 89,
+    "stock": "in",
+    "warranty": "6 months",
+    "art": "plug",
+    "tone": "blue",
+    "desc": "Super Fast Charging for Galaxy phones and tablets.",
+    "specs": {
+      "Output": "25 W",
+      "Port": "USB-C",
+      "Includes": "USB-C cable"
+    }
+  }
+]

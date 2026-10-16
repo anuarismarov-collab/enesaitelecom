@@ -1,0 +1,40 @@
+---
+import Base from '../../layouts/Base.astro';
+import Art from '../../components/Art.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import { site, products, money, STOCK, catName, savePct, waLink, slugify, type Product } from '../../lib/data';
+export function getStaticPaths() { return products.map((p) => ({ params: { id: p.id }, props: { p } })); }
+const { p } = Astro.props as { p: Product };
+const [stockText, stockKey] = STOCK[p.stock];
+const save = savePct(p);
+const related = [...products.filter((x) => x.cat === p.cat && x.id !== p.id), ...products.filter((x) => x.cat !== p.cat)].slice(0, 4);
+const avail: Record<string, string> = { in: 'InStock', low: 'LimitedAvailability', pre: 'PreOrder', out: 'OutOfStock' };
+const ld = {
+  '@context': 'https://schema.org', '@type': 'Product', name: p.name, description: p.desc, brand: { '@type': 'Brand', name: p.brand }, sku: p.id,
+  ...(p.price ? { offers: { '@type': 'Offer', priceCurrency: site.currency, price: p.price, availability: `https://schema.org/${avail[p.stock]}`, itemCondition: 'https://schema.org/NewCondition' } } : {}),
+};
+---
+<Base title={p.name} description={`${p.desc} ${p.price ? 'Price ' + money(p.price) + '. ' : ''}${p.warranty} warranty.`} jsonLd={ld}>
+  <div class="wrap page">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href={`/category/${p.cat}/`}>{catName(p.cat)}</a> / <span>{p.name}</span></nav>
+    <div class="dgrid">
+      <div class={`dimg tone-${p.tone}`}><Art art={p.art} label={p.name} />{p.badge && <span class="pbadge">{p.badge}</span>}</div>
+      <div class="dinfo">
+        <a class="brandline" href={`/brand/${slugify(p.brand)}/`}>{p.brand}</a>
+        <h1>{p.name}</h1>
+        <div class="pr">{p.price ? <><b>{money(p.price)}</b>{p.was && <s>{money(p.was)}</s>}</> : <b>Ask for price</b>}</div>
+        <div class="prow"><span class={`pill ${stockKey}`}>{stockText}</span><span class="pill">Warranty: {p.warranty}</span>{save > 0 && <span class="save">Save {save}%</span>}</div>
+        <p class="ddesc">{p.desc}</p>
+        <div class="dbtns">
+          <button class="btn lg" type="button" data-add={p.id}>{p.stock === 'out' ? 'Ask when back' : 'Add to enquiry'}</button>
+          <a class="btn lg ghost" target="_blank" rel="noopener noreferrer" href={waLink(`Hello ${site.name}, I am interested in: ${p.name}${p.price ? ' (' + money(p.price) + ')' : ''}`)}>Ask on WhatsApp</a>
+        </div>
+        <ul class="assure"><li>100% original, sealed products</li><li>{p.warranty} warranty</li><li>Delivery across the UAE &amp; pickup from our shop</li></ul>
+      </div>
+    </div>
+    <h2 class="sh">Specifications</h2>
+    <table class="specs"><tbody>{Object.entries(p.specs).map(([k, v]) => <tr><th scope="row">{k}</th><td>{v}</td></tr>)}</tbody></table>
+    <h2 class="sh">You may also like</h2>
+    <div class="pgrid">{related.map((x) => <ProductCard p={x} />)}</div>
+  </div>
+</Base>

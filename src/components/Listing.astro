@@ -1,0 +1,36 @@
+---
+// Product grid + filter sidebar. Cards are rendered at build time (good for SEO); filtering/sorting is progressive JS.
+import ProductCard from './ProductCard.astro';
+import { categories, money, type Product } from '../lib/data';
+interface Props { items: Product[]; activeCat?: string }
+const { items, activeCat = '' } = Astro.props;
+const brandList = [...new Set(items.map((p) => p.brand))].sort((a, b) => a.localeCompare(b));
+const maxPrice = Math.max(500, Math.ceil(Math.max(...items.map((p) => p.price ?? 0)) / 500) * 500);
+---
+<div class="shop-tools">
+  <button class="btn ghost sm" type="button" id="fToggle" aria-expanded="false" aria-controls="filters">Filters</button>
+  <label class="sortl">Sort
+    <select id="sort"><option value="featured">Featured</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option><option value="name">Name A–Z</option></select>
+  </label>
+</div>
+<div class="shop-in" data-listing>
+  <aside class="filters" id="filters" aria-label="Filters">
+    <div class="fgrp"><h4>Category</h4>
+      <a class:list={['rad', { on: !activeCat }]} href="/shop/">All products</a>
+      {categories.map((c) => <a class:list={['rad', { on: activeCat === c.id }]} href={`/category/${c.id}/`}>{c.name}</a>)}
+    </div>
+    <div class="fgrp"><h4>Brand</h4>
+      {brandList.map((b) => <label class="rad"><input type="checkbox" name="brand" value={b} /> {b}</label>)}
+    </div>
+    <div class="fgrp"><h4>Max price: <span id="pMax">{money(maxPrice)}</span></h4>
+      <input type="range" id="price" min="100" max={maxPrice} step="100" value={maxPrice} data-max={maxPrice} aria-label="Maximum price" />
+    </div>
+    <div class="fgrp"><label class="rad"><input type="checkbox" id="stockOnly" /> In stock only</label></div>
+    <button class="btn ghost block" id="reset" type="button">Reset filters</button>
+  </aside>
+  <div>
+    <p class="muted" id="count" aria-live="polite">{items.length} products</p>
+    <div class="pgrid" data-grid>{items.map((p) => <ProductCard p={p} />)}</div>
+    <p class="empty big" data-empty hidden>No products match. Try removing a filter, or <a href="/contact/">ask us</a> — we can source it.</p>
+  </div>
+</div>

@@ -8,6 +8,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "preview:secure": "node scripts/serve-secure.mjs",
     "check:security": "node scripts/check-security.mjs",
     "import:products": "node scripts/import-products.mjs"
   },

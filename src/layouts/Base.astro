@@ -1,0 +1,90 @@
+---
+import '@fontsource-variable/bricolage-grotesque';
+import '@fontsource-variable/dm-sans';
+import '../styles/global.css';
+import { site, products, categories, waLink } from '../lib/data';
+
+interface Props { title: string; description: string; jsonLd?: object; noindex?: boolean }
+const { title, description, jsonLd, noindex = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const fullTitle = title.includes(site.name) ? title : `${title} | ${site.name}`;
+const org = { '@context': 'https://schema.org', '@type': 'Store', name: site.name, description: site.tagline, address: site.address, telephone: site.phone, email: site.email, openingHours: site.hours };
+// JSON blocks are data, not code — they are allowed under the strict CSP. "<" is escaped so data can never close the tag.
+const safeJson = (o: unknown) => JSON.stringify(o).replace(/</g, '\\u003c');
+const catalog = Object.fromEntries(products.map((p) => [p.id, { name: p.name, price: p.price ?? null }]));
+const here = Astro.url.pathname;
+const nav = [['/', 'Home'], ['/shop/', 'Shop'], ['/wholesale/', 'Wholesale'], ['/contact/', 'Contact']];
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{fullTitle}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <meta name="theme-color" content="#ff5a1f" />
+  {noindex && <meta name="robots" content="noindex" />}
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:site_name" content={site.name} />
+  <meta name="twitter:card" content="summary" />
+  <script type="application/ld+json" set:html={safeJson(org)} />
+  {jsonLd && <script type="application/ld+json" set:html={safeJson(jsonLd)} />}
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="topbar">Sample catalog for demonstration · prices and stock are placeholders · <a href="/shop/">Browse products →</a></div>
+  <header class="nav">
+    <div class="wrap nav-in">
+      <a href="/" class="logo" aria-label={`${site.name} home`}>
+        <img src="/favicon.svg" width="34" height="34" alt="" />{site.shortName}<small>Trading</small>
+      </a>
+      <form class="search" action="/shop/" role="search">
+        <input type="search" name="q" placeholder="Search iPhone, PS5, Dyson…" aria-label="Search products" maxlength="60" />
+        <button type="submit" aria-label="Search">⌕</button>
+      </form>
+      <nav class="links" id="links" aria-label="Main">
+        {nav.map(([href, label]) => <a href={href} aria-current={here === href ? 'page' : undefined}>{label}</a>)}
+      </nav>
+      <button class="btn sm enq-btn" type="button" data-open>Enquiry <b id="cartCount">0</b></button>
+      <button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="links"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main id="main"><slot /></main>
+
+  <footer class="foot">
+    <div class="wrap foot-in">
+      <div><h4>{site.name}</h4><p>{site.tagline}.<br />{site.address}</p><p>{site.licence}</p></div>
+      <div><h4>Shop</h4>{categories.map((c) => <a href={`/category/${c.id}/`}>{c.name}</a>)}</div>
+      <div><h4>Help</h4><a href="/wholesale/">Wholesale</a><a href="/contact/">Contact us</a><a href="/privacy/">Privacy</a></div>
+      <div><h4>Contact</h4>
+        <a href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a>
+        <a href={waLink(`Hello ${site.name}`)} target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a href={`mailto:${site.email}`}>{site.email}</a><p>{site.hours}</p></div>
+    </div>
+    <div class="giant" aria-hidden="true">{site.shortName}</div>
+  </footer>
+
+  <a class="wa-float" href={waLink(`Hello ${site.name}, I have a question.`)} target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">WhatsApp</a>
+
+  <div class="scrim" id="scrim"></div>
+  <aside class="drawer" id="drawer" aria-label="Enquiry list" aria-hidden="true">
+    <div class="d-head"><h3>Your enquiry list</h3><button class="x" type="button" data-close aria-label="Close">×</button></div>
+    <div class="d-body" id="dBody"></div>
+    <form class="d-foot" id="dForm">
+      <input type="text" id="dName" placeholder="Your name" required maxlength="60" autocomplete="name" aria-label="Your name" />
+      <input type="tel" id="dPhone" placeholder="Phone / WhatsApp" required maxlength="20" autocomplete="tel" aria-label="Phone" />
+      <button class="btn block" type="submit">Send on WhatsApp</button>
+      <p class="note">We reply with availability and the best price. No payment is taken on this website.</p>
+    </form>
+  </aside>
+
+  <script type="application/json" id="site-data" set:html={safeJson({ name: site.name, whatsapp: site.whatsapp, currency: site.currency, catalog })} />
+  <script>import '../scripts/app.ts';</script>
+</body>
+</html>
