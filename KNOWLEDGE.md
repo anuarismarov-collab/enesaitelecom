@@ -16,6 +16,13 @@
 - First deploy of a new workers.dev address takes ~1–3 min before HTTPS works (SSL handshake errors until then).
 - Demo still has placeholder canonical URLs (example.com) — before a real launch set `site` + robots.txt, and consider noindex for the demo.
 
+## Company & images (2026-10-17)
+- Client: **ENESAI TELECOM FZCO**, First Floor, 5 East B, Dubai Airport Free Zone, Dubai, UAE (in `src/data/site.json`; phone/email/WhatsApp/licence still placeholders). Worker/URL name still "nexora-trading-demo" (kept so a shared link doesn't break; rename later if wanted).
+- Photos: `scripts/fetch-images.mjs` pulls only freely-licensed photos from Wikimedia Commons; credits in `src/data/images.json`, shown on product pages + `/credits/`. Only 10 of 41 products have a photo (the rest were shop displays/wrong models and were rejected after eye review); others keep the drawing. NOT copied from brand/shop websites (copyright).
+- When the client supplies photos: save as `public/products/<id>.jpg` (≤200 KB) and set `"<id>": {"file":"/products/<id>.jpg","own":true}` in images.json — credit text then disappears automatically.
+- Option if the owner accepts the rights risk: brand press/media-kit images (Apple Newsroom, Sony, Samsung, DJI, Dyson) — not used, licence unverified.
+
 ## Session log
+- 2026-10-17: renamed to ENESAI TELECOM FZCO + real address; added photo pipeline + credits page; 70 pages; redeployed; live checks OK.
 - 2026-10-16 (later): deployed demo to Cloudflare; verified 200 on key pages, CSP/HSTS headers live, 404 page works.
 - 2026-10-16: scaffolded Astro project, 69 pages, 41 sample products, CSV importer, security checker + secure preview server; verified in browser under enforced CSP (home, category+brand filter, product, basket) — no console errors; npm audit 0.

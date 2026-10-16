@@ -41,7 +41,7 @@ const nav = [['/', 'Home'], ['/shop/', 'Shop'], ['/wholesale/', 'Wholesale'], ['
   <header class="nav">
     <div class="wrap nav-in">
       <a href="/" class="logo" aria-label={`${site.name} home`}>
-        <img src="/favicon.svg" width="34" height="34" alt="" />{site.shortName}<small>Trading</small>
+        <img src="/favicon.svg" width="34" height="34" alt="" />{site.shortName}<small>{site.logoSub}</small>
       </a>
       <form class="search" action="/shop/" role="search">
         <input type="search" name="q" placeholder="Search iPhone, PS5, Dyson…" aria-label="Search products" maxlength="60" />
@@ -61,7 +61,7 @@ const nav = [['/', 'Home'], ['/shop/', 'Shop'], ['/wholesale/', 'Wholesale'], ['
     <div class="wrap foot-in">
       <div><h4>{site.name}</h4><p>{site.tagline}.<br />{site.address}</p><p>{site.licence}</p></div>
       <div><h4>Shop</h4>{categories.map((c) => <a href={`/category/${c.id}/`}>{c.name}</a>)}</div>
-      <div><h4>Help</h4><a href="/wholesale/">Wholesale</a><a href="/contact/">Contact us</a><a href="/privacy/">Privacy</a></div>
+      <div><h4>Help</h4><a href="/wholesale/">Wholesale</a><a href="/contact/">Contact us</a><a href="/privacy/">Privacy</a><a href="/credits/">Image credits</a></div>
       <div><h4>Contact</h4>
         <a href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a>
         <a href={waLink(`Hello ${site.name}`)} target="_blank" rel="noopener noreferrer">WhatsApp</a>

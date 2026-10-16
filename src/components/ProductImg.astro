@@ -1,0 +1,11 @@
+---
+// Shows the real photo when we have one, otherwise the drawing.
+import Art from './Art.astro';
+import { imageOf, type Product } from '../lib/data';
+interface Props { p: Product; priority?: boolean }
+const { p, priority = false } = Astro.props;
+const img = imageOf(p.id);
+---
+{img
+  ? <img class="photo" src={img.file} alt={p.name} width="400" height="300" loading={priority ? 'eager' : 'lazy'} decoding="async" />
+  : <Art art={p.art} label={p.name} />}

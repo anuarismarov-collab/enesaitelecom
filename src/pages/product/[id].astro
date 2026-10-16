@@ -1,16 +1,17 @@
 ---
 import Base from '../../layouts/Base.astro';
-import Art from '../../components/Art.astro';
+import ProductImg from '../../components/ProductImg.astro';
 import ProductCard from '../../components/ProductCard.astro';
-import { site, products, money, STOCK, catName, savePct, waLink, slugify, type Product } from '../../lib/data';
+import { site, products, money, STOCK, catName, savePct, waLink, slugify, imageOf, type Product } from '../../lib/data';
 export function getStaticPaths() { return products.map((p) => ({ params: { id: p.id }, props: { p } })); }
 const { p } = Astro.props as { p: Product };
 const [stockText, stockKey] = STOCK[p.stock];
 const save = savePct(p);
+const photo = imageOf(p.id);
 const related = [...products.filter((x) => x.cat === p.cat && x.id !== p.id), ...products.filter((x) => x.cat !== p.cat)].slice(0, 4);
 const avail: Record<string, string> = { in: 'InStock', low: 'LimitedAvailability', pre: 'PreOrder', out: 'OutOfStock' };
 const ld = {
-  '@context': 'https://schema.org', '@type': 'Product', name: p.name, description: p.desc, brand: { '@type': 'Brand', name: p.brand }, sku: p.id,
+  '@context': 'https://schema.org', '@type': 'Product', name: p.name, description: p.desc, ...(photo ? { image: new URL(photo.file, Astro.site).href } : {}), brand: { '@type': 'Brand', name: p.brand }, sku: p.id,
   ...(p.price ? { offers: { '@type': 'Offer', priceCurrency: site.currency, price: p.price, availability: `https://schema.org/${avail[p.stock]}`, itemCondition: 'https://schema.org/NewCondition' } } : {}),
 };
 ---
@@ -18,7 +19,10 @@ const ld = {
   <div class="wrap page">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href={`/category/${p.cat}/`}>{catName(p.cat)}</a> / <span>{p.name}</span></nav>
     <div class="dgrid">
-      <div class={`dimg tone-${p.tone}`}><Art art={p.art} label={p.name} />{p.badge && <span class="pbadge">{p.badge}</span>}</div>
+      <div>
+        <div class:list={['dimg', `tone-${p.tone}`, { 'has-photo': !!photo }]}><ProductImg p={p} priority />{p.badge && <span class="pbadge">{p.badge}</span>}</div>
+        {photo && !photo.own && <p class="fine">Photo: {photo.author} · <a href={photo.licenseUrl || photo.source} target="_blank" rel="noopener noreferrer">{photo.license}</a> · <a href={photo.source} target="_blank" rel="noopener noreferrer">source</a>. Temporary image until the company supplies its own.</p>}
+      </div>
       <div class="dinfo">
         <a class="brandline" href={`/brand/${slugify(p.brand)}/`}>{p.brand}</a>
         <h1>{p.name}</h1>

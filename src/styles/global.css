@@ -231,3 +231,9 @@ a.rad:hover{color:var(--or)}a.rad.on{color:var(--or);font-weight:700}
 .h1m{font-size:clamp(2rem,4.4vw,3.4rem);margin:.3rem 0 1rem}
 .h1xl{font-size:clamp(3rem,8vw,6rem)}
 .notfound{text-align:center;padding-block:120px}.notfound p{margin:1rem 0 2rem}
+
+/* real product photos (fall back to drawings when none) */
+.photo{width:100%;height:100%;object-fit:contain;border-radius:12px}
+.pimg.has-photo,.dimg.has-photo{background:#fff;border-bottom:1px solid var(--line)}
+.dimg.has-photo{border:1px solid var(--line);padding:1.2rem}
+.pimg .photo{mix-blend-mode:multiply}

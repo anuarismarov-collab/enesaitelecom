@@ -1,12 +1,13 @@
 {
-  "name": "Nexora Trading",
-  "shortName": "Nexora",
+  "name": "ENESAI TELECOM FZCO",
+  "shortName": "ENESAI",
+  "logoSub": "Telecom FZCO",
   "tagline": "Original tech at honest prices",
   "currency": "AED",
   "whatsapp": "971500000000",
   "phone": "+971 4 000 0000",
   "email": "sales@example.com",
-  "address": "Shop 12, Electronics Souq, Deira, Dubai, UAE",
+  "address": "First Floor, 5 East B, Dubai Airport Free Zone, Dubai, UAE",
   "hours": "Sat – Thu · 9:00 AM – 9:00 PM",
   "licence": "Trade Licence No. 000000 (sample)"
 }

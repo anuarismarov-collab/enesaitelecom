@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import { products, credits } from '../lib/data';
+const name = (id: string) => products.find((p) => p.id === id)?.name ?? id;
+---
+<Base title="Image credits" description="Credits for the temporary product photos used on this website.">
+  <div class="wrap page prose">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <span>Image credits</span></nav>
+    <h1 class="h1m">Image credits</h1>
+    <p>Some product photos on this website are temporary images from Wikimedia Commons, used under free licences that require credit. They will be replaced with the company's own photos.</p>
+    <ul>
+      {credits.map((c) => (
+        <li><b>{name(c.id)}</b> — “{c.title}” by {c.author}, <a href={c.licenseUrl || c.source} target="_blank" rel="noopener noreferrer">{c.license}</a>, <a href={c.source} target="_blank" rel="noopener noreferrer">source</a></li>
+      ))}
+    </ul>
+    <p class="fine">Product names and brands belong to their respective owners. This site is not affiliated with them.</p>
+  </div>
+</Base>

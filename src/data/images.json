@@ -1,0 +1,82 @@
+{
+  "iphone-15-pro": {
+    "file": "/products/iphone-15-pro.jpg",
+    "author": "IPHONE 15",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Apple_iPhone_15_Pro.jpg",
+    "title": "Apple iPhone 15 Pro.jpg"
+  },
+  "iphone-15": {
+    "file": "/products/iphone-15.jpg",
+    "author": "ThePhotoGraphIc",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Back_of_iPhone_15.jpg",
+    "title": "Back of iPhone 15.jpg"
+  },
+  "hp-pavilion-15": {
+    "file": "/products/hp-pavilion-15.jpg",
+    "author": "Dienthoaiquangcao62",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:HP_Pavilion_15_cs3095nr.jpg",
+    "title": "HP Pavilion 15 cs3095nr.jpg"
+  },
+  "dualsense": {
+    "file": "/products/dualsense.png",
+    "author": "Alex Cochrane",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Playstation_DualSense_Controller.png",
+    "title": "Playstation DualSense Controller.png"
+  },
+  "dji-mini-4-pro": {
+    "file": "/products/dji-mini-4-pro.jpg",
+    "author": "Jacek Halicki",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:2024_Dron_DJI_Mini_4_Pro_(14).jpg",
+    "title": "2024 Dron DJI Mini 4 Pro (14).jpg"
+  },
+  "garmin-forerunner-265": {
+    "file": "/products/garmin-forerunner-265.jpg",
+    "author": "3r1ccc",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Forerunner_265.jpg",
+    "title": "Forerunner 265.jpg"
+  },
+  "garmin-venu-3": {
+    "file": "/products/garmin-venu-3.jpg",
+    "author": "C.Stadler/Bwag",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Garmin_Venu_3_(a).JPG",
+    "title": "Garmin Venu 3 (a).JPG"
+  },
+  "airpods-pro-2": {
+    "file": "/products/airpods-pro-2.jpg",
+    "author": "Hajoon0102",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:AirPods_Pro_(2nd_generation).jpg",
+    "title": "AirPods Pro (2nd generation).jpg"
+  },
+  "mx-master-3s": {
+    "file": "/products/mx-master-3s.jpg",
+    "author": "Hayden Schiff",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Logitech_MX_Master_3S_HS12.jpg",
+    "title": "Logitech MX Master 3S HS12.jpg"
+  },
+  "apple-magsafe-charger": {
+    "file": "/products/apple-magsafe-charger.png",
+    "author": "Trending Reviews",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:MagSafe_(iPhone).png",
+    "title": "MagSafe (iPhone).png"
+  }
+}

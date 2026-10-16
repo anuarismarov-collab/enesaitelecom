@@ -10,6 +10,13 @@ export interface Product {
   badge?: string; desc: string; specs: Record<string, string>;
 }
 
+import imagesJson from '../data/images.json';
+export interface ProductImage { file: string; own?: boolean; title?: string; author?: string; license?: string; licenseUrl?: string; source?: string }
+const images = imagesJson as Record<string, ProductImage>;
+/** Photo for a product, if one exists (otherwise the drawing is shown). Client's own photos: add {"file":"/products/<id>.jpg","own":true} to images.json. */
+export const imageOf = (id: string): ProductImage | undefined => images[id];
+export const credits = Object.entries(images).filter(([, v]) => !v.own).map(([id, v]) => ({ id, ...v }));
+
 export { site };
 export const categories = categoriesJson as Category[];
 export const products = productsJson as Product[];
