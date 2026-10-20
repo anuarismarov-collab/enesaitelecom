@@ -27,7 +27,6 @@ const ld = { '@context': 'https://schema.org', '@type': 'Product', name: p.name,
       </div>
       <div class="dinfo">
         <span class="brandline">{p.brand}</span>
-        <h2 class="dtitle">{p.name}</h2>
         <div class="prow"><span class={`pill ${p.stock}`}>{T.stock[p.stock]}</span><span class="pill plain">{C.warranty}: {p.warranty}</span></div>
         <p class="por big">{C.priceOnRequest} · {C.moq}</p>
         <p class="ddesc">{p.desc}</p>
@@ -35,7 +34,7 @@ const ld = { '@context': 'https://schema.org', '@type': 'Product', name: p.name,
       </div>
     </div>
     <h2 class="sh">{C.specs}</h2>
-    <table class="specs"><tbody>{Object.entries(p.specs).map(([k, v]) => <tr><th scope="row">{k}</th><td>{v}</td></tr>)}</tbody></table>
+    <table class="specs"><tbody>{Object.entries(p.specs).map(([k, v]) => <tr><th scope="row">{k}</th><td><bdi>{v}</bdi></td></tr>)}</tbody></table>
     <div class="form-card inquiry">
       <div class="form-intro"><h2>{T.products.productForm}</h2><p class="muted">{T.products.productFormLead}</p></div>
       <LeadForm lang={lang} kind="product" productId={p.id} productName={p.name} />

@@ -57,11 +57,17 @@ const ui = { lang, f: T.f, cookie: T.cookie, name: site.name, whatsapp: site.wha
       </a>
       <nav class="links" id="links" aria-label="Main">
         {nav.map(([p, label]) => <a href={lp(lang, p)} aria-current={isActive(p) ? 'page' : undefined}>{label}</a>)}
+        <div class="menu-extra">
+          <div class="langs" role="group" aria-label={T.nav.language}>
+            {LANGS.map((l) => <a href={lp(l, rest)} hreflang={l} lang={l} aria-current={l === lang ? 'true' : undefined}>{DICT[l].langName}</a>)}
+          </div>
+          <a class="btn" href={lp(lang, '/products/#price-list')}>{T.nav.cta}</a>
+        </div>
       </nav>
-      <div class="langs" role="group" aria-label={T.nav.language}>
+      <div class="langs langs-d" role="group" aria-label={T.nav.language}>
         {LANGS.map((l) => <a href={lp(l, rest)} hreflang={l} lang={l} aria-current={l === lang ? 'true' : undefined}>{DICT[l].short}</a>)}
       </div>
-      <button class="btn sm quote-btn" type="button" data-open aria-label={T.nav.quote}>{T.nav.quote} <b id="cartCount">0</b></button>
+      <button class="btn sm quote-btn" type="button" data-open aria-label={T.nav.quote}><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></svg><span class="qlabel">{T.nav.quote}</span> <b id="cartCount">0</b></button>
       <a class="btn sm cta-nav" href={lp(lang, '/products/#price-list')}>{T.nav.cta}</a>
       <button class="burger" id="burger" type="button" aria-label={T.nav.menu} aria-expanded="false" aria-controls="links"><span></span><span></span></button>
     </div>

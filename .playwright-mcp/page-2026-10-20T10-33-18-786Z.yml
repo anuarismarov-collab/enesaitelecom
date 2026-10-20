@@ -1,0 +1,398 @@
+- generic [active] [ref=f9e1]:
+  - link "Перейти к содержимому" [ref=f9e2] [cursor=pointer]:
+    - /url: "#main"
+  - generic [ref=f9e3]: Черновик сайта для согласования · тестовые данные о продукции · цены по запросу
+  - banner [ref=f9e4]:
+    - generic [ref=f9e5]:
+      - link "ENESAI TELECOM FZCO" [ref=f9e6] [cursor=pointer]:
+        - /url: /ru/
+        - generic [ref=f9e7]: ENESAI
+      - button "Список запроса" [ref=f9e9] [cursor=pointer]:
+        - generic [ref=f9e12]: "0"
+      - button "Меню" [ref=f9e13] [cursor=pointer]
+  - main [ref=f9e16]:
+    - generic [ref=f9e19]:
+      - generic [ref=f9e20]: B2B ОПТ · СВОБОДНАЯ ЗОНА АЭРОПОРТА ДУБАЯ
+      - heading "Надёжный оптовый партнёр в сфере мобильной и бытовой электроники" [level=1] [ref=f9e21]:
+        - text: Надёжный оптовый партнёр в сфере
+        - generic [ref=f9e22]: мобильной и бытовой электроники
+      - paragraph [ref=f9e23]: Enesai Telecom FZCO импортирует и экспортирует смартфоны, гаджеты и аксессуары из Дубая для партнёров в странах СНГ, ОАЭ и других регионах — более 100 000 единиц техники ежегодно.
+      - generic [ref=f9e24]:
+        - link "Запросить прайс-лист" [ref=f9e25] [cursor=pointer]:
+          - /url: /ru/products/#price-list
+        - link "Стать партнёром" [ref=f9e26] [cursor=pointer]:
+          - /url: /ru/partnership/
+      - list [ref=f9e27]:
+        - listitem [ref=f9e28]: С 2022 года
+        - listitem [ref=f9e29]: 100 000+ единиц в год
+        - listitem [ref=f9e30]: Партнёры в ОАЭ и СНГ
+    - generic [ref=f9e33]:
+      - generic [ref=f9e34]:
+        - generic [ref=f9e35]: "2022"
+        - generic [ref=f9e36]: Основана в Дубае, ОАЭ
+      - generic [ref=f9e37]:
+        - generic [ref=f9e38]: 100 000+
+        - generic [ref=f9e39]: Единиц техники в год
+      - generic [ref=f9e40]:
+        - generic [ref=f9e41]: ОАЭ + СНГ
+        - generic [ref=f9e42]: Действующие рынки партнёров
+      - generic [ref=f9e43]:
+        - generic [ref=f9e44]: 4 региона
+        - generic [ref=f9e45]: "Расширение: Ближний Восток, Африка, Европа, Америка"
+    - generic [ref=f9e46]:
+      - generic [ref=f9e47]:
+        - generic [ref=f9e48]: Ассортимент
+        - heading "Смартфоны, гаджеты и аксессуары" [level=2] [ref=f9e49]
+        - paragraph [ref=f9e50]: Оригинальная техника ведущих брендов оптовыми партиями. Выберите категорию — оптовые цены предоставляем по запросу.
+      - generic [ref=f9e51]:
+        - link "Телефоны и планшеты 7 товаров · iPhone, iPad, Samsung Galaxy" [ref=f9e52] [cursor=pointer]:
+          - /url: /ru/products/phones-tablets/
+          - generic [ref=f9e54]:
+            - generic [ref=f9e55]: Телефоны и планшеты
+            - generic [ref=f9e56]: 7 товаров · iPhone, iPad, Samsung Galaxy
+        - link "Ноутбуки 5 товаров · MacBook, бизнес- и игровые ноутбуки" [ref=f9e57] [cursor=pointer]:
+          - /url: /ru/products/laptops/
+          - generic [ref=f9e59]:
+            - generic [ref=f9e60]: Ноутбуки
+            - generic [ref=f9e61]: 5 товаров · MacBook, бизнес- и игровые ноутбуки
+        - link "Игровые устройства 5 товаров · PlayStation 5 и аксессуары" [ref=f9e62] [cursor=pointer]:
+          - /url: /ru/products/gaming/
+          - generic [ref=f9e64]:
+            - generic [ref=f9e65]: Игровые устройства
+            - generic [ref=f9e66]: 5 товаров · PlayStation 5 и аксессуары
+        - link "Камеры и дроны 5 товаров · DJI, GoPro, Insta360" [ref=f9e67] [cursor=pointer]:
+          - /url: /ru/products/cameras/
+          - generic [ref=f9e69]:
+            - generic [ref=f9e70]: Камеры и дроны
+            - generic [ref=f9e71]: 5 товаров · DJI, GoPro, Insta360
+        - link "Часы и аудио 6 товаров · Apple Watch, Garmin, AirPods" [ref=f9e72] [cursor=pointer]:
+          - /url: /ru/products/wearables/
+          - generic [ref=f9e74]:
+            - generic [ref=f9e75]: Часы и аудио
+            - generic [ref=f9e76]: 6 товаров · Apple Watch, Garmin, AirPods
+        - link "Dyson и техника для дома 5 товаров · Пылесосы, стайлеры, очистка воздуха" [ref=f9e77] [cursor=pointer]:
+          - /url: /ru/products/dyson/
+          - generic [ref=f9e85]:
+            - generic [ref=f9e86]: Dyson и техника для дома
+            - generic [ref=f9e87]: 5 товаров · Пылесосы, стайлеры, очистка воздуха
+        - link "Принтеры и офис 4 товаров · Офисные и домашние принтеры" [ref=f9e88] [cursor=pointer]:
+          - /url: /ru/products/office/
+          - generic [ref=f9e90]:
+            - generic [ref=f9e91]: Принтеры и офис
+            - generic [ref=f9e92]: 4 товаров · Офисные и домашние принтеры
+        - link "Аксессуары 4 товаров · Зарядные устройства, мыши, наушники" [ref=f9e93] [cursor=pointer]:
+          - /url: /ru/products/accessories/
+          - generic [ref=f9e95]:
+            - generic [ref=f9e96]: Аксессуары
+            - generic [ref=f9e97]: 4 товаров · Зарядные устройства, мыши, наушники
+    - generic [ref=f9e98]:
+      - generic [ref=f9e100]:
+        - generic [ref=f9e101]: Продукция
+        - heading "Продукция и категории" [level=2] [ref=f9e102]
+      - generic "Продукция" [ref=f9e103]:
+        - generic [ref=f9e104]:
+          - article [ref=f9e105]:
+            - generic [ref=f9e106]: Hot
+            - link "Apple iPhone 15 Pro 256GB" [ref=f9e107] [cursor=pointer]:
+              - /url: /ru/product/iphone-15-pro/
+              - img "Apple iPhone 15 Pro 256GB" [ref=f9e108]
+            - generic [ref=f9e109]:
+              - generic [ref=f9e110]: Apple · Телефоны и планшеты
+              - heading [level=3] [ref=f9e111]:
+                - link "Apple iPhone 15 Pro 256GB" [ref=f9e112] [cursor=pointer]:
+                  - /url: /ru/product/iphone-15-pro/
+              - generic [ref=f9e113]:
+                - generic [ref=f9e114]: В наличии
+                - generic [ref=f9e115]: Оптовая цена по запросу
+              - button "Добавить в запрос" [ref=f9e116] [cursor=pointer]
+          - article [ref=f9e117]:
+            - link "Apple iPad Air 11\" M2 128GB Wi-Fi" [ref=f9e118] [cursor=pointer]:
+              - /url: /ru/product/ipad-air-m2/
+              - img "Apple iPad Air 11\" M2 128GB Wi-Fi" [ref=f9e119]
+            - generic [ref=f9e120]:
+              - generic [ref=f9e121]: Apple · Телефоны и планшеты
+              - heading [level=3] [ref=f9e122]:
+                - link "Apple iPad Air 11\" M2 128GB Wi-Fi" [ref=f9e123] [cursor=pointer]:
+                  - /url: /ru/product/ipad-air-m2/
+              - generic [ref=f9e124]:
+                - generic [ref=f9e125]: В наличии
+                - generic [ref=f9e126]: Оптовая цена по запросу
+              - button "Добавить в запрос" [ref=f9e127] [cursor=pointer]
+          - article [ref=f9e128]:
+            - link "Samsung Galaxy S24 Ultra 256GB" [ref=f9e129] [cursor=pointer]:
+              - /url: /ru/product/galaxy-s24-ultra/
+              - img "Samsung Galaxy S24 Ultra 256GB" [ref=f9e130]
+            - generic [ref=f9e131]:
+              - generic [ref=f9e132]: Samsung · Телефоны и планшеты
+              - heading [level=3] [ref=f9e133]:
+                - link "Samsung Galaxy S24 Ultra 256GB" [ref=f9e134] [cursor=pointer]:
+                  - /url: /ru/product/galaxy-s24-ultra/
+              - generic [ref=f9e135]:
+                - generic [ref=f9e136]: В наличии
+                - generic [ref=f9e137]: Оптовая цена по запросу
+              - button "Добавить в запрос" [ref=f9e138] [cursor=pointer]
+          - article [ref=f9e139]:
+            - generic [ref=f9e140]: New
+            - link "Apple MacBook Air 13\" M3 8GB/256GB" [ref=f9e141] [cursor=pointer]:
+              - /url: /ru/product/macbook-air-m3/
+              - img "Apple MacBook Air 13\" M3 8GB/256GB" [ref=f9e142]
+            - generic [ref=f9e143]:
+              - generic [ref=f9e144]: Apple · Ноутбуки
+              - heading [level=3] [ref=f9e145]:
+                - link "Apple MacBook Air 13\" M3 8GB/256GB" [ref=f9e146] [cursor=pointer]:
+                  - /url: /ru/product/macbook-air-m3/
+              - generic [ref=f9e147]:
+                - generic [ref=f9e148]: В наличии
+                - generic [ref=f9e149]: Оптовая цена по запросу
+              - button "Добавить в запрос" [ref=f9e150] [cursor=pointer]
+          - article [ref=f9e151]:
+            - generic [ref=f9e152]: Gaming
+            - link "Lenovo Legion 5 Ryzen 7 / RTX 4060" [ref=f9e153] [cursor=pointer]:
+              - /url: /ru/product/lenovo-legion-5/
+              - img "Lenovo Legion 5 Ryzen 7 / RTX 4060" [ref=f9e154]
+            - generic [ref=f9e159]:
+              - generic [ref=f9e160]: Lenovo · Ноутбуки
+              - heading [level=3] [ref=f9e161]:
+                - link "Lenovo Legion 5 Ryzen 7 / RTX 4060" [ref=f9e162] [cursor=pointer]:
+                  - /url: /ru/product/lenovo-legion-5/
+              - generic [ref=f9e163]:
+                - generic [ref=f9e164]: В наличии
+                - generic [ref=f9e165]: Оптовая цена по запросу
+              - button "Добавить в запрос" [ref=f9e166] [cursor=pointer]
+          - article [ref=f9e167]:
+            - generic [ref=f9e168]: Best seller
+            - link "Sony PlayStation 5 Slim Disc Edition" [ref=f9e169] [cursor=pointer]:
+              - /url: /ru/product/ps5-slim-disc/
+              - img "Sony PlayStation 5 Slim Disc Edition" [ref=f9e170]
+            - generic [ref=f9e171]:
+              - generic [ref=f9e172]: Sony · Игровые устройства
+              - heading [level=3] [ref=f9e173]:
+                - link "Sony PlayStation 5 Slim Disc Edition" [ref=f9e174] [cursor=pointer]:
+                  - /url: /ru/product/ps5-slim-disc/
+              - generic [ref=f9e175]:
+                - generic [ref=f9e176]: В наличии
+                - generic [ref=f9e177]: Оптовая цена по запросу
+              - button "Добавить в запрос" [ref=f9e178] [cursor=pointer]
+          - article [ref=f9e179]:
+            - generic [ref=f9e180]: Under 249g
+            - link "DJI Mini 4 Pro Fly More Combo" [ref=f9e181] [cursor=pointer]:
+              - /url: /ru/product/dji-mini-4-pro/
+              - img "DJI Mini 4 Pro Fly More Combo" [ref=f9e182]
+            - generic [ref=f9e183]:
+              - generic [ref=f9e184]: DJI · Камеры и дроны
+              - heading [level=3] [ref=f9e185]:
+                - link "DJI Mini 4 Pro Fly More Combo" [ref=f9e186] [cursor=pointer]:
+                  - /url: /ru/product/dji-mini-4-pro/
+              - generic [ref=f9e187]:
+                - generic [ref=f9e188]: В наличии
+                - generic [ref=f9e189]: Оптовая цена по запросу
+              - button "Добавить в запрос" [ref=f9e190] [cursor=pointer]
+          - article [ref=f9e191]:
+            - generic [ref=f9e192]: Deal
+            - link "GoPro HERO12 Black" [ref=f9e193] [cursor=pointer]:
+              - /url: /ru/product/gopro-hero12/
+              - img "GoPro HERO12 Black" [ref=f9e194]
+            - generic [ref=f9e201]:
+              - generic [ref=f9e202]: GoPro · Камеры и дроны
+              - heading [level=3] [ref=f9e203]:
+                - link "GoPro HERO12 Black" [ref=f9e204] [cursor=pointer]:
+                  - /url: /ru/product/gopro-hero12/
+              - generic [ref=f9e205]:
+                - generic [ref=f9e206]: В наличии
+                - generic [ref=f9e207]: Оптовая цена по запросу
+              - button "Добавить в запрос" [ref=f9e208] [cursor=pointer]
+      - paragraph [ref=f9e209]: Листайте →
+      - paragraph [ref=f9e210]:
+        - link "Вся продукция" [ref=f9e211] [cursor=pointer]:
+          - /url: /ru/products/all/
+    - generic [ref=f9e213]:
+      - generic [ref=f9e214]:
+        - generic [ref=f9e215]: Почему Enesai
+        - heading "Надёжный партнёр, готовый к масштабу" [level=2] [ref=f9e216]
+      - generic [ref=f9e217]:
+        - generic [ref=f9e218]:
+          - generic [ref=f9e219]: "01"
+          - heading "Подтверждённые объёмы" [level=3] [ref=f9e220]
+          - paragraph [ref=f9e221]: Более 100 000 единиц техники в год для партнёров в ОАЭ и странах СНГ.
+        - generic [ref=f9e222]:
+          - generic [ref=f9e223]: "02"
+          - heading "Торговый хаб в Дубае" [level=3] [ref=f9e224]
+          - paragraph [ref=f9e225]: Мы работаем из свободной зоны аэропорта Дубая (DAFZA) — стратегических ворот между Востоком и Западом.
+        - generic [ref=f9e226]:
+          - generic [ref=f9e227]: "03"
+          - heading "Ведущие бренды" [level=3] [ref=f9e228]
+          - paragraph [ref=f9e229]: Смартфоны, планшеты, ноутбуки, консоли, камеры, носимые устройства и бытовая техника от лидеров рынка.
+        - generic [ref=f9e230]:
+          - generic [ref=f9e231]: "04"
+          - heading "Логистика для экспорта" [level=3] [ref=f9e232]
+          - paragraph [ref=f9e233]: Документы, консолидация и доставка для международных заказов.
+        - generic [ref=f9e234]:
+          - generic [ref=f9e235]: "05"
+          - heading "Понятные условия опта" [level=3] [ref=f9e236]
+          - paragraph [ref=f9e237]: Прозрачные условия и один контактный менеджер для каждого партнёра.
+        - generic [ref=f9e238]:
+          - generic [ref=f9e239]: "06"
+          - heading "Рост вместе с партнёрами" [level=3] [ref=f9e240]
+          - paragraph [ref=f9e241]: Выходим на рынки Ближнего Востока, Африки, Европы и Северной Америки вместе с дистрибьюторами.
+    - generic [ref=f9e242]:
+      - generic [ref=f9e243]:
+        - generic [ref=f9e244]: География
+        - heading "Из Дубая — по всему миру" [level=2] [ref=f9e245]
+        - paragraph [ref=f9e246]: Действующие партнёры в ОАЭ и странах СНГ — и чёткий план выхода на Ближний Восток, в Африку, Европу и Северную Америку.
+        - link "Подробнее" [ref=f9e247] [cursor=pointer]:
+          - /url: /ru/logistics/
+      - figure [ref=f9e248]:
+        - img "Наши рынки" [ref=f9e249]
+        - generic [ref=f9e256]:
+          - generic [ref=f9e257]: Головной офис в Дубае
+          - generic [ref=f9e259]: Действующие партнёры
+          - generic [ref=f9e261]: План расширения
+    - generic [ref=f9e264]:
+      - generic [ref=f9e265]:
+        - heading "Станьте партнёром Enesai" [level=2] [ref=f9e266]
+        - paragraph [ref=f9e267]: "Дистрибьюторы, розничные сети и интернет-магазины: подайте заявку на оптовые условия или узнайте об эксклюзивной дистрибуции в вашей стране или регионе."
+      - generic [ref=f9e268]:
+        - link "Стать партнёром" [ref=f9e269] [cursor=pointer]:
+          - /url: /ru/partnership/
+        - link "Связаться с отделом продаж" [ref=f9e270] [cursor=pointer]:
+          - /url: /ru/contact/
+    - generic [ref=f9e271]:
+      - generic [ref=f9e272]:
+        - generic [ref=f9e273]: Вопросы и ответы
+        - heading "О партнёрстве и логистике" [level=2] [ref=f9e274]
+      - generic [ref=f9e275]:
+        - group [ref=f9e276]:
+          - generic "С чего начать сотрудничество? +" [ref=f9e277] [cursor=pointer]
+        - group [ref=f9e278]:
+          - generic "Можно ли получить эксклюзивные права на дистрибуцию? +" [ref=f9e279] [cursor=pointer]
+        - group [ref=f9e280]:
+          - generic "С какими рынками вы работаете сейчас? +" [ref=f9e281] [cursor=pointer]
+        - group [ref=f9e282]:
+          - generic "Как осуществляется доставка? +" [ref=f9e283] [cursor=pointer]
+        - group [ref=f9e284]:
+          - generic "Каковы условия оплаты и минимальные партии? +" [ref=f9e285] [cursor=pointer]
+    - generic [ref=f9e287]:
+      - generic [ref=f9e288]:
+        - generic [ref=f9e289]: Прайс-лист
+        - heading "Запросите оптовый прайс-лист" [level=2] [ref=f9e290]
+        - paragraph [ref=f9e291]: Расскажите о вашем бизнесе — мы пришлём актуальный каталог с оптовыми ценами.
+      - generic [ref=f9e292]:
+        - generic [ref=f9e293]:
+          - generic [ref=f9e294]:
+            - text: Имя и фамилия *
+            - textbox "Имя и фамилия *" [ref=f9e295]
+          - generic [ref=f9e296]:
+            - text: Компания *
+            - textbox "Компания *" [ref=f9e297]
+        - generic [ref=f9e298]:
+          - generic [ref=f9e299]:
+            - text: Эл. почта *
+            - textbox "Эл. почта *" [ref=f9e300]
+          - generic [ref=f9e301]:
+            - text: Телефон / WhatsApp
+            - textbox "Телефон / WhatsApp" [ref=f9e302]
+        - generic [ref=f9e303]:
+          - text: Страна *
+          - textbox "Страна *" [ref=f9e304]
+        - group "Интересующие категории" [ref=f9e305]:
+          - generic [ref=f9e307]:
+            - generic [ref=f9e308]:
+              - checkbox "Телефоны и планшеты" [ref=f9e309]
+              - generic [ref=f9e310]: Телефоны и планшеты
+            - generic [ref=f9e311]:
+              - checkbox "Ноутбуки" [ref=f9e312]
+              - generic [ref=f9e313]: Ноутбуки
+            - generic [ref=f9e314]:
+              - checkbox "Игровые устройства" [ref=f9e315]
+              - generic [ref=f9e316]: Игровые устройства
+            - generic [ref=f9e317]:
+              - checkbox "Камеры и дроны" [ref=f9e318]
+              - generic [ref=f9e319]: Камеры и дроны
+            - generic [ref=f9e320]:
+              - checkbox "Часы и аудио" [ref=f9e321]
+              - generic [ref=f9e322]: Часы и аудио
+            - generic [ref=f9e323]:
+              - checkbox "Dyson и техника для дома" [ref=f9e324]
+              - generic [ref=f9e325]: Dyson и техника для дома
+            - generic [ref=f9e326]:
+              - checkbox "Принтеры и офис" [ref=f9e327]
+              - generic [ref=f9e328]: Принтеры и офис
+            - generic [ref=f9e329]:
+              - checkbox "Аксессуары" [ref=f9e330]
+              - generic [ref=f9e331]: Аксессуары
+        - generic [ref=f9e332]:
+          - text: Сообщение
+          - textbox "Сообщение" [ref=f9e333]
+        - generic [aria-hidden] [ref=f9e334]:
+          - text: Website
+          - textbox [ref=f9e335]
+        - generic [ref=f9e336]:
+          - checkbox "Я согласен на обработку данных в соответствии с Политикой конфиденциальности *" [ref=f9e337]
+          - generic [ref=f9e338]:
+            - text: Я согласен на обработку данных в соответствии с
+            - link "Политикой конфиденциальности" [ref=f9e339] [cursor=pointer]:
+              - /url: /ru/privacy/
+            - text: "*"
+        - button "Запросить прайс-лист" [ref=f9e340] [cursor=pointer]
+        - status [ref=f9e341]
+  - contentinfo [ref=f9e342]:
+    - generic [ref=f9e343]:
+      - generic [ref=f9e344]:
+        - img "ENESAI TELECOM FZCO" [ref=f9e345]
+        - paragraph [ref=f9e346]: Оптовый импорт и экспорт мобильных телефонов и бытовой электроники из Дубая.
+      - generic [ref=f9e347]:
+        - heading "Компания" [level=4] [ref=f9e348]
+        - link "О компании" [ref=f9e349] [cursor=pointer]:
+          - /url: /ru/about/
+        - link "Партнёрство" [ref=f9e350] [cursor=pointer]:
+          - /url: /ru/partnership/
+        - link "География и логистика" [ref=f9e351] [cursor=pointer]:
+          - /url: /ru/logistics/
+        - link "Контакты" [ref=f9e352] [cursor=pointer]:
+          - /url: /ru/contact/
+      - generic [ref=f9e353]:
+        - heading "Продукция" [level=4] [ref=f9e354]
+        - link "Телефоны и планшеты" [ref=f9e355] [cursor=pointer]:
+          - /url: /ru/products/phones-tablets/
+        - link "Ноутбуки" [ref=f9e356] [cursor=pointer]:
+          - /url: /ru/products/laptops/
+        - link "Игровые устройства" [ref=f9e357] [cursor=pointer]:
+          - /url: /ru/products/gaming/
+        - link "Камеры и дроны" [ref=f9e358] [cursor=pointer]:
+          - /url: /ru/products/cameras/
+        - link "Часы и аудио" [ref=f9e359] [cursor=pointer]:
+          - /url: /ru/products/wearables/
+      - generic [ref=f9e360]:
+        - heading "Документы" [level=4] [ref=f9e361]
+        - link "Политика конфиденциальности" [ref=f9e362] [cursor=pointer]:
+          - /url: /ru/privacy/
+        - link "Условия использования" [ref=f9e363] [cursor=pointer]:
+          - /url: /ru/terms/
+        - link "Авторство изображений" [ref=f9e364] [cursor=pointer]:
+          - /url: /ru/credits/
+        - paragraph [ref=f9e365]: Trade licence no. — to be added
+      - generic [ref=f9e366]:
+        - heading "Контакты" [level=4] [ref=f9e367]
+        - link "+971 4 000 0000" [ref=f9e368] [cursor=pointer]:
+          - /url: tel:+97140000000
+        - link "sales@example.com" [ref=f9e369] [cursor=pointer]:
+          - /url: mailto:sales@example.com
+        - link "WhatsApp" [ref=f9e370] [cursor=pointer]:
+          - /url: https://wa.me/971500000000?text=Hello%20ENESAI%20TELECOM%20FZCO
+        - paragraph [ref=f9e371]: First Floor, 5 East B, Dubai Airport Free Zone, Dubai, UAE
+    - generic [ref=f9e372]: © 2026 ENESAI TELECOM FZCO. Все права защищены.
+  - link "WhatsApp" [ref=f9e373] [cursor=pointer]:
+    - /url: https://wa.me/971500000000?text=Hello%20ENESAI%20TELECOM%20FZCO%2C%20I%20would%20like%20to%20discuss%20wholesale%20cooperation.
+  - complementary [aria-hidden] [ref=f9e376]:
+    - generic [ref=f9e377]:
+      - heading [level=3] [ref=f9e378]: Ваш список запроса
+      - button [ref=f9e379] [cursor=pointer]: ×
+    - paragraph [ref=f9e381]: Список пуст. Добавляйте товары кнопкой «Добавить в запрос».
+  - dialog "Cookies" [ref=f9e382]:
+    - paragraph [ref=f9e383]:
+      - text: Мы используем только необходимое хранение данных (например, список запроса и язык). Дополнительная аналитика отключена, пока вы её не примете.
+      - link "Политика конфиденциальности" [ref=f9e384] [cursor=pointer]:
+        - /url: /ru/privacy/
+    - generic [ref=f9e385]:
+      - button "Отклонить" [ref=f9e386] [cursor=pointer]
+      - button "Принять" [ref=f9e387] [cursor=pointer]

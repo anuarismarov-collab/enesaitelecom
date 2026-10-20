@@ -329,3 +329,29 @@ body:has(.cookie:not([hidden])) .wa-float{bottom:92px}
 .hero-vis .hv{max-width:none}
 
 @media (max-width:1380px){.cta-nav{display:none}.links{gap:1rem}}
+
+/* ---- mobile polish ---- */
+.menu-extra{display:none}
+@media (max-width:900px){
+  .langs-d{display:none}
+  .menu-extra{display:flex;flex-direction:column;gap:.9rem;padding:1rem 0 .6rem;border-top:0}
+  .menu-extra .langs{align-self:flex-start;border-radius:12px}
+  .menu-extra .langs a{padding:.45rem .9rem;font-size:.85rem;border-bottom:0}
+  .menu-extra .btn{border-bottom:0;color:#fff;padding:.9rem 1.2rem}
+  .links .menu-extra a{padding:.45rem .9rem}
+  .links .menu-extra .btn{padding:.9rem 1.2rem}
+  .nav-in{min-height:66px}
+  .brand-t b{font-size:1.2rem;letter-spacing:.16em}
+  .quote-btn{padding:.45rem .8rem;font-size:.8rem}
+  .quote-btn span{display:none}
+}
+html{overflow-x:hidden}
+@media (max-width:640px){
+  .qlabel{display:none}
+  .quote-btn{padding:.45rem .7rem;gap:.35rem}
+  .nav-in{gap:.5rem}
+  .brand img{width:32px;height:32px}
+  .brand-t b{font-size:1.05rem}
+}
+.ctxt b{line-height:1.15}
+@media (max-width:640px){.ctxt{padding:.9rem 1rem 1.1rem}.ctxt b{font-size:1.15rem}}

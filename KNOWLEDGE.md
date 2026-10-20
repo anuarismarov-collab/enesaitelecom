@@ -44,3 +44,7 @@ Real phone/email/WhatsApp, trade licence no., working hours, domain, logo files 
 ## Session log
 - 2026-10-17: rebrand + brand images (19) + credits.
 - 2026-10-20: full B2B rebuild per client brief: new design from logo, i18n EN/RU/AR, lead-form Worker + KV (created KV namespace LEADS in owner's Cloudflare), cookie banner, world map, 179 pages, security checks + 17 worker tests pass, deployed and verified live (pages, redirect, form, headers).
+
+## Mobile testing (added 2026-10-20)
+- Headless Chrome cannot go below ~500px wide, so it hides phone problems. Use Playwright (viewport 390×844) and measure `document.documentElement.scrollWidth` vs `clientWidth` — if scrollWidth is larger, the page scrolls sideways. Found + fixed: header (langs + quote button + burger) overflowed → language switcher and price-list button now live in the mobile menu; quote button is an icon + count under 640px.
+- Contact details still placeholders: phone/email/WhatsApp in `src/data/site.json` — waiting on the client's real numbers/address (the `Website-Information-Checklist.docx` in telecom-site is blank).
