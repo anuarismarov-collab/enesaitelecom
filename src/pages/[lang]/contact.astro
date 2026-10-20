@@ -1,0 +1,30 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import LeadForm from '../../components/LeadForm.astro';
+import { langPaths } from '../../lib/paths';
+import { useT } from '../../i18n/dict';
+import { site, waLink } from '../../lib/data';
+export const getStaticPaths = langPaths;
+const { lang } = Astro.params as { lang: string };
+const T = useT(lang), C = T.contact;
+---
+<Base lang={lang} title={C.title} description={`${C.lead} ${site.address}.`}>
+  <PageHead lang={lang} title={C.title} lead={C.lead} />
+  <section class="sec tight wrap contact-grid">
+    <div>
+      <ul class="cinfo">
+        <li><b>{C.address}</b>{site.address}</li>
+        <li><b>{C.phone}</b><a href={`tel:${site.phone.replace(/\s/g, '')}`} dir="ltr">{site.phone}</a></li>
+        <li><b>{C.email}</b><a href={`mailto:${site.email}`} dir="ltr">{site.email}</a></li>
+        <li><b>{C.hours}</b>{site.hours}</li>
+        <li><b>{C.whatsapp}</b><a href={waLink(`Hello ${site.name}`)} target="_blank" rel="noopener noreferrer">{C.chat}</a></li>
+      </ul>
+      <div class="map" role="img" aria-label={C.map}><div class="mapcap"><b>{site.address}</b><small>{C.map}</small></div></div>
+    </div>
+    <div class="form-card">
+      <div class="form-intro"><h2>{C.formTitle}</h2><p class="muted">{C.formLead}</p></div>
+      <LeadForm lang={lang} kind="general" />
+    </div>
+  </section>
+</Base>

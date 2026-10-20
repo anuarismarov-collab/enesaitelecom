@@ -1,0 +1,19 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHead from '../../../components/PageHead.astro';
+import Listing from '../../../components/Listing.astro';
+import { LANGS, useT, lp } from '../../../i18n/dict';
+import { categories, products, productsOf } from '../../../lib/data';
+export function getStaticPaths() {
+  return LANGS.flatMap((lang) => [{ params: { lang, cat: 'all' } }, ...categories.map((c) => ({ params: { lang, cat: c.id } }))]);
+}
+const { lang, cat } = Astro.params as { lang: string; cat: string };
+const T = useT(lang);
+const isAll = cat === 'all';
+const [name, blurb] = isAll ? [T.products.all, T.products.lead] : T.cats[cat as keyof typeof T.cats];
+const items = isAll ? products : productsOf(cat);
+---
+<Base lang={lang} title={name} description={isAll ? blurb : `${name} — ${blurb}. ${T.common.priceOnRequest}.`}>
+  <PageHead lang={lang} title={name} lead={isAll ? undefined : blurb} crumbs={[[T.nav.products, lp(lang, '/products/')]]} />
+  <section class="sec tight wrap"><Listing items={items} lang={lang} activeCat={isAll ? '' : cat} /></section>
+</Base>

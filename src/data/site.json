@@ -1,13 +1,12 @@
 {
   "name": "ENESAI TELECOM FZCO",
-  "shortName": "ENESAI",
-  "logoSub": "Telecom FZCO",
-  "tagline": "Original tech at honest prices",
-  "currency": "AED",
+  "shortName": "Enesai Telecom",
+  "founded": 2022,
   "whatsapp": "971500000000",
   "phone": "+971 4 000 0000",
   "email": "sales@example.com",
   "address": "First Floor, 5 East B, Dubai Airport Free Zone, Dubai, UAE",
-  "hours": "Sat – Thu · 9:00 AM – 9:00 PM",
-  "licence": "Trade Licence No. 000000 (sample)"
+  "hours": "Mon – Fri · 9:00 – 18:00 (GST)",
+  "licence": "Trade licence no. — to be added",
+  "ga4": ""
 }

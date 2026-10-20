@@ -1,0 +1,35 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHead from '../../../components/PageHead.astro';
+import Art from '../../../components/Art.astro';
+import LeadForm from '../../../components/LeadForm.astro';
+import { langPaths } from '../../../lib/paths';
+import { useT, lp } from '../../../i18n/dict';
+import { categories, productsOf, imageOf } from '../../../lib/data';
+export const getStaticPaths = langPaths;
+const { lang } = Astro.params as { lang: string };
+const T = useT(lang), P = T.products;
+---
+<Base lang={lang} title={P.title} description={P.lead}>
+  <PageHead lang={lang} title={P.title} lead={P.lead} />
+  <section class="sec wrap">
+    <div class="ctiles">
+      {categories.map((c) => {
+        const img = c.rep ? imageOf(c.rep) : undefined;
+        return (
+          <a class="ctile" href={lp(lang, `/products/${c.id}/`)}>
+            <span class="cvis">{img ? <img src={img.file} alt="" width="300" height="300" loading="lazy" decoding="async" /> : <Art art={c.art} />}</span>
+            <span class="ctxt"><b>{T.cats[c.id as keyof typeof T.cats][0]}</b><small>{productsOf(c.id).length} {T.common.products} · {T.cats[c.id as keyof typeof T.cats][1]}</small></span>
+          </a>
+        );
+      })}
+    </div>
+    <p class="more"><a class="btn ghost" href={lp(lang, '/products/all/')}>{P.all}</a></p>
+  </section>
+  <section class="sec tight wrap form-sec" id="price-list">
+    <div class="form-card">
+      <div class="form-intro"><span class="eyebrow">{T.home.price.eyebrow}</span><h2>{P.catalogTitle}</h2><p class="muted">{P.catalogLead}</p></div>
+      <LeadForm lang={lang} kind="pricelist" />
+    </div>
+  </section>
+</Base>

@@ -1,10 +1,10 @@
 [
-  { "id": "phones-tablets", "name": "Phones & Tablets", "blurb": "iPhone, iPad, Samsung Galaxy", "art": "phone", "tone": "peach" },
-  { "id": "laptops", "name": "Laptops", "blurb": "MacBook, work & gaming laptops", "art": "laptop", "tone": "lime" },
-  { "id": "gaming", "name": "Gaming", "blurb": "PlayStation 5 & accessories", "art": "console", "tone": "blue" },
-  { "id": "cameras", "name": "Cameras & Drones", "blurb": "DJI, GoPro, Insta360", "art": "camera", "tone": "sand" },
-  { "id": "wearables", "name": "Watches & Audio", "blurb": "Apple Watch, Garmin, AirPods", "art": "watch", "tone": "lilac" },
-  { "id": "dyson", "name": "Dyson & Home", "blurb": "Vacuums, styling, air care", "art": "vacuum", "tone": "lilac" },
-  { "id": "office", "name": "Printers & Office", "blurb": "Office & home printers", "art": "printer", "tone": "blue" },
-  { "id": "accessories", "name": "Accessories", "blurb": "Chargers, mice & more", "art": "headset", "tone": "sand" }
+  { "id": "phones-tablets", "name": "Phones & Tablets", "blurb": "iPhone, iPad, Samsung Galaxy", "art": "phone", "tone": "peach", "rep": "galaxy-s24-ultra" },
+  { "id": "laptops", "name": "Laptops", "blurb": "MacBook, business & gaming laptops", "art": "laptop", "tone": "lime", "rep": "macbook-pro-14" },
+  { "id": "gaming", "name": "Gaming", "blurb": "PlayStation 5 & accessories", "art": "console", "tone": "blue", "rep": "ps5-slim-disc" },
+  { "id": "cameras", "name": "Cameras & Drones", "blurb": "DJI, GoPro, Insta360", "art": "camera", "tone": "sand", "rep": "dji-osmo-pocket-3" },
+  { "id": "wearables", "name": "Watches & Audio", "blurb": "Apple Watch, Garmin, AirPods", "art": "watch", "tone": "lilac", "rep": "apple-watch-ultra-2" },
+  { "id": "dyson", "name": "Dyson & Home", "blurb": "Vacuums, styling, air care", "art": "vacuum", "tone": "lilac", "rep": "" },
+  { "id": "office", "name": "Printers & Office", "blurb": "Office & home printers", "art": "printer", "tone": "blue", "rep": "hp-color-laserjet-m255" },
+  { "id": "accessories", "name": "Accessories", "blurb": "Chargers, mice, headphones", "art": "headset", "tone": "sand", "rep": "sony-wh-1000xm5" }
 ]

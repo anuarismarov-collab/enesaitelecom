@@ -1,0 +1,27 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import LeadForm from '../../components/LeadForm.astro';
+import { langPaths } from '../../lib/paths';
+import { useT } from '../../i18n/dict';
+export const getStaticPaths = langPaths;
+const { lang } = Astro.params as { lang: string };
+const T = useT(lang), P = T.partnership;
+---
+<Base lang={lang} title={P.title} description={P.lead}>
+  <PageHead lang={lang} title={P.title} lead={P.lead} />
+  <section class="sec wrap">
+    <div class="head"><h2>{P.benefitsTitle}</h2></div>
+    <div class="why4">{P.benefits.map((b, i) => <div class="wcard"><span class="num">{String(i + 1).padStart(2, '0')}</span><h3>{b.t}</h3><p>{b.d}</p></div>)}</div>
+  </section>
+  <section class="sec why">
+    <div class="wrap"><div class="head"><h2>{P.stepsTitle}</h2></div>
+      <ol class="steps">{P.steps.map(([t, d], i) => <li><span class="num">{i + 1}</span><h3>{t}</h3><p>{d}</p></li>)}</ol></div>
+  </section>
+  <section class="sec wrap form-sec" id="apply">
+    <div class="form-card">
+      <div class="form-intro"><h2>{P.formTitle}</h2><p class="muted">{P.formLead}</p></div>
+      <LeadForm lang={lang} kind="partnership" />
+    </div>
+  </section>
+</Base>

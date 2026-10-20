@@ -1,0 +1,45 @@
+---
+// World map drawn at build time from public-domain Natural Earth outlines (world-atlas). Pure inline SVG: no scripts, no external requests.
+import { feature } from 'topojson-client';
+import { geoNaturalEarth1, geoPath } from 'd3-geo';
+import topo from 'world-atlas/countries-110m.json';
+import { useT } from '../i18n/dict';
+interface Props { lang: string }
+const T = useT(Astro.props.lang).logistics;
+
+const CIS = ['Russia', 'Belarus', 'Kazakhstan', 'Uzbekistan', 'Kyrgyzstan', 'Tajikistan', 'Armenia', 'Azerbaijan', 'Moldova', 'Turkmenistan'];
+const UAE = ['United Arab Emirates'];
+const MIDEAST = ['Saudi Arabia', 'Qatar', 'Kuwait', 'Oman', 'Jordan', 'Iraq', 'Lebanon', 'Egypt', 'Turkey', 'Yemen', 'Israel', 'Syria'];
+const AFRICA = ['Algeria', 'Angola', 'Benin', 'Botswana', 'Burkina Faso', 'Burundi', 'Cameroon', 'Central African Rep.', 'Chad', 'Congo', 'Dem. Rep. Congo', 'Djibouti', 'Eq. Guinea', 'Eritrea', 'eSwatini', 'Ethiopia', 'Gabon', 'Gambia', 'Ghana', 'Guinea', 'Guinea-Bissau', "Côte d'Ivoire", 'Kenya', 'Lesotho', 'Liberia', 'Libya', 'Madagascar', 'Malawi', 'Mali', 'Mauritania', 'Morocco', 'Mozambique', 'Namibia', 'Niger', 'Nigeria', 'Rwanda', 'Senegal', 'Sierra Leone', 'Somalia', 'S. Sudan', 'South Africa', 'Sudan', 'Tanzania', 'Togo', 'Tunisia', 'Uganda', 'W. Sahara', 'Zambia', 'Zimbabwe'];
+const EUROPE = ['Germany', 'France', 'United Kingdom', 'Spain', 'Italy', 'Poland', 'Netherlands', 'Belgium', 'Sweden', 'Norway', 'Finland', 'Denmark', 'Austria', 'Switzerland', 'Portugal', 'Greece', 'Czechia', 'Romania', 'Hungary', 'Bulgaria', 'Serbia', 'Croatia', 'Slovakia', 'Ireland', 'Lithuania', 'Latvia', 'Estonia', 'Ukraine', 'Bosnia and Herz.', 'Albania', 'North Macedonia', 'Slovenia', 'Montenegro', 'Kosovo', 'Iceland'];
+const NAMERICA = ['United States of America', 'Canada', 'Mexico'];
+const PLANNED = new Set([...MIDEAST, ...AFRICA, ...EUROPE, ...NAMERICA]);
+
+const W = 1000, H = 500;
+const proj = geoNaturalEarth1().fitExtent([[6, 6], [W - 6, H - 6]], { type: 'Sphere' });
+const path = geoPath(proj).digits(1);
+const countries = (feature(topo as any, (topo as any).objects.countries) as any).features as any[];
+const groups: Record<string, string[]> = { base: [], planned: [], cis: [], uae: [] };
+for (const c of countries) {
+  const n = c.properties?.name as string;
+  if (n === 'Antarctica') continue;                // keeps the map compact
+  const d = path(c); if (!d) continue;
+  (UAE.includes(n) ? groups.uae : CIS.includes(n) ? groups.cis : PLANNED.has(n) ? groups.planned : groups.base).push(d);
+}
+const [dx, dy] = proj([55.27, 25.2]) as [number, number];
+---
+<figure class="worldmap">
+  <svg viewBox={`0 0 ${W} ${Math.round(H * 0.9)}`} role="img" aria-label={T.mapTitle} focusable="false">
+    <path class="m-base" d={groups.base.join('')} />
+    <path class="m-planned" d={groups.planned.join('')} />
+    <path class="m-cis" d={groups.cis.join('')} />
+    <path class="m-uae" d={groups.uae.join('')} />
+    <circle class="m-pulse" cx={dx.toFixed(1)} cy={dy.toFixed(1)} r="6" />
+    <circle class="m-dot" cx={dx.toFixed(1)} cy={dy.toFixed(1)} r="5" />
+  </svg>
+  <figcaption class="m-legend">
+    <span><i class="lgd lg-uae"></i>{T.legendHub}</span>
+    <span><i class="lgd lg-cis"></i>{T.legendActive}</span>
+    <span><i class="lgd lg-planned"></i>{T.legendPlanned}</span>
+  </figcaption>
+</figure>

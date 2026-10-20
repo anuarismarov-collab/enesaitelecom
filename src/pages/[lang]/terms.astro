@@ -1,0 +1,13 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import { langPaths } from '../../lib/paths';
+import { useT } from '../../i18n/dict';
+export const getStaticPaths = langPaths;
+const { lang } = Astro.params as { lang: string };
+const T = useT(lang), L = T.legal.terms;
+---
+<Base lang={lang} title={L.title} description={L.sections[0][1]}>
+  <PageHead lang={lang} title={L.title} />
+  <section class="sec tight wrap prose legal"><p class="fine">{L.note}</p>{L.sections.map(([h, p]) => <><h2>{h}</h2><p>{p}</p></>)}</section>
+</Base>

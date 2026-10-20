@@ -1,0 +1,28 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import WorldMap from '../../components/WorldMap.astro';
+import { langPaths } from '../../lib/paths';
+import { useT, lp } from '../../i18n/dict';
+export const getStaticPaths = langPaths;
+const { lang } = Astro.params as { lang: string };
+const T = useT(lang), L = T.logistics;
+---
+<Base lang={lang} title={L.title} description={L.lead}>
+  <PageHead lang={lang} title={L.title} lead={L.lead} />
+  <section class="sec wrap">
+    <div class="head"><h2>{L.mapTitle}</h2></div>
+    <WorldMap lang={lang} />
+  </section>
+  <section class="sec why">
+    <div class="wrap two-col">
+      <div><h2>{L.activeTitle}</h2><ul class="tick-list">{L.active.map((a) => <li>{a}</li>)}</ul></div>
+      <div><h2>{L.roadmapTitle}</h2><ol class="road">{L.roadmap.map(([t, d], i) => <li><span class="num">{i + 1}</span><div><b>{t}</b><small>{d}</small></div></li>)}</ol></div>
+    </div>
+  </section>
+  <section class="sec wrap">
+    <div class="head"><h2>{L.logTitle}</h2></div>
+    <div class="why4">{L.log.map(([t, d]) => <div class="wcard"><h3>{t}</h3><p>{d}</p></div>)}</div>
+    <p class="more"><a class="btn lg" href={lp(lang, '/partnership/')}>{T.common.becomePartner}</a></p>
+  </section>
+</Base>

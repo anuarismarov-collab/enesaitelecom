@@ -1,29 +1,32 @@
-# Nexora Trading — static product-catalog website
+# Enesai Telecom FZCO — corporate B2B wholesale website
 
-Electronics trading company site (Apple, Samsung, PS5, DJI/GoPro/Insta360, Garmin, Dyson, printers, laptops, accessories).
-**Astro 7** static site · plain CSS · TypeScript browser script · no database, no server. All names, prices and contact details are **sample data**.
+Astro 7 static site (EN / RU / AR) + one Cloudflare Worker for the lead forms. Design from the client's logo (navy + silver) in the style of the approved reference site. All product data, photos, contact details and legal text are **drafts/samples** until the client supplies and approves real content.
 
 ## Commands
 | Command | What it does |
 |---|---|
-| `npm install` | install dependencies (once) |
+| `npm install` | install dependencies |
 | `npm run dev` | live-edit at http://localhost:4321 |
-| `npm run build` | validate data + build the site into `dist/` (69 pages) |
-| `npm run preview:secure` | serve `dist/` at http://localhost:8766 **with the real security headers** |
+| `npm run build` | validate data + build 179 pages into `dist/` |
+| `npm run preview:secure` | serve `dist/` at http://localhost:8766 with the real security headers |
 | `npm run check:security` | scan the built site for security mistakes |
-| `npm run import:products -- --template` | export current products to `data/products.template.csv` (open in Excel) |
-| `npm run import:products -- data/products.csv` | validate the spreadsheet and replace `src/data/products.json` |
+| `node scripts/test-worker.mjs` | test the form backend |
+| `npx wrangler dev --local` | run site + Worker + KV locally (http://localhost:8787) |
+| `npx wrangler deploy` | publish to Cloudflare |
+| `npm run import:products -- --template` / `-- data/products.csv` | export / re-import the product list as a spreadsheet |
 
 ## Where things are
 ```
-src/data/site.json         company name, phone, WhatsApp, address, hours
-src/data/categories.json   the 8 categories
-src/data/products.json     all products (generated from the spreadsheet or edited by hand)
-src/pages/                 home, shop, category/[id], brand/[slug], product/[id], wholesale, contact, privacy, 404
-src/components/            Art (product drawings), ProductCard, Listing (filters), ContactForm
-src/layouts/Base.astro     header, footer, enquiry drawer, SEO tags
-src/scripts/app.ts         enquiry basket, filters, WhatsApp forms (the only browser JS)
-src/styles/global.css      the whole design (colours at the top in :root)
-public/_headers            security headers (CSP etc.) — read by Cloudflare Pages / Netlify
+src/i18n/dict.ts            ALL text in English, Russian, Arabic
+src/data/site.json          company details (phone, email, WhatsApp, address, GA4 id)
+src/data/products.json      product list (+ categories.json, images.json)
+src/pages/[lang]/           home, about, products, product, partnership, logistics, contact, privacy, terms, credits
+src/components/             LeadForm (4 form types), WorldMap, ProductCard, Listing, PageHead…
+src/layouts/Base.astro      header, footer, quote list drawer, cookie banner, SEO tags
+src/scripts/app.ts          forms, quote list, filters, cookie banner (only browser JS)
+src/worker.js               POST /api/lead + language redirect (Cloudflare Worker)
+src/styles/global.css       the whole design (colours at the top, RTL-aware)
+public/_headers             security headers (CSP…)    public/brand/  logo + hero background
+scripts/                    brand/hero generators, product importer, image tools, security + worker tests
 ```
-See `SECURITY.md` for the security design and the launch checklist.
+See `SECURITY.md` (security + launch checklist) and `KNOWLEDGE.md` (decisions, gaps, next steps).

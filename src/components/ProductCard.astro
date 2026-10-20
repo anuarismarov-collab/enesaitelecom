@@ -1,20 +1,20 @@
 ---
 import ProductImg from './ProductImg.astro';
-import { money, STOCK, catName, savePct, imageOf, type Product } from '../lib/data';
-interface Props { p: Product }
-const { p } = Astro.props;
-const [stockText, stockKey] = STOCK[p.stock];
-const save = savePct(p);
+import { imageOf, type Product } from '../lib/data';
+import { useT, lp } from '../i18n/dict';
+interface Props { p: Product; lang: string }
+const { p, lang } = Astro.props;
+const T = useT(lang);
+const href = lp(lang, `/product/${p.id}/`);
+const catLabel = T.cats[p.cat as keyof typeof T.cats]?.[0] ?? p.cat;
 ---
-<article class="pcard" data-brand={p.brand} data-price={p.price ?? 0} data-stock={p.stock} data-feat={p.featured ? 1 : 0}
-  data-name={p.name} data-search={`${p.name} ${p.brand} ${catName(p.cat)}`.toLowerCase()}>
+<article class="pcard" data-brand={p.brand} data-stock={p.stock} data-feat={p.featured ? 1 : 0} data-name={p.name} data-search={`${p.name} ${p.brand} ${catLabel}`.toLowerCase()}>
   {p.badge && <span class="pbadge">{p.badge}</span>}
-  <a href={`/product/${p.id}/`} class:list={['pimg', `tone-${p.tone}`, { 'has-photo': !!imageOf(p.id) }]} aria-label={p.name} tabindex="-1"><ProductImg p={p} /></a>
+  <a href={href} class:list={['pimg', { 'has-photo': !!imageOf(p.id) }]} aria-label={p.name} tabindex="-1"><ProductImg p={p} /></a>
   <div class="pbody">
-    <small>{p.brand} · {catName(p.cat)}</small>
-    <h3><a href={`/product/${p.id}/`}>{p.name}</a></h3>
-    <div class="pr">{p.price ? <><b>{money(p.price)}</b>{p.was && <s>{money(p.was)}</s>}</> : <b>Ask for price</b>}</div>
-    <div class="prow"><span class={`pill ${stockKey}`}>{stockText}</span>{save > 0 && <span class="save">Save {save}%</span>}</div>
-    <button class={`btn block ${p.stock === 'out' ? 'ghost' : ''}`} type="button" data-add={p.id}>{p.stock === 'out' ? 'Ask when back' : 'Add to enquiry'}</button>
+    <small>{p.brand} · {catLabel}</small>
+    <h3><a href={href}>{p.name}</a></h3>
+    <div class="prow"><span class={`pill ${p.stock}`}>{T.stock[p.stock]}</span><span class="por">{T.common.priceOnRequest}</span></div>
+    <button class="btn block" type="button" data-add={p.id}>{T.common.addToQuote}</button>
   </div>
 </article>

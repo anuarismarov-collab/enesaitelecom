@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import { langPaths } from '../../lib/paths';
+import { useT } from '../../i18n/dict';
+import { products, credits } from '../../lib/data';
+export const getStaticPaths = langPaths;
+const { lang } = Astro.params as { lang: string };
+const T = useT(lang);
+const name = (id: string) => products.find((p) => p.id === id)?.name ?? id;
+const free = credits.filter((c) => c.kind !== 'brand'), brand = credits.filter((c) => c.kind === 'brand');
+---
+<Base lang={lang} title={T.common.images} description={T.common.images}>
+  <PageHead lang={lang} title={T.common.images} />
+  <section class="sec tight wrap prose legal">
+    <p>Product images on this website are temporary and will be replaced with the company's own images. / Изображения товаров временные. / صور المنتجات مؤقتة.</p>
+    <h2>Manufacturer images</h2>
+    <p>© the respective brand owners, from each manufacturer's official product page. This website is not affiliated with these brands.</p>
+    <ul>{brand.map((c) => <li><b>{name(c.id)}</b> — © {c.author}, <a href={c.source} target="_blank" rel="noopener noreferrer">official page</a></li>)}</ul>
+    <h2>Freely licensed photos (Wikimedia Commons)</h2>
+    <ul>{free.map((c) => <li><b>{name(c.id)}</b> — “{c.title}” by {c.author}, <a href={c.licenseUrl || c.source} target="_blank" rel="noopener noreferrer">{c.license}</a>, <a href={c.source} target="_blank" rel="noopener noreferrer">source</a></li>)}</ul>
+  </section>
+</Base>

@@ -1,0 +1,13 @@
+---
+import { useT, lp } from '../i18n/dict';
+interface Props { lang: string; title: string; lead?: string; crumbs?: [string, string][] }
+const { lang, title, lead, crumbs = [] } = Astro.props;
+const T = useT(lang);
+---
+<section class="phead">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href={lp(lang)}>{T.common.home}</a>{crumbs.map(([label, href]) => <> <span aria-hidden="true">/</span> <a href={href}>{label}</a></>)} <span aria-hidden="true">/</span> <span>{title}</span></nav>
+    <h1>{title}</h1>
+    {lead && <p class="lead">{lead}</p>}
+  </div>
+</section>

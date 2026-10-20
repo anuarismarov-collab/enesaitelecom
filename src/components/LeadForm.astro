@@ -1,0 +1,41 @@
+---
+// One form component for all lead types. Submitted by src/scripts/app.ts to /api/lead (Cloudflare Worker) with a WhatsApp fallback.
+import { categories } from '../lib/data';
+import { useT, lp } from '../i18n/dict';
+interface Props { lang: string; kind: 'general' | 'partnership' | 'pricelist' | 'product'; productId?: string; productName?: string }
+const { lang, kind, productId = '', productName = '' } = Astro.props;
+const T = useT(lang), f = T.f;
+const submit = { general: f.submit, partnership: f.submitPartner, pricelist: f.submitPrice, product: f.submitProduct }[kind];
+const types = Object.entries(f.partnerTypes), vols = Object.entries(f.volumes);
+---
+<form class="lead" data-lead={kind} data-product={productId} novalidate>
+  <div class="grid2">
+    <label>{f.name} *<input type="text" name="name" required maxlength="80" autocomplete="name" /></label>
+    <label>{f.company} *<input type="text" name="company" required maxlength="120" autocomplete="organization" /></label>
+  </div>
+  {kind === 'partnership' && <label>{f.role}<input type="text" name="role" maxlength="80" autocomplete="organization-title" /></label>}
+  <div class="grid2">
+    <label>{f.email} *<input type="email" name="email" required maxlength="120" autocomplete="email" dir="ltr" /></label>
+    <label>{f.phone} {kind === 'partnership' ? '*' : ''}<input type="tel" name="phone" maxlength="30" autocomplete="tel" dir="ltr" required={kind === 'partnership'} /></label>
+  </div>
+  {kind !== 'general' && <label>{f.country} *<input type="text" name="country" required maxlength="80" autocomplete="country-name" /></label>}
+  {kind === 'partnership' && (<>
+    <div class="grid2">
+      <label>{f.partnerType} *<select name="partnerType" required><option value="">{f.select}</option>{types.map(([k, v]) => <option value={k}>{v}</option>)}</select></label>
+      <label>{f.volume}<select name="volume"><option value="">{f.select}</option>{vols.map(([k, v]) => <option value={k}>{v}</option>)}</select></label>
+    </div>
+    <label class="check"><input type="checkbox" name="exclusive" /> <span>{f.exclusive}</span></label>
+    <label>{f.exclusiveCountries}<input type="text" name="exclusiveCountries" maxlength="120" /></label>
+  </>)}
+  {kind === 'pricelist' && (
+    <fieldset><legend>{f.categories}</legend>
+      <div class="checks">{categories.map((c) => <label class="check"><input type="checkbox" name="categories" value={c.id} /> <span>{T.cats[c.id as keyof typeof T.cats][0]}</span></label>)}</div>
+    </fieldset>
+  )}
+  {kind === 'product' && <label>{f.quantity}<input type="text" name="quantity" maxlength="40" /></label>}
+  <label>{f.message} {kind === 'general' ? '*' : ''}<textarea name="message" rows="4" maxlength="1500" required={kind === 'general'}>{kind === 'product' ? '' : ''}</textarea></label>
+  <label class="hp" aria-hidden="true">Website <input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+  <label class="check consent"><input type="checkbox" name="consent" required /> <span>{f.consent} <a href={lp(lang, '/privacy/')}>{f.privacyLink}</a> *</span></label>
+  <button class="btn lg" type="submit">{submit}</button>
+  <p class="form-msg" role="status" aria-live="polite"></p>
+</form>

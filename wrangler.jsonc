@@ -1,9 +1,17 @@
 {
-  // Cloudflare deploy config: serves the built site (dist/) as static files. `public/_headers` (security headers) is honoured.
+  // Cloudflare deploy config: static site (dist/) + a small Worker for the lead forms (src/worker.js).
   "name": "nexora-trading-demo",
+  "main": "src/worker.js",
   "compatibility_date": "2026-10-01",
   "assets": {
     "directory": "./dist",
-    "not_found_handling": "404-page"
-  }
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    // Only these paths run the Worker; everything else is served straight from the CDN (fast + cheap).
+    "run_worker_first": ["/api/*", "/"]
+  },
+  // Leads submitted through the website forms are kept here for 90 days (view: Cloudflare dashboard → Storage & databases → KV → LEADS).
+  "kv_namespaces": [{ "binding": "LEADS", "id": "429b0a6bfb0b4bc79f0392008bc02e0b" }]
+  // Email notifications: set in Cloudflare → Workers → this worker → Settings → Variables and Secrets:
+  //   RESEND_API_KEY (secret), LEAD_TO (e.g. sales@company.com), LEAD_FROM (e.g. "Website <noreply@company.com>")
 }

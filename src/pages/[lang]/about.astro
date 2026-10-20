@@ -1,0 +1,26 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import { langPaths } from '../../lib/paths';
+import { useT, lp } from '../../i18n/dict';
+export const getStaticPaths = langPaths;
+const { lang } = Astro.params as { lang: string };
+const T = useT(lang), A = T.about;
+---
+<Base lang={lang} title={A.title} description={A.lead}>
+  <PageHead lang={lang} title={A.title} lead={A.lead} />
+  <section class="sec wrap about-grid">
+    <div class="prose">{A.story.map((p) => <p>{p}</p>)}
+      <div class="mission"><h3>{A.missionTitle}</h3><p>{A.mission}</p></div></div>
+    <aside class="facts"><h3>{A.factsTitle}</h3><dl>{A.facts.map(([k, v]) => <><dt>{k}</dt><dd>{v}</dd></>)}</dl></aside>
+  </section>
+  <section class="sec why">
+    <div class="wrap"><div class="head"><h2>{A.valuesTitle}</h2></div>
+      <div class="why4">{A.values.map((v) => <div class="wcard"><h3>{v.t}</h3><p>{v.d}</p></div>)}</div></div>
+  </section>
+  <section class="sec wrap">
+    <div class="head"><h2>{A.timelineTitle}</h2></div>
+    <ol class="timeline">{A.timeline.map(([y, t]) => <li><b>{y}</b><span>{t}</span></li>)}</ol>
+    <p class="more"><a class="btn lg" href={lp(lang, '/partnership/')}>{T.common.becomePartner}</a></p>
+  </section>
+</Base>
