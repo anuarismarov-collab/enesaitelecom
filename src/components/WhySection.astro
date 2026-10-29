@@ -1,0 +1,20 @@
+---
+// Six benefit cards (+ optional call-to-action). Used on the home page and on the dedicated /why-enesai/ page.
+import { useT, lp } from '../i18n/dict';
+interface Props { lang: string; withHead?: boolean; withCta?: boolean; withMore?: boolean }
+const { lang, withHead = true, withCta = false, withMore = false } = Astro.props;
+const T = useT(lang), W = T.why;
+---
+<section class="sec why">
+  <div class="wrap">
+    {withHead && <div class="head"><span class="eyebrow">{W.eyebrow}</span><h2>{W.title}</h2><p class="muted">{W.subtitle}</p></div>}
+    <div class="why6">{W.items.map((it, i) => <div class="wcard"><span class="num">{String(i + 1).padStart(2, '0')}</span><h3>{it.t}</h3><p>{it.d}</p></div>)}</div>
+    {withMore && <p class="more"><a class="btn ghost" href={lp(lang, '/why-enesai/')}>{W.more}</a></p>}
+  </div>
+</section>
+{withCta && (
+  <section class="band">
+    <div class="wrap band-in"><div><h2>{W.cta.title}</h2><p>{W.cta.text}</p></div>
+      <div class="band-btns"><a class="btn lg light" href={lp(lang, '/contact/')}>{W.cta.button}</a></div></div>
+  </section>
+)}

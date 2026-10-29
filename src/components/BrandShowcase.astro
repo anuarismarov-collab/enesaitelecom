@@ -1,0 +1,14 @@
+---
+// "Brands We Supply": visual showcase only (no links, no clicks). Brand names are shown as plain text on purpose —
+// official logos are only used when their use is permitted, and no official/authorised partnership is implied.
+import { useT } from '../i18n/dict';
+interface Props { lang: string }
+const B = useT(Astro.props.lang).home.brands;
+---
+<section class="brands-sec" aria-labelledby="brands-title">
+  <div class="wrap">
+    <div class="head center"><h2 id="brands-title">{B.title}</h2><p class="muted">{B.lead}</p></div>
+    <ul class="brand-grid">{B.list.map((b) => <li class="brand-tile rv" dir="ltr">{b}</li>)}</ul>
+    <p class="fine center">{B.note}</p>
+  </div>
+</section>

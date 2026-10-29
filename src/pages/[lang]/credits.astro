@@ -14,6 +14,8 @@ const free = credits.filter((c) => c.kind !== 'brand'), brand = credits.filter((
   <PageHead lang={lang} title={T.common.images} />
   <section class="sec tight wrap prose legal">
     <p>Product images on this website are temporary and will be replaced with the company's own images. / Изображения товаров временные. / صور المنتجات مؤقتة.</p>
+    <h2>Home page hero</h2>
+    <p>iPhone 18 Pro (Burgundy) image © Apple Inc., from Apple Newsroom (apple.com/newsroom). Temporary image — to be replaced with approved material. This website is not affiliated with Apple.</p>
     <h2>Manufacturer images</h2>
     <p>© the respective brand owners, from each manufacturer's official product page. This website is not affiliated with these brands.</p>
     <ul>{brand.map((c) => <li><b>{name(c.id)}</b> — © {c.author}, <a href={c.source} target="_blank" rel="noopener noreferrer">official page</a></li>)}</ul>

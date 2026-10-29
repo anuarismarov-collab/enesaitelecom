@@ -144,3 +144,29 @@ banner?.addEventListener('click', (e) => {
   try { localStorage.setItem(CK, b.dataset.cookie!); } catch { /* ignore */ }
   banner.hidden = true; if (b.dataset.cookie === 'yes') enableAnalytics();
 });
+
+/* ---------- Scroll-in reveal + hero tilt (decorative; respects reduced-motion) ---------- */
+document.documentElement.classList.add('js');
+const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const reveals = $$('.rv');
+if (reveals.length) {
+  if (calm || !('IntersectionObserver' in window)) reveals.forEach((el) => el.classList.add('in'));
+  else {
+    const io = new IntersectionObserver((entries) => entries.forEach((en) => {
+      if (!en.isIntersecting) return;
+      const el = en.target as HTMLElement, i = reveals.indexOf(el) % 4;
+      el.style.transitionDelay = `${i * 70}ms`; el.classList.add('in'); io.unobserve(el);
+      setTimeout(() => { el.style.transitionDelay = ''; }, 900);          // so hover stays instant afterwards
+    }), { threshold: 0.18 });
+    reveals.forEach((el) => io.observe(el));
+  }
+}
+const stage = $('[data-tilt]');
+if (stage && !calm && matchMedia('(pointer: fine)').matches) {
+  const tilt = $('.duo-tilt', stage)!;
+  stage.addEventListener('pointermove', (e) => {
+    const r = stage.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+    tilt.style.setProperty('--ry', `${(x * 10).toFixed(2)}deg`); tilt.style.setProperty('--rx', `${(-y * 8).toFixed(2)}deg`);
+  });
+  stage.addEventListener('pointerleave', () => { tilt.style.setProperty('--ry', '0deg'); tilt.style.setProperty('--rx', '0deg'); });
+}

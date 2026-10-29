@@ -3,6 +3,7 @@ import '@fontsource-variable/cormorant-garamond';
 import '@fontsource-variable/manrope';
 import '@fontsource-variable/cairo';
 import '../styles/global.css';
+import '../styles/sections.css';
 import { site, products, categories, waLink } from '../lib/data';
 import { LANGS, DICT, useT, lp } from '../i18n/dict';
 
@@ -82,7 +83,7 @@ const ui = { lang, f: T.f, cookie: T.cookie, name: site.name, whatsapp: site.wha
         <p>{T.footer.about}</p>
       </div>
       <div><h4>{T.footer.company}</h4>
-        <a href={lp(lang, '/about/')}>{T.nav.about}</a><a href={lp(lang, '/partnership/')}>{T.nav.partnership}</a><a href={lp(lang, '/logistics/')}>{T.nav.logistics}</a><a href={lp(lang, '/contact/')}>{T.nav.contact}</a></div>
+        <a href={lp(lang, '/about/')}>{T.nav.about}</a><a href={lp(lang, '/why-enesai/')}>{T.why.eyebrow}</a><a href={lp(lang, '/partnership/')}>{T.nav.partnership}</a><a href={lp(lang, '/logistics/')}>{T.nav.logistics}</a><a href={lp(lang, '/contact/')}>{T.nav.contact}</a></div>
       <div><h4>{T.footer.products}</h4>{categories.slice(0, 5).map((c) => <a href={lp(lang, `/products/${c.id}/`)}>{T.cats[c.id as keyof typeof T.cats][0]}</a>)}</div>
       <div><h4>{T.footer.legal}</h4><a href={lp(lang, '/privacy/')}>{T.footer.privacy}</a><a href={lp(lang, '/terms/')}>{T.footer.terms}</a><a href={lp(lang, '/credits/')}>{T.common.images}</a>
         <p class="fine-w">{site.licence}</p></div>

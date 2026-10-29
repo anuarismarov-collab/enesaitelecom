@@ -1,0 +1,14 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import WhySection from '../../components/WhySection.astro';
+import { langPaths } from '../../lib/paths';
+import { useT } from '../../i18n/dict';
+export const getStaticPaths = langPaths;
+const { lang } = Astro.params as { lang: string };
+const W = useT(lang).why;
+---
+<Base lang={lang} title={W.metaTitle} description={W.metaDesc}>
+  <PageHead lang={lang} title={W.title} lead={W.subtitle} />
+  <WhySection lang={lang} withHead={false} withCta />
+</Base>

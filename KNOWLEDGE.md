@@ -45,6 +45,15 @@ Real phone/email/WhatsApp, trade licence no., working hours, domain, logo files 
 - 2026-10-17: rebrand + brand images (19) + credits.
 - 2026-10-20: full B2B rebuild per client brief: new design from logo, i18n EN/RU/AR, lead-form Worker + KV (created KV namespace LEADS in owner's Cloudflare), cookie banner, world map, 179 pages, security checks + 17 worker tests pass, deployed and verified live (pages, redirect, form, headers).
 
+## Client feedback round 2 (2026-10-29) — DONE
+- **Hero**: client wording from their doc (H1 "Enesai Telecom FZCO", tagline "Global Electronics. Trusted Supply.", DAFZA-based wholesale supplier of consumer electronics and gaming consoles; CTAs "Become a Partner ↗" + "Explore Products") with an **iPhone 18 Pro Burgundy duo** (Apple Newsroom "2up" press image, `public/brand/iphone-18-pro-duo.webp`) in a dark spotlight panel: entrance + float + light-sweep animation, pointer tilt on desktop, off for reduced-motion. Image © Apple, temporary, credited on /credits/.
+- **About intro** on home ("Your Partner in Global Electronics Distribution") from the same client doc.
+- **Removed** the "Products & categories" carousel from home (category tiles stay).
+- **New "Brands We Supply"** section (Apple, Samsung, Xiaomi, Sony, DJI, Garmin, HP): plain text names (no logos — not permitted/verified), no links, 4 cols desktop / 2 mobile, fade-in + scale-up on scroll, hover enlarge (`BrandShowcase.astro`, `sections.css`, reveal code in `app.ts`). A small note says brand names belong to their owners; no partnership implied.
+- **Why Enesai**: new heading/subtitle/6 cards/CTA ("Looking for a Reliable Supply Partner?" → Contact page) from the client brief; shown on home (cards) AND as its own page `/{lang}/why-enesai/` with the requested meta title/description (`WhySection.astro`). Text in EN/RU/AR. DAFZA wording clarified as "a free-zone trade hub"; no unverified figures/claims added.
+- **Contact numbers** (from the client's WhatsApp chat): landline **+971 4 580 2484** (written 045802484 → 04 580 2484), mobile/WhatsApp **+971 52 627 3180** (the number that sent the chat — CONFIRM it is meant to be public). Email still placeholder. Chat timestamps ignored on purpose.
+- Client note: "other all ok" + they expect the developer to use own judgment for the final design.
+
 ## Mobile testing (added 2026-10-20)
 - Headless Chrome cannot go below ~500px wide, so it hides phone problems. Use Playwright (viewport 390×844) and measure `document.documentElement.scrollWidth` vs `clientWidth` — if scrollWidth is larger, the page scrolls sideways. Found + fixed: header (langs + quote button + burger) overflowed → language switcher and price-list button now live in the mobile menu; quote button is an icon + count under 640px.
 - Contact details still placeholders: phone/email/WhatsApp in `src/data/site.json` — waiting on the client's real numbers/address (the `Website-Information-Checklist.docx` in telecom-site is blank).

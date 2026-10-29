@@ -1,34 +1,36 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Art from '../../components/Art.astro';
-import ProductCard from '../../components/ProductCard.astro';
 import LeadForm from '../../components/LeadForm.astro';
 import WorldMap from '../../components/WorldMap.astro';
+import BrandShowcase from '../../components/BrandShowcase.astro';
+import WhySection from '../../components/WhySection.astro';
 import { langPaths } from '../../lib/paths';
 import { useT, lp } from '../../i18n/dict';
-import { categories, products, productsOf, imageOf, site } from '../../lib/data';
+import { categories, productsOf, imageOf, site } from '../../lib/data';
 export const getStaticPaths = langPaths;
 
 const { lang } = Astro.params as { lang: string };
-const T = useT(lang), H = T.home;
-const featured = products.filter((p) => p.featured).slice(0, 8);
-const hv = ['ipad-air-m2', 'macbook-pro-14', 'apple-watch-ultra-2', 'ps5-slim-disc', 'sony-wh-1000xm5'].map((id) => ({ id, img: imageOf(id)!, p: products.find((x) => x.id === id)! }));
+const T = useT(lang), H = T.home, HE = H.hero;
 ---
-<Base lang={lang} title={`${site.name} — ${H.h1a} ${H.h1b}`} description={H.lead}>
+<Base lang={lang} title={`${site.name} — ${HE.tagline}`} description={HE.lead}>
   <section class="hero">
     <div class="wrap hero-in">
       <div class="hero-copy">
         <span class="tag">{H.badge}</span>
-        <h1>{H.h1a} <span class="grad">{H.h1b}</span></h1>
-        <p class="lead">{H.lead}</p>
+        <h1><span class="h1-name">{HE.h1}</span><span class="grad">{HE.tagline}</span></h1>
+        <p class="lead">{HE.lead}</p>
         <div class="hero-btns">
-          <a href={lp(lang, '/products/#price-list')} class="btn lg">{H.cta1}</a>
-          <a href={lp(lang, '/partnership/')} class="btn lg ghost">{H.cta2}</a>
+          <a href={lp(lang, '/partnership/')} class="btn lg">{HE.cta1} <span aria-hidden="true">↗</span></a>
+          <a href={lp(lang, '/products/')} class="btn lg ghost">{HE.cta2}</a>
         </div>
         <ul class="chips">{H.chips.map((c) => <li>{c}</li>)}</ul>
       </div>
-      <div class="hero-vis" aria-hidden="true">
-        {hv.map((x, i) => <img class={`hv hv${i + 1}`} src={x.img.file} alt="" width="420" height="420" loading={i < 3 ? 'eager' : 'lazy'} decoding="async" />)}
+      <div class="hero-stage" data-tilt>
+        <div class="duo-tilt">
+          <img class="duo" src="/brand/iphone-18-pro-duo.webp" width="900" height="1260" alt={HE.stageAlt} decoding="async" fetchpriority="high" />
+        </div>
+        <span class="stage-shine" aria-hidden="true"></span>
       </div>
     </div>
   </section>
@@ -37,7 +39,12 @@ const hv = ['ipad-air-m2', 'macbook-pro-14', 'apple-watch-ultra-2', 'ps5-slim-di
     <div class="wrap stats-in">{H.stats.map((s) => <div class="stat"><b>{s.v}</b><span>{s.l}</span></div>)}</div>
   </section>
 
-  <section class="sec wrap">
+  <section class="sec wrap intro-grid">
+    <div><span class="eyebrow">{H.about.eyebrow}</span><h2>{H.about.title}</h2></div>
+    <div><p class="intro-text">{H.about.text}</p><a class="btn ghost" href={lp(lang, '/about/')}>{H.about.cta}</a></div>
+  </section>
+
+  <section class="sec tight wrap">
     <div class="head"><span class="eyebrow">{H.range.eyebrow}</span><h2>{H.range.title}</h2><p class="muted">{H.range.lead}</p></div>
     <div class="ctiles">
       {categories.map((c) => {
@@ -50,21 +57,12 @@ const hv = ['ipad-air-m2', 'macbook-pro-14', 'apple-watch-ultra-2', 'ps5-slim-di
         );
       })}
     </div>
-  </section>
-
-  <section class="sec tight">
-    <div class="wrap"><div class="head"><span class="eyebrow">{T.nav.products}</span><h2>{T.products.title}</h2></div></div>
-    <div class="carousel" tabindex="0" aria-label={T.nav.products}><div class="pgrid-row">{featured.map((p) => <ProductCard p={p} lang={lang} />)}</div></div>
-    <p class="swipe wrap">{T.common.swipe}</p>
     <p class="more"><a class="btn ghost" href={lp(lang, '/products/all/')}>{T.common.viewAll}</a></p>
   </section>
 
-  <section class="sec why">
-    <div class="wrap">
-      <div class="head"><span class="eyebrow">{H.why.eyebrow}</span><h2>{H.why.title}</h2></div>
-      <div class="why6">{H.why.items.map((it, i) => <div class="wcard"><span class="num">{String(i + 1).padStart(2, '0')}</span><h3>{it.t}</h3><p>{it.d}</p></div>)}</div>
-    </div>
-  </section>
+  <BrandShowcase lang={lang} />
+
+  <WhySection lang={lang} withMore />
 
   <section class="sec wrap geo">
     <div class="geo-copy"><span class="eyebrow">{H.geo.eyebrow}</span><h2>{H.geo.title}</h2><p class="muted">{H.geo.lead}</p>
