@@ -33,6 +33,11 @@ body.lang-ar .hero h1 .h1-name{letter-spacing:0}
   font-family:var(--f-head);font-size:clamp(1.5rem,2.5vw,2.2rem);font-weight:600;letter-spacing:.07em;color:var(--ink);text-align:center;cursor:default;user-select:none;
   transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
 .brand-tile:hover{transform:scale(1.06);box-shadow:var(--sh);border-color:var(--silver)}
+.brand-logo{color:#27304a;opacity:.82;display:block;height:auto;transition:opacity .3s ease,color .3s ease}
+.brand-tile:hover .brand-logo{opacity:1;color:var(--ink)}
+.logo-sq{width:46px}
+.logo-wide{width:min(74%,150px)}
+@media (max-width:700px){.logo-sq{width:38px}.logo-wide{width:min(76%,110px)}}
 @media (max-width:700px){.brands-sec{padding:60px 0}.brand-tile{flex:0 0 calc(50% - .55rem);min-height:92px}}
 
 /* scroll-in: fade + gentle scale-up (only when JS is running, so content never stays hidden) */

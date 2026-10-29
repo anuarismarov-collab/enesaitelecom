@@ -1,14 +1,33 @@
 ---
-// "Brands We Supply": visual showcase only (no links, no clicks). Brand names are shown as plain text on purpose —
-// official logos are only used when their use is permitted, and no official/authorised partnership is implied.
+// "Brands We Supply": visual showcase only (no links, no clicks).
+// Brand marks come from the Simple Icons set (single-colour vector logos) and are drawn in one uniform navy so no brand colours clash.
+// IMPORTANT: logos are trademarks of their owners. The client must confirm they are allowed to show them (see KNOWLEDGE.md).
+// To fall back to plain brand names (the client's safe option), set SHOW_LOGOS = false.
+import { siApple, siSamsung, siXiaomi, siSony, siDji, siGarmin, siHp } from 'simple-icons';
 import { useT } from '../i18n/dict';
 interface Props { lang: string }
 const B = useT(Astro.props.lang).home.brands;
+const SHOW_LOGOS = true;
+const ICONS: Record<string, { path: string; wide: boolean }> = {
+  Apple: { path: siApple.path, wide: false }, Samsung: { path: siSamsung.path, wide: true }, Xiaomi: { path: siXiaomi.path, wide: false },
+  Sony: { path: siSony.path, wide: true }, DJI: { path: siDji.path, wide: true }, Garmin: { path: siGarmin.path, wide: true }, HP: { path: siHp.path, wide: false },
+};
 ---
 <section class="brands-sec" aria-labelledby="brands-title">
   <div class="wrap">
     <div class="head center"><h2 id="brands-title">{B.title}</h2><p class="muted">{B.lead}</p></div>
-    <ul class="brand-grid">{B.list.map((b) => <li class="brand-tile rv" dir="ltr">{b}</li>)}</ul>
+    <ul class="brand-grid">
+      {B.list.map((b) => {
+        const ic = ICONS[b];
+        return (
+          <li class="brand-tile rv" dir="ltr">
+            {SHOW_LOGOS && ic
+              ? <svg class:list={['brand-logo', ic.wide ? 'logo-wide' : 'logo-sq']} viewBox="0 0 24 24" role="img" aria-label={b} focusable="false"><path d={ic.path} fill="currentColor" /></svg>
+              : <span>{b}</span>}
+          </li>
+        );
+      })}
+    </ul>
     <p class="fine center">{B.note}</p>
   </div>
 </section>
