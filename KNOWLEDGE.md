@@ -54,6 +54,12 @@ Real phone/email/WhatsApp, trade licence no., working hours, domain, logo files 
 - **Contact numbers** (from the client's WhatsApp chat): landline **+971 4 580 2484** (written 045802484 → 04 580 2484), mobile/WhatsApp **+971 52 627 3180** (the number that sent the chat — CONFIRM it is meant to be public). Email still placeholder. Chat timestamps ignored on purpose.
 - Client note: "other all ok" + they expect the developer to use own judgment for the final design.
 
+## Review pass (2026-10-29) — fonts, logo fidelity, unverified claims
+- **Fonts**: headings Cormorant Garamond (elegant serif, chosen to match the client's reference site), body Manrope, Arabic Cairo; all self-hosted. NOTE the real logo wordmark is a modern geometric sans — the serif headlines are a deliberate premium choice, not a logo match. Alternative if the client prefers a closer match: switch headings to a geometric sans (one-line change of `--f-head` in `global.css`).
+- **Header now uses the client's real logo** (symbol + their own ENESAI / TELECOM / FZCO lettering, `public/brand/logo-horizontal*.webp`, built by `scripts/make-brand-assets.mjs`) instead of re-typed text. Header collapses to the burger menu below 1260px (Russian labels are long).
+- **Removed unverified claims from product cards/pages**: stock status, warranty, "Condition: Brand new, sealed", retail badges (Hot/Deal/Best seller…), and the "available now" filter. Availability is "on request". Data still in `products.json` if the client later supplies real values.
+- Still to fix before public launch: remove the "Draft website for client review" top bar (`common.sampleBar` in `dict.ts` + `Base.astro`), real email/licence, real domain, approved RU/AR text, own photos (brand/Apple images and logos are temporary and need permission).
+
 ## Mobile testing (added 2026-10-20)
 - Headless Chrome cannot go below ~500px wide, so it hides phone problems. Use Playwright (viewport 390×844) and measure `document.documentElement.scrollWidth` vs `clientWidth` — if scrollWidth is larger, the page scrolls sideways. Found + fixed: header (langs + quote button + burger) overflowed → language switcher and price-list button now live in the mobile menu; quote button is an icon + count under 640px.
 - Contact details still placeholders: phone/email/WhatsApp in `src/data/site.json` — waiting on the client's real numbers/address (the `Website-Information-Checklist.docx` in telecom-site is blank).

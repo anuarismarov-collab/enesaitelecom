@@ -19,6 +19,27 @@ body.lang-ar .hero h1 .h1-name{letter-spacing:0}
 @keyframes shine{0%{transform:translateX(-130%)}40%,100%{transform:translateX(130%)}}
 @media (max-width:900px){.hero-stage{width:min(86%,360px);margin-top:.5rem}}
 
+/* ---- header logo: the client's real symbol + wordmark ---- */
+.nav .wrap{width:min(1340px,94%)}
+.brand .brand-img{height:46px;width:auto;max-width:none;flex:none;display:block}
+/* compact (burger) header already below 1260px — long Russian/Arabic labels do not fit the full menu before that */
+@media (max-width:1260px){
+  .brand .brand-img{height:40px}
+  .burger{display:block}
+  .nav-in{gap:.7rem}
+  .quote-btn{margin-inline-start:auto}
+  .links{position:absolute;top:100%;inset-inline:0;flex-direction:column;gap:0;background:#fff;padding:.4rem 4%;border-bottom:1px solid var(--line);margin:0;display:none;font-size:.95rem}
+  .links.open{display:flex}
+  .links a{padding:1rem 0;border-bottom:1px solid var(--line)}
+  .langs-d,.cta-nav{display:none}
+  .menu-extra{display:flex;flex-direction:column;gap:.9rem;padding:1rem 0 .6rem}
+  .menu-extra .langs{align-self:flex-start;border-radius:12px}
+  .links .menu-extra a{padding:.45rem .9rem;border-bottom:0;font-size:.85rem}
+  .links .menu-extra .btn{padding:.9rem 1.2rem;color:#fff;font-size:.95rem}
+}
+@media (max-width:1560px){body.lang-ru .cta-nav{display:none}}
+@media (max-width:640px){.brand .brand-img{height:34px;width:auto}}
+
 /* ---- about intro ---- */
 .intro-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:3rem;align-items:start}
 .intro-text{font-size:1.12rem;color:var(--text);margin-bottom:1.3rem;max-width:640px}

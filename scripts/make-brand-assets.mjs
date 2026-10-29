@@ -32,6 +32,15 @@ for (const [name, buf] of [['', dark], ['-white', white]]) {
   const full = await trim(buf), mark = await trim(buf, markRegion);
   await sharp(full).resize({ width: 900, withoutEnlargement: true }).webp({ quality: 90, alphaQuality: 95 }).toFile(`public/brand/logo-full${name}.webp`);
   await sharp(mark).resize({ width: 320, withoutEnlargement: true }).webp({ quality: 90, alphaQuality: 95 }).toFile(`public/brand/logo-mark${name}.webp`);
+  // horizontal lockup for the header: symbol on the left, the client's real wordmark (ENESAI / TELECOM / FZCO) on the right
+  const word = await trim(buf, { left: 0, top: Math.round(info.height * 0.52), width: info.width, height: info.height - Math.round(info.height * 0.52) });
+  const H = 220, gap = 54;
+  const mk = await sharp(mark).resize({ height: H }).png().toBuffer(), wd = await sharp(word).resize({ height: H }).png().toBuffer();
+  const mkW = (await sharp(mk).metadata()).width, wdW = (await sharp(wd).metadata()).width;
+  const lock = await sharp({ create: { width: mkW + gap + wdW, height: H, channels: 4, background: { r: 0, g: 0, b: 0, alpha: 0 } } })
+    .composite([{ input: mk, left: 0, top: 0 }, { input: wd, left: mkW + gap, top: 0 }]).png().toBuffer();
+  const meta = await sharp(lock).webp({ quality: 90, alphaQuality: 95 }).toFile(`public/brand/logo-horizontal${name}.webp`);
+  console.log(`logo-horizontal${name}.webp ${meta.width}x${meta.height}`);
 }
 // 3) icons: mark on white tile
 const mark = await trim(dark, markRegion);

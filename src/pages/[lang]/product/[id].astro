@@ -21,20 +21,19 @@ const ld = { '@context': 'https://schema.org', '@type': 'Product', name: p.name,
   <section class="sec tight wrap">
     <div class="dgrid">
       <div>
-        <div class:list={['dimg', { 'has-photo': !!photo }]}><ProductImg p={p} priority />{p.badge && <span class="pbadge">{p.badge}</span>}</div>
+        <div class:list={['dimg', { 'has-photo': !!photo }]}><ProductImg p={p} priority /></div>
         {photo && photo.kind === 'brand' && <p class="fine">Image © {photo.author}, from the manufacturer's official product page. Temporary image.</p>}
         {photo && !photo.own && photo.kind !== 'brand' && <p class="fine">Photo: {photo.author} · <a href={photo.licenseUrl || photo.source} target="_blank" rel="noopener noreferrer">{photo.license}</a> · <a href={photo.source} target="_blank" rel="noopener noreferrer">source</a>. Temporary image.</p>}
       </div>
       <div class="dinfo">
         <span class="brandline">{p.brand}</span>
-        <div class="prow"><span class={`pill ${p.stock}`}>{T.stock[p.stock]}</span><span class="pill plain">{C.warranty}: {p.warranty}</span></div>
         <p class="por big">{C.priceOnRequest} · {C.moq}</p>
         <p class="ddesc">{p.desc}</p>
         <button class="btn lg" type="button" data-add={p.id}>{C.addToQuote}</button>
       </div>
     </div>
     <h2 class="sh">{C.specs}</h2>
-    <table class="specs"><tbody>{Object.entries(p.specs).map(([k, v]) => <tr><th scope="row">{k}</th><td><bdi>{v}</bdi></td></tr>)}</tbody></table>
+    <table class="specs"><tbody>{Object.entries(p.specs).filter(([k]) => k !== 'Condition').map(([k, v]) => <tr><th scope="row">{k}</th><td><bdi>{v}</bdi></td></tr>)}</tbody></table>
     <div class="form-card inquiry">
       <div class="form-intro"><h2>{T.products.productForm}</h2><p class="muted">{T.products.productFormLead}</p></div>
       <LeadForm lang={lang} kind="product" productId={p.id} productName={p.name} />

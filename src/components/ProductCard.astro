@@ -7,14 +7,14 @@ const { p, lang } = Astro.props;
 const T = useT(lang);
 const href = lp(lang, `/product/${p.id}/`);
 const catLabel = T.cats[p.cat as keyof typeof T.cats]?.[0] ?? p.cat;
+// Stock status, warranty and retail badges are sample data, so they are NOT shown (no unverified claims). Availability is "on request".
 ---
-<article class="pcard" data-brand={p.brand} data-stock={p.stock} data-feat={p.featured ? 1 : 0} data-name={p.name} data-search={`${p.name} ${p.brand} ${catLabel}`.toLowerCase()}>
-  {p.badge && <span class="pbadge">{p.badge}</span>}
+<article class="pcard" data-brand={p.brand} data-feat={p.featured ? 1 : 0} data-name={p.name} data-search={`${p.name} ${p.brand} ${catLabel}`.toLowerCase()}>
   <a href={href} class:list={['pimg', { 'has-photo': !!imageOf(p.id) }]} aria-label={p.name} tabindex="-1"><ProductImg p={p} /></a>
   <div class="pbody">
     <small>{p.brand} · {catLabel}</small>
     <h3><a href={href}>{p.name}</a></h3>
-    <div class="prow"><span class={`pill ${p.stock}`}>{T.stock[p.stock]}</span><span class="por">{T.common.priceOnRequest}</span></div>
+    <div class="prow"><span class="por">{T.common.priceOnRequest}</span></div>
     <button class="btn block" type="button" data-add={p.id}>{T.common.addToQuote}</button>
   </div>
 </article>

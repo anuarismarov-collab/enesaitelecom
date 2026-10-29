@@ -105,7 +105,7 @@ $$<HTMLFormElement>('form[data-lead]').forEach((f) => f.addEventListener('submit
 const listing = $('[data-listing]');
 if (listing) {
   const grid = $('[data-grid]', listing)!, cards = $$('.pcard', grid), empty = $('[data-empty]', listing)!;
-  const sortEl = $<HTMLSelectElement>('#sort')!, stockEl = $<HTMLInputElement>('#stockOnly')!;
+  const sortEl = $<HTMLSelectElement>('#sort')!, stockEl = $<HTMLInputElement>('#stockOnly');   // stock filter removed (availability is "on request")
   const params = new URLSearchParams(location.search);
   const q = clean(params.get('q') || '', 60).toLowerCase(), wantBrand = params.get('brand');
   if (wantBrand) $$<HTMLInputElement>('input[name=brand]', listing).forEach((i) => { if (i.value === wantBrand) i.checked = true; });
@@ -113,7 +113,7 @@ if (listing) {
     const brands = $$<HTMLInputElement>('input[name=brand]:checked', listing).map((i) => i.value);
     const shown = cards.filter((c) => {
       const d = c.dataset;
-      const ok = (!brands.length || brands.includes(d.brand!)) && (!stockEl.checked || d.stock === 'in' || d.stock === 'low') && (!q || d.search!.includes(q));
+      const ok = (!brands.length || brands.includes(d.brand!)) && (!stockEl?.checked || d.stock === 'in' || d.stock === 'low') && (!q || d.search!.includes(q));
       c.hidden = !ok; return ok;
     });
     shown.sort((a, b) => sortEl.value === 'name' ? a.dataset.name!.localeCompare(b.dataset.name!) : Number(b.dataset.feat) - Number(a.dataset.feat));
@@ -123,7 +123,7 @@ if (listing) {
   };
   listing.addEventListener('input', apply);
   sortEl.addEventListener('change', apply);
-  $('#reset')!.addEventListener('click', () => { $$<HTMLInputElement>('input[name=brand]', listing).forEach((i) => (i.checked = false)); stockEl.checked = false; sortEl.value = 'featured'; apply(); });
+  $('#reset')!.addEventListener('click', () => { $$<HTMLInputElement>('input[name=brand]', listing).forEach((i) => (i.checked = false)); if (stockEl) stockEl.checked = false; sortEl.value = 'featured'; apply(); });
   $('#fToggle')?.addEventListener('click', (ev) => { const open = $('#filters')!.classList.toggle('show'); (ev.currentTarget as HTMLElement).setAttribute('aria-expanded', String(open)); });
   apply();
 }

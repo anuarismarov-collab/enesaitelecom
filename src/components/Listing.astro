@@ -23,7 +23,6 @@ const brandList = [...new Set(items.map((p) => p.brand))].sort((a, b) => a.local
     <div class="fgrp"><h4>{C.brand}</h4>
       {brandList.map((b) => <label class="rad"><input type="checkbox" name="brand" value={b} /> {b}</label>)}
     </div>
-    <div class="fgrp"><label class="rad"><input type="checkbox" id="stockOnly" /> {C.inStockOnly}</label></div>
     <button class="btn ghost block" id="reset" type="button">{C.reset}</button>
   </aside>
   <div>

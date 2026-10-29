@@ -53,8 +53,7 @@ const ui = { lang, f: T.f, cookie: T.cookie, name: site.name, whatsapp: site.wha
   <header class="nav">
     <div class="wrap nav-in">
       <a href={lp(lang)} class="brand" aria-label={site.name}>
-        <img src="/brand/logo-mark.webp" width="38" height="38" alt="" />
-        <span class="brand-t"><b>ENESAI</b><small>TELECOM FZCO</small></span>
+        <img class="brand-img" src="/brand/logo-horizontal.webp" width="208" height="46" alt={site.name} fetchpriority="high" />
       </a>
       <nav class="links" id="links" aria-label="Main">
         {nav.map(([p, label]) => <a href={lp(lang, p)} aria-current={isActive(p) ? 'page' : undefined}>{label}</a>)}
