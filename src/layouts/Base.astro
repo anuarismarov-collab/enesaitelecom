@@ -14,8 +14,8 @@ const origin = Astro.site!.origin;
 const pathname = Astro.url.pathname;
 const rest = pathname.replace(/^\/(en|ru|ar)(?=\/|$)/, '') || '/';          // path without language prefix
 const canonical = origin + lp(lang, rest);
-const fullTitle = title.includes('Enesai') || title.includes('ENESAI') ? title : `${title} | Enesai Telecom`;
-const org = { '@context': 'https://schema.org', '@type': 'Organization', name: site.name, url: origin, logo: origin + '/brand/logo-full.webp', foundingDate: String(site.founded), address: { '@type': 'PostalAddress', streetAddress: 'First Floor, 5 East B, Dubai Airport Free Zone', addressLocality: 'Dubai', addressCountry: 'AE' }, email: site.email, telephone: site.phone };
+const fullTitle = /enesai|إينيساي/i.test(title) ? title : `${title} | Enesai Telecom`;
+const org = { '@context': 'https://schema.org', '@type': 'Organization', name: site.name, url: origin, logo: origin + '/brand/logo-full.webp', foundingDate: String(site.founded), address: { '@type': 'PostalAddress', streetAddress: 'First Floor, 5 East B, Dubai Airport Free Zone', addressLocality: 'Dubai', addressCountry: 'AE' }, telephone: site.phone, ...(site.email ? { email: site.email } : {}), ...(site.linkedin ? { sameAs: [site.linkedin] } : {}) };
 // JSON blocks are data, not code — allowed under the strict CSP. "<" is escaped so data can never close the tag.
 const safeJson = (o: unknown) => JSON.stringify(o).replace(/</g, '\\u003c');
 const catalog = Object.fromEntries(products.map((p) => [p.id, p.name]));
@@ -82,14 +82,16 @@ const ui = { lang, f: T.f, cookie: T.cookie, name: site.name, whatsapp: site.wha
         <p>{T.footer.about}</p>
       </div>
       <div><h4>{T.footer.company}</h4>
-        <a href={lp(lang, '/about/')}>{T.nav.about}</a><a href={lp(lang, '/why-enesai/')}>{T.why.eyebrow}</a><a href={lp(lang, '/partnership/')}>{T.nav.partnership}</a><a href={lp(lang, '/logistics/')}>{T.nav.logistics}</a><a href={lp(lang, '/contact/')}>{T.nav.contact}</a></div>
+        <a href={lp(lang, '/about/')}>{T.nav.about}</a><a href={lp(lang, '/why-enesai/')}>{T.why.eyebrow}</a><a href={lp(lang, '/how-we-work/')}>{T.how.eyebrow}</a><a href={lp(lang, '/partnership/')}>{T.nav.partnership}</a><a href={lp(lang, '/logistics/')}>{T.nav.logistics}</a><a href={lp(lang, '/contact/')}>{T.nav.contact}</a></div>
       <div><h4>{T.footer.products}</h4>{categories.slice(0, 5).map((c) => <a href={lp(lang, `/products/${c.id}/`)}>{T.cats[c.id as keyof typeof T.cats][0]}</a>)}</div>
       <div><h4>{T.footer.legal}</h4><a href={lp(lang, '/privacy/')}>{T.footer.privacy}</a><a href={lp(lang, '/terms/')}>{T.footer.terms}</a><a href={lp(lang, '/credits/')}>{T.common.images}</a>
-        <p class="fine-w">{site.licence}</p></div>
+        {site.licence && <p class="fine-w">{T.contact.licence}: {site.licence}</p>}</div>
       <div><h4>{T.footer.contact}</h4>
         <a href={`tel:${site.phone.replace(/\s/g, '')}`} dir="ltr">{site.phone}</a>
-        <a href={`mailto:${site.email}`}>{site.email}</a>
+        {site.email && <a href={`mailto:${site.email}`} dir="ltr">{site.email}</a>}
         <a href={waLink(`Hello ${site.name}`)} target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        {site.telegram && <a href={site.telegram} target="_blank" rel="noopener noreferrer">Telegram</a>}
+        {site.linkedin && <a href={site.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>}
         <p class="fine-w">{site.address}</p></div>
     </div>
     <div class="wrap foot-bot"><span>© {new Date().getFullYear()} {site.name}. {T.footer.rights}</span></div>

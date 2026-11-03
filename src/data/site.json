@@ -2,11 +2,19 @@
   "name": "ENESAI TELECOM FZCO",
   "shortName": "Enesai Telecom",
   "founded": 2022,
+  "legalForm": "FZCO",
   "whatsapp": "971526273180",
   "phone": "+971 4 580 2484",
-  "email": "sales@example.com",
+  "email": "",
   "address": "First Floor, 5 East B, Dubai Airport Free Zone, Dubai, UAE",
   "hours": "Mon – Fri · 9:00 – 18:00 (GST)",
-  "licence": "Trade licence no. — to be added",
-  "ga4": ""
+  "licence": "",
+  "licenceAuthority": "",
+  "taxNo": "",
+  "contactName": "",
+  "contactRole": "",
+  "telegram": "",
+  "linkedin": "",
+  "ga4": "",
+  "_help": "Fields left empty are hidden on the website. Fill email, licence, taxNo, contactName/contactRole, telegram (e.g. https://t.me/username) and linkedin (company page URL) when the client provides them."
 }

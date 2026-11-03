@@ -40,6 +40,18 @@ body.lang-ar .hero h1 .h1-name{letter-spacing:0}
 @media (max-width:1560px){body.lang-ru .cta-nav{display:none}}
 @media (max-width:640px){.brand .brand-img{height:34px;width:auto}}
 
+/* ---- "How we work" page ---- */
+.steps.six{grid-template-columns:repeat(3,1fr)}
+@media (max-width:900px){.steps.six{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.steps.six{grid-template-columns:1fr}}
+.details{display:grid;grid-template-columns:minmax(120px,38%) 1fr;gap:.2rem 1rem;margin-top:1.2rem}
+.details dt{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--steel);padding:.7rem 0;border-bottom:1px solid var(--line)}
+.details dd{padding:.55rem 0;border-bottom:1px solid var(--line);color:var(--ink);font-weight:600}
+.two-col .tick-list{margin-top:1.2rem}
+a.brandline:hover{text-decoration:underline}
+.offers td{vertical-align:middle}
+.empty.big p{max-width:560px;margin-inline:auto}
+
 /* ---- about intro ---- */
 .intro-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:3rem;align-items:start}
 .intro-text{font-size:1.12rem;color:var(--text);margin-bottom:1.3rem;max-width:640px}

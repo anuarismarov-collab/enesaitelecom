@@ -1,0 +1,22 @@
+---
+// "Current offers" / stock list. Driven by src/data/offers.json — an array of { "product": "...", "qty": "300", "note": "..." }.
+// Real data only. While the list is empty the page is not linked from the menu and is hidden from search engines.
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import { langPaths } from '../../lib/paths';
+import { useT, lp } from '../../i18n/dict';
+import offersJson from '../../data/offers.json';
+export const getStaticPaths = langPaths;
+const { lang } = Astro.params as { lang: string };
+const T = useT(lang), O = T.offers;
+const offers = offersJson as { product: string; qty?: string; note?: string }[];
+---
+<Base lang={lang} title={O.title} description={O.lead} noindex={offers.length === 0}>
+  <PageHead lang={lang} title={O.title} lead={O.lead} />
+  <section class="sec tight wrap">
+    {offers.length === 0
+      ? <div class="empty big"><p>{O.empty}</p><p class="more"><a class="btn" href={lp(lang, '/products/#price-list')}>{T.nav.cta}</a></p></div>
+      : <table class="specs offers"><thead><tr><th scope="col">{O.product}</th><th scope="col">{O.qty}</th><th scope="col">{O.notes}</th><th scope="col"></th></tr></thead>
+          <tbody>{offers.map((o) => <tr><td><bdi>{o.product}</bdi></td><td><bdi>{o.qty ?? ''}</bdi></td><td>{o.note ?? ''}</td><td><a class="btn sm" href={lp(lang, '/contact/')}>{O.action}</a></td></tr>)}</tbody></table>}
+  </section>
+</Base>

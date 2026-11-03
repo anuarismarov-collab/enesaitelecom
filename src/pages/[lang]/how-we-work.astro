@@ -1,0 +1,39 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import { langPaths } from '../../lib/paths';
+import { useT, lp } from '../../i18n/dict';
+import { site } from '../../lib/data';
+export const getStaticPaths = langPaths;
+const { lang } = Astro.params as { lang: string };
+const T = useT(lang), H = T.how, L = H.labels;
+// Only facts that really exist are shown. Empty fields in src/data/site.json stay hidden (no placeholders on the public site).
+const rows: [string, string][] = [
+  [L.legalName, site.name], [L.established, String(site.founded)], [L.legalForm, site.legalForm],
+  ...(site.licence ? [[L.licence, site.licence] as [string, string]] : []), ...(site.licenceAuthority ? [[L.authority, site.licenceAuthority] as [string, string]] : []),
+  ...(site.taxNo ? [[L.tax, site.taxNo] as [string, string]] : []),
+  [L.address, site.address], [L.phone, site.phone], ...(site.email ? [[L.email, site.email] as [string, string]] : []), [L.hours, site.hours],
+  ...(site.contactName ? [[L.person, `${site.contactName}${site.contactRole ? ' — ' + site.contactRole : ''}`] as [string, string]] : []),
+];
+const faqLd = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: H.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+---
+<Base lang={lang} title={H.metaTitle} description={H.metaDesc} jsonLd={faqLd}>
+  <PageHead lang={lang} title={H.title} lead={H.lead} />
+  <section class="sec wrap">
+    <ol class="steps six">{H.steps.map(([t, d], i) => <li><span class="num">{i + 1}</span><h3>{t}</h3><p>{d}</p></li>)}</ol>
+  </section>
+  <section class="sec why">
+    <div class="wrap two-col">
+      <div><h2>{H.docsTitle}</h2><ul class="tick-list">{H.docs.map((d) => <li>{d}</li>)}</ul><p class="fine">{H.docsNote}</p></div>
+      <div><h2>{H.detailsTitle}</h2><dl class="details">{rows.map(([k, v]) => <><dt>{k}</dt><dd><bdi>{v}</bdi></dd></>)}</dl></div>
+    </div>
+  </section>
+  <section class="sec wrap faq-sec">
+    <div><h2>{H.faqTitle}</h2></div>
+    <div class="faq">{H.faq.map((it) => <details><summary>{it.q}</summary><p>{it.a}</p></details>)}</div>
+  </section>
+  <section class="band">
+    <div class="wrap band-in"><div><h2>{H.cta.title}</h2><p>{H.cta.text}</p></div>
+      <div class="band-btns"><a class="btn lg light" href={lp(lang, '/products/#price-list')}>{H.cta.button}</a></div></div>
+  </section>
+</Base>

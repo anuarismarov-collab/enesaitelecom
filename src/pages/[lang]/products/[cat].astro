@@ -12,8 +12,10 @@ const T = useT(lang);
 const isAll = cat === 'all';
 const [name, blurb] = isAll ? [T.products.all, T.products.lead] : T.cats[cat as keyof typeof T.cats];
 const items = isAll ? products : productsOf(cat);
+// search-friendly intro text per category (template in dict.ts → landing.catIntro)
+const intro = isAll ? blurb : T.landing.catIntro.replace('{name}', name.toLowerCase()).replace('{blurb}', blurb);
 ---
-<Base lang={lang} title={name} description={isAll ? blurb : `${name} — ${blurb}. ${T.common.priceOnRequest}.`}>
-  <PageHead lang={lang} title={name} lead={isAll ? undefined : blurb} crumbs={[[T.nav.products, lp(lang, '/products/')]]} />
+<Base lang={lang} title={name} description={intro}>
+  <PageHead lang={lang} title={name} lead={intro} crumbs={[[T.nav.products, lp(lang, '/products/')]]} />
   <section class="sec tight wrap"><Listing items={items} lang={lang} activeCat={isAll ? '' : cat} /></section>
 </Base>

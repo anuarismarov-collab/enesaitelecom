@@ -5,7 +5,7 @@ import ProductImg from '../../../components/ProductImg.astro';
 import ProductCard from '../../../components/ProductCard.astro';
 import LeadForm from '../../../components/LeadForm.astro';
 import { LANGS, useT, lp } from '../../../i18n/dict';
-import { products, imageOf, site, type Product } from '../../../lib/data';
+import { products, imageOf, site, slugify, type Product } from '../../../lib/data';
 export function getStaticPaths() { return LANGS.flatMap((lang) => products.map((p) => ({ params: { lang, id: p.id }, props: { p } }))); }
 const { lang } = Astro.params as { lang: string };
 const { p } = Astro.props as { p: Product };
@@ -26,7 +26,7 @@ const ld = { '@context': 'https://schema.org', '@type': 'Product', name: p.name,
         {photo && !photo.own && photo.kind !== 'brand' && <p class="fine">Photo: {photo.author} · <a href={photo.licenseUrl || photo.source} target="_blank" rel="noopener noreferrer">{photo.license}</a> · <a href={photo.source} target="_blank" rel="noopener noreferrer">source</a>. Temporary image.</p>}
       </div>
       <div class="dinfo">
-        <span class="brandline">{p.brand}</span>
+        <a class="brandline" href={lp(lang, `/brands/${slugify(p.brand)}/`)}>{p.brand}</a>
         <p class="por big">{C.priceOnRequest} · {C.moq}</p>
         <p class="ddesc">{p.desc}</p>
         <button class="btn lg" type="button" data-add={p.id}>{C.addToQuote}</button>

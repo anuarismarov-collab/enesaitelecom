@@ -1,0 +1,19 @@
+---
+// One wholesale landing page per brand (search-friendly). Neutral wording only: no claim of authorisation or partnership.
+import Base from '../../../layouts/Base.astro';
+import PageHead from '../../../components/PageHead.astro';
+import Listing from '../../../components/Listing.astro';
+import { LANGS, useT, lp } from '../../../i18n/dict';
+import { brands, products, slugify } from '../../../lib/data';
+export function getStaticPaths() { return LANGS.flatMap((lang) => brands.map((b) => ({ params: { lang, slug: slugify(b) }, props: { brand: b } }))); }
+const { lang } = Astro.params as { lang: string };
+const { brand } = Astro.props as { brand: string };
+const T = useT(lang), N = T.landing;
+const title = N.brandTitle.replace('{brand}', brand);
+const intro = N.brandIntro.replace('{brand}', brand);
+const items = products.filter((p) => p.brand === brand);
+---
+<Base lang={lang} title={title} description={intro}>
+  <PageHead lang={lang} title={title} lead={intro} crumbs={[[T.nav.products, lp(lang, '/products/')]]} />
+  <section class="sec tight wrap"><Listing items={items} lang={lang} /><p class="fine">{N.brandNote}</p></section>
+</Base>

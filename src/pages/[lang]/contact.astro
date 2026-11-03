@@ -16,9 +16,12 @@ const T = useT(lang), C = T.contact;
       <ul class="cinfo">
         <li><b>{C.address}</b>{site.address}</li>
         <li><b>{C.phone}</b><a href={`tel:${site.phone.replace(/\s/g, '')}`} dir="ltr">{site.phone}</a></li>
-        <li><b>{C.email}</b><a href={`mailto:${site.email}`} dir="ltr">{site.email}</a></li>
+        {site.email && <li><b>{C.email}</b><a href={`mailto:${site.email}`} dir="ltr">{site.email}</a></li>}
         <li><b>{C.hours}</b>{site.hours}</li>
         <li><b>{C.whatsapp}</b><a href={waLink(`Hello ${site.name}`)} target="_blank" rel="noopener noreferrer">{C.chat}</a></li>
+        {site.telegram && <li><b>{C.telegram}</b><a href={site.telegram} target="_blank" rel="noopener noreferrer">{site.telegram.replace('https://', '')}</a></li>}
+        {site.linkedin && <li><b>{C.linkedin}</b><a href={site.linkedin} target="_blank" rel="noopener noreferrer">{site.linkedin.replace('https://', '')}</a></li>}
+        {site.licence && <li><b>{C.licence}</b>{site.licence}</li>}
       </ul>
       <div class="map" role="img" aria-label={C.map}><div class="mapcap"><b>{site.address}</b><small>{C.map}</small></div></div>
     </div>
