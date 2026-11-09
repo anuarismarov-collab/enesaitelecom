@@ -4,7 +4,7 @@ import '@fontsource-variable/manrope';
 import '@fontsource-variable/cairo';
 import '../styles/global.css';
 import '../styles/sections.css';
-import { site, products, categories, waLink } from '../lib/data';
+import { site, products, categories, waLink, showCatalog } from '../lib/data';
 import { LANGS, DICT, useT, lp } from '../i18n/dict';
 
 interface Props { lang: string; title: string; description: string; jsonLd?: object; noindex?: boolean }
@@ -15,11 +15,13 @@ const pathname = Astro.url.pathname;
 const rest = pathname.replace(/^\/(en|ru|ar)(?=\/|$)/, '') || '/';          // path without language prefix
 const canonical = origin + lp(lang, rest);
 const fullTitle = /enesai|إينيساي/i.test(title) ? title : `${title} | Enesai Telecom`;
-const org = { '@context': 'https://schema.org', '@type': 'Organization', name: site.name, url: origin, logo: origin + '/brand/logo-full.webp', foundingDate: String(site.founded), address: { '@type': 'PostalAddress', streetAddress: 'First Floor, 5 East B, Dubai Airport Free Zone', addressLocality: 'Dubai', addressCountry: 'AE' }, telephone: site.phone, ...(site.email ? { email: site.email } : {}), ...(site.linkedin ? { sameAs: [site.linkedin] } : {}) };
+const org = { '@context': 'https://schema.org', '@type': 'Organization', name: site.name, url: origin, logo: origin + '/brand/logo-full.webp', foundingDate: String(site.founded), address: { '@type': 'PostalAddress', streetAddress: 'Office #136, First Floor, 5 East B, Dubai Airport Free Zone', addressLocality: 'Dubai', addressCountry: 'AE' }, telephone: site.phone, ...(site.email ? { email: site.email } : {}), ...(site.linkedin ? { sameAs: [site.linkedin] } : {}) };
 // JSON blocks are data, not code — allowed under the strict CSP. "<" is escaped so data can never close the tag.
 const safeJson = (o: unknown) => JSON.stringify(o).replace(/</g, '\\u003c');
-const catalog = Object.fromEntries(products.map((p) => [p.id, p.name]));
-const nav: [string, string][] = [['/', T.nav.home], ['/about/', T.nav.about], ['/products/', T.nav.products], ['/partnership/', T.nav.partnership], ['/logistics/', T.nav.logistics], ['/contact/', T.nav.contact]];
+const catalog = showCatalog ? Object.fromEntries(products.map((p) => [p.id, p.name])) : {};   // hidden catalog = nothing of it in the page source
+const nav: [string, string][] = [['/', T.nav.home], ['/about/', T.nav.about], ...(showCatalog ? [['/products/', T.nav.products] as [string, string]] : []), ['/partnership/', T.nav.partnership], ['/logistics/', T.nav.logistics], ['/contact/', T.nav.contact]];
+// price-list request form: on the catalog page when it exists, otherwise on the home page
+const ctaHref = showCatalog ? lp(lang, '/products/#price-list') : lp(lang) + '#price-list';
 const isActive = (p: string) => (p === '/' ? rest === '/' : rest.startsWith(p));
 const ui = { lang, f: T.f, cookie: T.cookie, name: site.name, whatsapp: site.whatsapp, ga4: site.ga4, catalog, empty: T.f.quoteEmpty, shown: T.common.products, noMatch: T.common.noMatch };
 ---
@@ -53,7 +55,7 @@ const ui = { lang, f: T.f, cookie: T.cookie, name: site.name, whatsapp: site.wha
   <header class="nav">
     <div class="wrap nav-in">
       <a href={lp(lang)} class="brand" aria-label={site.name}>
-        <img class="brand-img" src="/brand/logo-horizontal.webp" width="208" height="46" alt={site.name} fetchpriority="high" />
+        <img class="brand-img" src="/brand/logo-horizontal.webp" width="231" height="46" alt={site.name} fetchpriority="high" />
       </a>
       <nav class="links" id="links" aria-label="Main">
         {nav.map(([p, label]) => <a href={lp(lang, p)} aria-current={isActive(p) ? 'page' : undefined}>{label}</a>)}
@@ -61,14 +63,14 @@ const ui = { lang, f: T.f, cookie: T.cookie, name: site.name, whatsapp: site.wha
           <div class="langs" role="group" aria-label={T.nav.language}>
             {LANGS.map((l) => <a href={lp(l, rest)} hreflang={l} lang={l} aria-current={l === lang ? 'true' : undefined}>{DICT[l].langName}</a>)}
           </div>
-          <a class="btn" href={lp(lang, '/products/#price-list')}>{T.nav.cta}</a>
+          <a class="btn" href={ctaHref}>{T.nav.cta}</a>
         </div>
       </nav>
       <div class="langs langs-d" role="group" aria-label={T.nav.language}>
         {LANGS.map((l) => <a href={lp(l, rest)} hreflang={l} lang={l} aria-current={l === lang ? 'true' : undefined}>{DICT[l].short}</a>)}
       </div>
-      <button class="btn sm quote-btn" type="button" data-open aria-label={T.nav.quote}><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></svg><span class="qlabel">{T.nav.quote}</span> <b id="cartCount">0</b></button>
-      <a class="btn sm cta-nav" href={lp(lang, '/products/#price-list')}>{T.nav.cta}</a>
+      <button class="btn sm quote-btn" type="button" hidden={!showCatalog} data-open aria-label={T.nav.quote}><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></svg><span class="qlabel">{T.nav.quote}</span> <b id="cartCount">0</b></button>
+      <a class="btn sm cta-nav" href={ctaHref}>{T.nav.cta}</a>
       <button class="burger" id="burger" type="button" aria-label={T.nav.menu} aria-expanded="false" aria-controls="links"><span></span><span></span></button>
     </div>
   </header>
@@ -78,12 +80,12 @@ const ui = { lang, f: T.f, cookie: T.cookie, name: site.name, whatsapp: site.wha
   <footer class="foot">
     <div class="wrap foot-in">
       <div class="foot-brand">
-        <img src="/brand/logo-full-white.webp" width="180" height="143" alt={site.name} loading="lazy" />
+        <img src="/brand/logo-full-white.webp" width="180" height="121" alt={site.name} loading="lazy" />
         <p>{T.footer.about}</p>
       </div>
       <div><h4>{T.footer.company}</h4>
         <a href={lp(lang, '/about/')}>{T.nav.about}</a><a href={lp(lang, '/why-enesai/')}>{T.why.eyebrow}</a><a href={lp(lang, '/how-we-work/')}>{T.how.eyebrow}</a><a href={lp(lang, '/partnership/')}>{T.nav.partnership}</a><a href={lp(lang, '/logistics/')}>{T.nav.logistics}</a><a href={lp(lang, '/contact/')}>{T.nav.contact}</a></div>
-      <div><h4>{T.footer.products}</h4>{categories.slice(0, 5).map((c) => <a href={lp(lang, `/products/${c.id}/`)}>{T.cats[c.id as keyof typeof T.cats][0]}</a>)}</div>
+      {showCatalog && <div><h4>{T.footer.products}</h4>{categories.slice(0, 5).map((c) => <a href={lp(lang, `/products/${c.id}/`)}>{T.cats[c.id as keyof typeof T.cats][0]}</a>)}</div>}
       <div><h4>{T.footer.legal}</h4><a href={lp(lang, '/privacy/')}>{T.footer.privacy}</a><a href={lp(lang, '/terms/')}>{T.footer.terms}</a><a href={lp(lang, '/credits/')}>{T.common.images}</a>
         {site.licence && <p class="fine-w">{T.contact.licence}: {site.licence}</p>}</div>
       <div><h4>{T.footer.contact}</h4>

@@ -5,6 +5,7 @@ import Base from '../../layouts/Base.astro';
 import PageHead from '../../components/PageHead.astro';
 import { langPaths } from '../../lib/paths';
 import { useT, lp } from '../../i18n/dict';
+import { showCatalog } from '../../lib/data';
 import offersJson from '../../data/offers.json';
 export const getStaticPaths = langPaths;
 const { lang } = Astro.params as { lang: string };
@@ -15,7 +16,7 @@ const offers = offersJson as { product: string; qty?: string; note?: string }[];
   <PageHead lang={lang} title={O.title} lead={O.lead} />
   <section class="sec tight wrap">
     {offers.length === 0
-      ? <div class="empty big"><p>{O.empty}</p><p class="more"><a class="btn" href={lp(lang, '/products/#price-list')}>{T.nav.cta}</a></p></div>
+      ? <div class="empty big"><p>{O.empty}</p><p class="more"><a class="btn" href={showCatalog ? lp(lang, '/products/#price-list') : lp(lang) + '#price-list'}>{T.nav.cta}</a></p></div>
       : <table class="specs offers"><thead><tr><th scope="col">{O.product}</th><th scope="col">{O.qty}</th><th scope="col">{O.notes}</th><th scope="col"></th></tr></thead>
           <tbody>{offers.map((o) => <tr><td><bdi>{o.product}</bdi></td><td><bdi>{o.qty ?? ''}</bdi></td><td>{o.note ?? ''}</td><td><a class="btn sm" href={lp(lang, '/contact/')}>{O.action}</a></td></tr>)}</tbody></table>}
   </section>

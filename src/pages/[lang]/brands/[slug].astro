@@ -4,8 +4,8 @@ import Base from '../../../layouts/Base.astro';
 import PageHead from '../../../components/PageHead.astro';
 import Listing from '../../../components/Listing.astro';
 import { LANGS, useT, lp } from '../../../i18n/dict';
-import { brands, products, slugify } from '../../../lib/data';
-export function getStaticPaths() { return LANGS.flatMap((lang) => brands.map((b) => ({ params: { lang, slug: slugify(b) }, props: { brand: b } }))); }
+import { brands, products, slugify, showCatalog } from '../../../lib/data';
+export function getStaticPaths() { if (!showCatalog) return []; return LANGS.flatMap((lang) => brands.map((b) => ({ params: { lang, slug: slugify(b) }, props: { brand: b } }))); }
 const { lang } = Astro.params as { lang: string };
 const { brand } = Astro.props as { brand: string };
 const T = useT(lang), N = T.landing;

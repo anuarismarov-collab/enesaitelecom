@@ -1,5 +1,4 @@
+# DEMO / client-review period: keep search engines out.
+# AT LAUNCH: replace with "Allow: /" and add the real "Sitemap: https://<real-domain>/sitemap-index.xml"
 User-agent: *
-Allow: /
-
-# Update the domain before launch
-Sitemap: https://www.example.com/sitemap-index.xml
+Disallow: /

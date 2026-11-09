@@ -13,6 +13,8 @@ export interface Product {
 export interface ProductImage { file: string; own?: boolean; kind?: 'brand' | 'free'; title?: string; author?: string; license?: string; licenseUrl?: string; source?: string }
 
 export { site };
+/** Temporary switch (site.json → showCatalog): false = no catalog pages are built, menu/home/footer links are removed. */
+export const showCatalog = (site as { showCatalog?: boolean }).showCatalog === true;
 export const categories = categoriesJson as Category[];
 export const products = productsJson as Product[];
 const images = imagesJson as Record<string, ProductImage>;

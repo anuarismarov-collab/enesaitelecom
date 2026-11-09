@@ -7,7 +7,7 @@ const hasOffers = JSON.parse(readFileSync(new URL('./src/data/offers.json', impo
 
 // CHANGE `site` to the client's real domain before launch (used for canonical URLs, hreflang + sitemap).
 export default defineConfig({
-  site: 'https://www.example.com',
+  site: 'https://nexora-trading-demo.nexora-trading-site.workers.dev',   // demo address; switch to the client's real domain at launch
   trailingSlash: 'always',
   build: {
     format: 'directory',

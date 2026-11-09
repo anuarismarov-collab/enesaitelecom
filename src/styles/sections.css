@@ -78,3 +78,23 @@ a.brandline:hover{text-decoration:underline}
 .js .rv.in{opacity:1;transform:none}
 .js .brand-tile.in:hover{transform:scale(1.06)}
 @media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none}.duo,.hero-stage{animation:none!important}}
+
+/* ---- Flagship products: auto-scrolling picture strip (pure CSS, pauses on hover, static + swipeable for reduced motion) ---- */
+[hidden]{display:none!important}
+.flag-sec{padding:64px 0 56px;background:#fff;border-bottom:1px solid var(--line)}
+.flag-head{margin-bottom:1.6rem;text-align:center}
+.flag-head h2{font-size:clamp(1.25rem,2.4vw,1.8rem);letter-spacing:.04em}
+.flag-marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.flag-track{display:flex;width:max-content;margin:0;padding:.4rem 0 .8rem;list-style:none;animation:flagScroll 48s linear infinite}
+.flag-marquee:hover .flag-track{animation-play-state:paused}
+.flag-card{flex:none;width:210px;margin-right:1rem;display:flex;flex-direction:column;align-items:center;gap:.5rem}
+.flag-img{position:relative;overflow:hidden;width:100%;aspect-ratio:1;background:linear-gradient(180deg,#f7f8fc,#eef1f8);border:1px solid var(--line);border-radius:18px}
+.flag-img img{position:absolute;inset:1rem;width:calc(100% - 2rem);height:calc(100% - 2rem);object-fit:contain;mix-blend-mode:multiply}
+.flag-name{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);font-weight:600}
+@keyframes flagScroll{to{transform:translateX(-50%)}}
+@media (max-width:700px){.flag-card{width:150px}.flag-sec{padding:44px 0 40px}}
+@media (prefers-reduced-motion:reduce){
+  .flag-marquee{overflow-x:auto;-webkit-mask-image:none;mask-image:none}
+  .flag-track{animation:none}
+  .flag-card[aria-hidden]{display:none}
+}

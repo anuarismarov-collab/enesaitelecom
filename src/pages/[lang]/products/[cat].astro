@@ -3,8 +3,9 @@ import Base from '../../../layouts/Base.astro';
 import PageHead from '../../../components/PageHead.astro';
 import Listing from '../../../components/Listing.astro';
 import { LANGS, useT, lp } from '../../../i18n/dict';
-import { categories, products, productsOf } from '../../../lib/data';
+import { categories, products, productsOf, showCatalog } from '../../../lib/data';
 export function getStaticPaths() {
+  if (!showCatalog) return [];
   return LANGS.flatMap((lang) => [{ params: { lang, cat: 'all' } }, ...categories.map((c) => ({ params: { lang, cat: c.id } }))]);
 }
 const { lang, cat } = Astro.params as { lang: string; cat: string };

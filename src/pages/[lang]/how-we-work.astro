@@ -3,7 +3,7 @@ import Base from '../../layouts/Base.astro';
 import PageHead from '../../components/PageHead.astro';
 import { langPaths } from '../../lib/paths';
 import { useT, lp } from '../../i18n/dict';
-import { site } from '../../lib/data';
+import { site, showCatalog } from '../../lib/data';
 export const getStaticPaths = langPaths;
 const { lang } = Astro.params as { lang: string };
 const T = useT(lang), H = T.how, L = H.labels;
@@ -34,6 +34,6 @@ const faqLd = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity
   </section>
   <section class="band">
     <div class="wrap band-in"><div><h2>{H.cta.title}</h2><p>{H.cta.text}</p></div>
-      <div class="band-btns"><a class="btn lg light" href={lp(lang, '/products/#price-list')}>{H.cta.button}</a></div></div>
+      <div class="band-btns"><a class="btn lg light" href={showCatalog ? lp(lang, '/products/#price-list') : lp(lang) + '#price-list'}>{H.cta.button}</a></div></div>
   </section>
 </Base>

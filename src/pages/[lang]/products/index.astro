@@ -5,8 +5,8 @@ import Art from '../../../components/Art.astro';
 import LeadForm from '../../../components/LeadForm.astro';
 import { langPaths } from '../../../lib/paths';
 import { useT, lp } from '../../../i18n/dict';
-import { categories, productsOf, imageOf } from '../../../lib/data';
-export const getStaticPaths = langPaths;
+import { categories, productsOf, imageOf, showCatalog } from '../../../lib/data';
+export const getStaticPaths = () => (showCatalog ? langPaths() : []);
 const { lang } = Astro.params as { lang: string };
 const T = useT(lang), P = T.products;
 ---

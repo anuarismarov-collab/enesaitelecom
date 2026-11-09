@@ -44,6 +44,9 @@ Real phone/email/WhatsApp, trade licence no., working hours, domain, logo files 
 ## Session log
 - 2026-10-17: rebrand + brand images (19) + credits.
 - 2026-10-20: full B2B rebuild per client brief: new design from logo, i18n EN/RU/AR, lead-form Worker + KV (created KV namespace LEADS in owner's Cloudflare), cookie banner, world map, 179 pages, security checks + 17 worker tests pass, deployed and verified live (pages, redirect, form, headers).
+- 2026-11-09: client round 3 — new logo (Tunnel.pdf → PyMuPDF render → `scripts/make-brand-assets.mjs`); auto-scrolling flagship strip under the hero (`FlagshipStrip.astro`, ids list inside it); catalog hidden via `site.json → showCatalog:false` (no catalog/brand/product pages built, no menu/footer/home links, 35 pages); contact = "Office #136, First Floor, 5 East B…" + admin@enesaitelecom.com (site.json, dict EN/RU/AR, JSON-LD, security.txt); full outside-in security audit (see SECURITY.md); demo set to noindex.
+  - ASSUMPTIONS to confirm with client: (a) "hide this page" = the Products catalog + home "Product range" section; (b) Office #136 is placed IN FRONT of the existing building address.
+  - TO RE-ENABLE catalog: set `showCatalog` true in site.json, rebuild, deploy. AT LAUNCH: remove `X-Robots-Tag` in public/_headers, restore robots.txt, set real domain in astro.config.mjs.
 
 ## Client feedback round 2 (2026-10-29) — DONE
 - **Hero**: client wording from their doc (H1 "Enesai Telecom FZCO", tagline "Global Electronics. Trusted Supply.", DAFZA-based wholesale supplier of consumer electronics and gaming consoles; CTAs "Become a Partner ↗" + "Explore Products") with an **iPhone 18 Pro Burgundy duo** (Apple Newsroom "2up" press image, `public/brand/iphone-18-pro-duo.webp`) in a dark spotlight panel: entrance + float + light-sweep animation, pointer tilt on desktop, off for reduced-motion. Image © Apple, temporary, credited on /credits/.

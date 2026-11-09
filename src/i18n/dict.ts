@@ -64,7 +64,7 @@ const en = {
       'Our goal is to grow into a reliable international supplier, expanding into the wider Middle East, Africa, Europe and North America.'],
     missionTitle: 'Our mission', mission: 'To be the reliable, scalable wholesale partner that helps retailers and distributors receive quality electronics on time and on clear terms.',
     valuesTitle: 'What we stand for', values: [{ t: 'Reliability', d: 'Consistent supply and clear commitments.' }, { t: 'Transparency', d: 'Open terms and honest communication.' }, { t: 'Partnership', d: 'We grow together with our distributors.' }, { t: 'Ambition', d: 'Building a truly international business from Dubai.' }],
-    factsTitle: 'Company at a glance', facts: [['Founded', '2022, Dubai, UAE'], ['Business model', 'B2B wholesale — import & export'], ['Legal form', 'FZCO (free zone company)'], ['Office', 'First Floor, 5 East B, Dubai Airport Free Zone'], ['Markets', 'UAE, CIS countries — expanding to MEA, Europe, North America']],
+    factsTitle: 'Company at a glance', facts: [['Founded', '2022, Dubai, UAE'], ['Business model', 'B2B wholesale — import & export'], ['Legal form', 'FZCO (free zone company)'], ['Office', 'Office #136, First Floor, 5 East B, Dubai Airport Free Zone'], ['Markets', 'UAE, CIS countries — expanding to MEA, Europe, North America']],
     timelineTitle: 'Our path', timeline: [['2022', 'Company founded in Dubai'], ['Today', '100,000+ units a year to partners in the UAE and CIS'], ['Next', 'Middle East, Africa, Europe and North America']],
   },
   how: {
@@ -126,7 +126,7 @@ const en = {
   cookie: { text: 'We use only essential storage (e.g. your quote list and language). Optional analytics are off unless you accept.', accept: 'Accept', decline: 'Decline', learn: 'Privacy Policy' },
   legal: {
     privacy: { title: 'Privacy Policy', note: 'Draft text — must be reviewed and approved by the company and its legal adviser before launch.', sections: [
-      ['Who we are', 'Enesai Telecom FZCO, First Floor, 5 East B, Dubai Airport Free Zone, Dubai, UAE, is the operator of this website and the controller of the personal data collected through it.'],
+      ['Who we are', 'Enesai Telecom FZCO, Office #136, First Floor, 5 East B, Dubai Airport Free Zone, Dubai, UAE, is the operator of this website and the controller of the personal data collected through it.'],
       ['What we collect', 'Data you submit in our forms (name, company, country, email, phone, message, business details) and technical data needed to run and secure the site (e.g. IP address for spam protection and rate limiting).'],
       ['Why we use it', 'To reply to your inquiry, prepare wholesale offers, evaluate partnership applications and protect the website from abuse.'],
       ['Cookies and storage', 'The site stores your language choice, cookie choice and your quote list in your browser. Optional analytics are only enabled if you accept them in the cookie banner.'],
@@ -208,7 +208,7 @@ const ru: Dict = {
       'Наша цель — стать надёжным международным поставщиком и выйти на рынки Ближнего Востока, Африки, Европы и Северной Америки.'],
     missionTitle: 'Наша миссия', mission: 'Быть надёжным и масштабируемым оптовым партнёром, который помогает ритейлерам и дистрибьюторам получать качественную электронику вовремя и на понятных условиях.',
     valuesTitle: 'Наши принципы', values: [{ t: 'Надёжность', d: 'Стабильные поставки и чёткие обязательства.' }, { t: 'Прозрачность', d: 'Открытые условия и честное общение.' }, { t: 'Партнёрство', d: 'Мы растём вместе с дистрибьюторами.' }, { t: 'Амбиции', d: 'Строим по-настоящему международный бизнес из Дубая.' }],
-    factsTitle: 'Компания в цифрах и фактах', facts: [['Основана', '2022, Дубай, ОАЭ'], ['Модель бизнеса', 'B2B-опт — импорт и экспорт'], ['Правовая форма', 'FZCO (компания свободной зоны)'], ['Офис', 'First Floor, 5 East B, свободная зона аэропорта Дубая'], ['Рынки', 'ОАЭ, страны СНГ — расширение: Ближний Восток, Африка, Европа, Северная Америка']],
+    factsTitle: 'Компания в цифрах и фактах', facts: [['Основана', '2022, Дубай, ОАЭ'], ['Модель бизнеса', 'B2B-опт — импорт и экспорт'], ['Правовая форма', 'FZCO (компания свободной зоны)'], ['Офис', 'Office #136, First Floor, 5 East B, свободная зона аэропорта Дубая'], ['Рынки', 'ОАЭ, страны СНГ — расширение: Ближний Восток, Африка, Европа, Северная Америка']],
     timelineTitle: 'Наш путь', timeline: [['2022', 'Компания основана в Дубае'], ['Сегодня', 'Более 100 000 единиц в год для партнёров в ОАЭ и СНГ'], ['Дальше', 'Ближний Восток, Африка, Европа и Северная Америка']],
   },
   how: {
@@ -270,7 +270,7 @@ const ru: Dict = {
   cookie: { text: 'Мы используем только необходимое хранение данных (например, список запроса и язык). Дополнительная аналитика отключена, пока вы её не примете.', accept: 'Принять', decline: 'Отклонить', learn: 'Политика конфиденциальности' },
   legal: {
     privacy: { title: 'Политика конфиденциальности', note: 'Черновик — перед запуском текст должен быть проверен и утверждён компанией и её юристом.', sections: [
-      ['Кто мы', 'Enesai Telecom FZCO, First Floor, 5 East B, свободная зона аэропорта Дубая, Дубай, ОАЭ — оператор этого сайта и контролёр персональных данных, собираемых через него.'],
+      ['Кто мы', 'Enesai Telecom FZCO, Office #136, First Floor, 5 East B, свободная зона аэропорта Дубая, Дубай, ОАЭ — оператор этого сайта и контролёр персональных данных, собираемых через него.'],
       ['Какие данные мы собираем', 'Данные, которые вы указываете в формах (имя, компания, страна, эл. почта, телефон, сообщение, сведения о бизнесе), а также технические данные для работы и защиты сайта (например, IP-адрес для защиты от спама и ограничения частоты запросов).'],
       ['Зачем мы их используем', 'Чтобы ответить на ваш запрос, подготовить оптовое предложение, рассмотреть заявку на партнёрство и защитить сайт от злоупотреблений.'],
       ['Cookies и хранение данных', 'Сайт сохраняет в вашем браузере выбор языка, выбор по cookies и список запроса. Дополнительная аналитика включается только после вашего согласия в баннере.'],
@@ -351,7 +351,7 @@ const ar: Dict = {
       'هدفنا أن نصبح مورداً دولياً موثوقاً، بالتوسع في الشرق الأوسط وأفريقيا وأوروبا وأمريكا الشمالية.'],
     missionTitle: 'مهمتنا', mission: 'أن نكون شريك الجملة الموثوق والقابل للتوسع الذي يساعد تجار التجزئة والموزعين على الحصول على إلكترونيات عالية الجودة في الوقت المحدد وبشروط واضحة.',
     valuesTitle: 'قيمنا', values: [{ t: 'الموثوقية', d: 'إمداد منتظم والتزامات واضحة.' }, { t: 'الشفافية', d: 'شروط مفتوحة وتواصل صادق.' }, { t: 'الشراكة', d: 'ننمو مع موزعينا.' }, { t: 'الطموح', d: 'نبني عملاً دولياً حقيقياً انطلاقاً من دبي.' }],
-    factsTitle: 'الشركة في لمحة', facts: [['التأسيس', '2022، دبي، الإمارات'], ['نموذج العمل', 'جملة B2B — استيراد وتصدير'], ['الشكل القانوني', 'FZCO (شركة منطقة حرة)'], ['المكتب', 'الطابق الأول، 5 East B، المنطقة الحرة بمطار دبي'], ['الأسواق', 'الإمارات ودول رابطة الدول المستقلة — والتوسع في الشرق الأوسط وأفريقيا وأوروبا وأمريكا الشمالية']],
+    factsTitle: 'الشركة في لمحة', facts: [['التأسيس', '2022، دبي، الإمارات'], ['نموذج العمل', 'جملة B2B — استيراد وتصدير'], ['الشكل القانوني', 'FZCO (شركة منطقة حرة)'], ['المكتب', 'مكتب رقم 136، الطابق الأول، 5 East B، المنطقة الحرة بمطار دبي'], ['الأسواق', 'الإمارات ودول رابطة الدول المستقلة — والتوسع في الشرق الأوسط وأفريقيا وأوروبا وأمريكا الشمالية']],
     timelineTitle: 'مسيرتنا', timeline: [['2022', 'تأسيس الشركة في دبي'], ['اليوم', 'أكثر من 100,000 وحدة سنوياً لشركاء في الإمارات ورابطة الدول المستقلة'], ['القادم', 'الشرق الأوسط وأفريقيا وأوروبا وأمريكا الشمالية']],
   },
   how: {
@@ -413,7 +413,7 @@ const ar: Dict = {
   cookie: { text: 'نستخدم التخزين الضروري فقط (مثل قائمة الطلب واللغة). التحليلات الاختيارية متوقفة ما لم توافق عليها.', accept: 'موافق', decline: 'رفض', learn: 'سياسة الخصوصية' },
   legal: {
     privacy: { title: 'سياسة الخصوصية', note: 'نص مسودة — يجب مراجعته واعتماده من الشركة ومستشارها القانوني قبل الإطلاق.', sections: [
-      ['من نحن', 'Enesai Telecom FZCO، الطابق الأول، 5 East B، المنطقة الحرة بمطار دبي، دبي، الإمارات، هي مشغّلة هذا الموقع والمسؤولة عن البيانات الشخصية التي تُجمع عبره.'],
+      ['من نحن', 'Enesai Telecom FZCO، مكتب رقم 136، الطابق الأول، 5 East B، المنطقة الحرة بمطار دبي، دبي، الإمارات، هي مشغّلة هذا الموقع والمسؤولة عن البيانات الشخصية التي تُجمع عبره.'],
       ['ما الذي نجمعه', 'البيانات التي ترسلها في النماذج (الاسم والشركة والدولة والبريد والهاتف والرسالة وبيانات النشاط) والبيانات التقنية اللازمة لتشغيل الموقع وحمايته (مثل عنوان IP للحماية من الرسائل المزعجة وتحديد معدل الطلبات).'],
       ['لماذا نستخدمها', 'للرد على استفسارك وإعداد عروض الجملة وتقييم طلبات الشراكة وحماية الموقع من إساءة الاستخدام.'],
       ['ملفات تعريف الارتباط والتخزين', 'يحفظ الموقع في متصفحك اختيار اللغة واختيار ملفات الارتباط وقائمة الطلب. لا تُفعَّل التحليلات الاختيارية إلا بعد موافقتك في شريط ملفات الارتباط.'],

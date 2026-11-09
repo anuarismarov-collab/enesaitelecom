@@ -5,8 +5,8 @@
   "legalForm": "FZCO",
   "whatsapp": "971526273180",
   "phone": "+971 4 580 2484",
-  "email": "",
-  "address": "First Floor, 5 East B, Dubai Airport Free Zone, Dubai, UAE",
+  "email": "admin@enesaitelecom.com",
+  "address": "Office #136, First Floor, 5 East B, Dubai Airport Free Zone, Dubai, UAE",
   "hours": "Mon – Fri · 9:00 – 18:00 (GST)",
   "licence": "",
   "licenceAuthority": "",
@@ -16,5 +16,6 @@
   "telegram": "",
   "linkedin": "",
   "ga4": "",
-  "_help": "Fields left empty are hidden on the website. Fill email, licence, taxNo, contactName/contactRole, telegram (e.g. https://t.me/username) and linkedin (company page URL) when the client provides them."
+  "showCatalog": false,
+  "_help": "showCatalog=false hides the whole Products catalog (pages, menu, home section, footer links) until the client asks for it; set true and rebuild to bring it back. Fields left empty are hidden on the website. Fill email, licence, taxNo, contactName/contactRole, telegram (e.g. https://t.me/username) and linkedin (company page URL) when the client provides them."
 }

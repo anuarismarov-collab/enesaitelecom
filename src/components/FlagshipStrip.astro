@@ -1,0 +1,30 @@
+---
+// Auto-scrolling strip of flagship product pictures (Apple, Samsung, Garmin, Sony, PS5) — client request 09-11.
+// Pure CSS animation (no script, CSP-safe). The track holds the list twice so the loop is seamless; the 2nd copy is hidden from screen readers.
+// To change what is shown: edit IDS (ids from src/data/products.json that have a picture in images.json).
+import { products, imageOf } from '../lib/data';
+interface Props { lang: string }
+const { lang } = Astro.props;
+const IDS = ['iphone-15-pro', 'galaxy-s24-ultra', 'ps5-slim-disc', 'garmin-fenix-7', 'macbook-pro-14', 'sony-wh-1000xm5', 'apple-watch-ultra-2', 'galaxy-s24', 'garmin-venu-3', 'airpods-pro-2', 'ps-portal', 'ipad-air-m2'];
+const items = IDS.flatMap((id) => { const p = products.find((x) => x.id === id), img = imageOf(id); return p && img ? [{ id, name: p.name, brand: p.brand, file: img.file }] : []; });
+const TXT: Record<string, { eyebrow: string; title: string; note: string }> = {
+  en: { eyebrow: 'Flagship products', title: 'Apple · Samsung · Garmin · Sony · PlayStation 5', note: 'Product pictures are for illustration. Brand names and images belong to their owners; no partnership or authorisation is implied.' },
+  ru: { eyebrow: 'Флагманские продукты', title: 'Apple · Samsung · Garmin · Sony · PlayStation 5', note: 'Изображения товаров приведены для иллюстрации. Бренды и изображения принадлежат их владельцам; партнёрство или авторизация не подразумеваются.' },
+  ar: { eyebrow: 'منتجات رائدة', title: 'Apple · Samsung · Garmin · Sony · PlayStation 5', note: 'صور المنتجات للتوضيح فقط. العلامات التجارية والصور مملوكة لأصحابها، ولا يُقصد بها أي شراكة أو تفويض.' },
+};
+const X = TXT[lang] ?? TXT.en;
+---
+<section class="flag-sec" id="flagships" aria-label={X.eyebrow}>
+  <div class="wrap flag-head"><span class="eyebrow">{X.eyebrow}</span><h2>{X.title}</h2></div>
+  <div class="flag-marquee" dir="ltr">
+    <ul class="flag-track">
+      {[0, 1].map((copy) => items.map((it) => (
+        <li class="flag-card" aria-hidden={copy ? 'true' : undefined}>
+          <span class="flag-img"><img src={it.file} alt={copy ? '' : it.name} width="220" height="220" loading="lazy" decoding="async" /></span>
+          <span class="flag-name">{it.brand}</span>
+        </li>
+      )))}
+    </ul>
+  </div>
+  <p class="fine center wrap">{X.note}</p>
+</section>
