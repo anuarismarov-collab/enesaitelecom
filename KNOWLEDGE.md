@@ -91,3 +91,5 @@ Domain: https://www.enesaitelecom.ae (apex enesaitelecom.ae redirects to www; DN
 - 2026-11-11 (digest): api/digest.js + src/digest-core.js + src/upstash.js; cron 0 14 * * * UTC; needs CRON_SECRET env; leads TTL 7 days on Vercel and deleted after the digest email so storage stays empty.
 
 - 2026-11-11 (email-only): owner wants an email only when a real lead arrives. Daily digest cron removed, STORE_LEADS defaults false (no lead data kept). Digest code stays for later.
+
+- 2026-11-11 (client round 4): flagship strip REMOVED from home (component FlagshipStrip.astro kept, unused); trademark note under brands smaller; language buttons EN/RU/AR now always visible in the header (also on phones; removed from burger menu); WhatsApp number -> 971555014955 (site.json only); hero 2nd button -> #brands. OPEN: client note 1.jpeg "place iPhone Duo picture here" had no marked area - asked for the exact spot.
