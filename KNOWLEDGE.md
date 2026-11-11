@@ -81,3 +81,6 @@ Compared with Ebizz Fz LLC (ebizz.ae), Kadorf marketplace listings (Metreon FZCO
 ## Mobile testing (added 2026-10-20)
 - Headless Chrome cannot go below ~500px wide, so it hides phone problems. Use Playwright (viewport 390×844) and measure `document.documentElement.scrollWidth` vs `clientWidth` — if scrollWidth is larger, the page scrolls sideways. Found + fixed: header (langs + quote button + burger) overflowed → language switcher and price-list button now live in the mobile menu; quote button is an icon + count under 640px.
 - Contact details still placeholders: phone/email/WhatsApp in `src/data/site.json` — waiting on the client's real numbers/address (the `Website-Information-Checklist.docx` in telecom-site is blank).
+
+## Vercel port (2026-11-11)
+Client wants it in their GitHub (anuarismarov-collab/enesaitelecom) + THEIR Vercel. Added: `vercel.json` (headers, language redirect, trailing slash, build cleanup), `api/lead.js` (Vercel Function, Upstash Redis via REST instead of KV), shared `src/lead-core.js`, `scripts/test-vercel.mjs`, `scripts/vercel-clean.mjs`. Cloudflare demo still works (worker imports the same core). `astro.config.mjs` site = SITE_URL → VERCEL_PROJECT_PRODUCTION_URL → demo URL.

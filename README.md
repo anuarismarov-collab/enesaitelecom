@@ -30,3 +30,9 @@ public/_headers             security headers (CSP…)    public/brand/  logo + h
 scripts/                    brand/hero generators, product importer, image tools, security + worker tests
 ```
 See `SECURITY.md` (security + launch checklist) and `KNOWLEDGE.md` (decisions, gaps, next steps).
+
+## Deploy on Vercel (client's setup)
+1. Vercel → Add New Project → import this GitHub repo. Framework preset: Astro (auto). Build settings come from `vercel.json` — leave them.
+2. Environment Variables (Project → Settings): `RESEND_API_KEY` (secret), `LEAD_TO` (sales mailbox), `LEAD_FROM` (e.g. `Website <noreply@yourdomain.com>`, domain verified in Resend). Optional but recommended: Storage → add the free **Upstash Redis** integration (stores leads 90 days and makes the per-IP rate limit reliable). Without email or storage the forms fall back to WhatsApp.
+3. Custom domain: Project → Settings → Domains. Then set `SITE_URL` = `https://yourdomain.com` (canonical URLs + sitemap), and **remove** the `X-Robots-Tag` entry in `vercel.json` and replace `public/robots.txt` with `Allow: /` + a `Sitemap:` line — otherwise Google will not index the site.
+4. Backend code: `api/lead.js` (Vercel) and `src/worker.js` (Cloudflare) share `src/lead-core.js`. Tests: `node scripts/test-vercel.mjs`, `node scripts/test-worker.mjs`, `npm run check:security`.

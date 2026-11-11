@@ -7,7 +7,8 @@ const hasOffers = JSON.parse(readFileSync(new URL('./src/data/offers.json', impo
 
 // CHANGE `site` to the client's real domain before launch (used for canonical URLs, hreflang + sitemap).
 export default defineConfig({
-  site: 'https://nexora-trading-demo.nexora-trading-site.workers.dev',   // demo address; switch to the client's real domain at launch
+  // Canonical/sitemap address. Order: SITE_URL (set this to the real domain at launch) → Vercel's production URL → the Cloudflare demo.
+  site: process.env.SITE_URL || (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : 'https://nexora-trading-demo.nexora-trading-site.workers.dev'),
   trailingSlash: 'always',
   build: {
     format: 'directory',

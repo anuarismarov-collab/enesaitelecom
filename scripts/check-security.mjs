@@ -39,7 +39,8 @@ check('No third-party scripts/styles/images/frames (only wa.me links allowed)', 
 check('Every target="_blank" link has rel="noopener"', blank);
 check('No form posts to an external URL', forms);
 
-const hdr = existsSync(join(DIST, '_headers')) ? readFileSync(join(DIST, '_headers'), 'utf8') : '';
+// Cloudflare reads dist/_headers; Vercel reads vercel.json (its build removes dist/_headers). Accept either.
+const hdr = existsSync(join(DIST, '_headers')) ? readFileSync(join(DIST, '_headers'), 'utf8') : existsSync('vercel.json') ? readFileSync('vercel.json', 'utf8') : '';
 const need = ['Content-Security-Policy', 'Strict-Transport-Security', 'X-Content-Type-Options', 'Referrer-Policy', 'Permissions-Policy', 'frame-ancestors'];
 check('Security headers file present with all required headers', need.filter((h) => !hdr.includes(h)).map((h) => `missing ${h}`));
 check('CSP has no unsafe-inline / unsafe-eval', /unsafe-(inline|eval)/.test(hdr) ? ['CSP allows unsafe-*'] : []);
