@@ -22,6 +22,9 @@ globalThis.fetch = async (url, init) => {
   return new Response('bad', { status: 400 });
 };
 process.env.KV_REST_API_URL = 'https://redis.test'; process.env.KV_REST_API_TOKEN = 'tok';
+// default = email-only: storage is connected but NO lead is kept (and without email nothing can be delivered → 503)
+r = await post(lead, '5.5.5.5'); check('default (STORE_LEADS unset): no lead stored', r.status === 503 && ![...db.keys()].some((k) => k.startsWith('lead:')), `(${r.status})`);
+process.env.STORE_LEADS = 'true';
 r = await post(lead); check('configured → 200 and stored', r.status === 200 && [...db.keys()].some((k) => k.startsWith('lead:')), `(${r.status})`);
 let last; for (let i = 0; i < 7; i++) last = await post(lead, '7.7.7.7');
 check('7th submission from one IP → 429', last.status === 429, `(${last.status})`);

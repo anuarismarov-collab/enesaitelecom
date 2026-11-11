@@ -25,7 +25,7 @@ globalThis.fetch = async (url, init) => {
 const run = (auth) => digest.fetch(new Request('https://site.test/api/digest', { headers: auth ? { authorization: auth } : {} }));
 const submit = (ip, fields) => lead.fetch(new Request('https://site.test/api/lead', { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-real-ip': ip }, body: JSON.stringify({ kind: 'general', lang: 'ar', t: 5000, website: '', fields, page: '/ar/contact/' }) }));
 
-process.env.KV_REST_API_URL = 'https://redis.test'; process.env.KV_REST_API_TOKEN = 'tok';
+process.env.KV_REST_API_URL = 'https://redis.test'; process.env.KV_REST_API_TOKEN = 'tok'; process.env.STORE_LEADS = 'true';
 process.env.RESEND_API_KEY = 're_test'; process.env.LEAD_TO = 'sales@x.test, boss@x.test'; process.env.LEAD_FROM = 'Website <noreply@x.test>';
 
 // 1) secret is required
