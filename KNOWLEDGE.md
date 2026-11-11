@@ -93,3 +93,5 @@ Domain: https://www.enesaitelecom.ae (apex enesaitelecom.ae redirects to www; DN
 - 2026-11-11 (email-only): owner wants an email only when a real lead arrives. Daily digest cron removed, STORE_LEADS defaults false (no lead data kept). Digest code stays for later.
 
 - 2026-11-11 (client round 4): flagship strip REMOVED from home (component FlagshipStrip.astro kept, unused); trademark note under brands smaller; language buttons EN/RU/AR now always visible in the header (also on phones; removed from burger menu); WhatsApp number -> 971555014955 (site.json only); hero 2nd button -> #brands. OPEN: client note 1.jpeg "place iPhone Duo picture here" had no marked area - asked for the exact spot.
+
+- 2026-11-11 (duo-banner): client note 1 "place iPhone Duo picture here" had no marked area -> added a large iPhone Duo banner band (.duo-band) under the hero where the flagship strip was. Unconfirmed reading; if the client meant another spot, move/remove the <section class="duo-band"> in src/pages/[lang]/index.astro.
