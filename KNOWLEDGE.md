@@ -84,3 +84,6 @@ Compared with Ebizz Fz LLC (ebizz.ae), Kadorf marketplace listings (Metreon FZCO
 
 ## Vercel port (2026-11-11)
 Client wants it in their GitHub (anuarismarov-collab/enesaitelecom) + THEIR Vercel. Added: `vercel.json` (headers, language redirect, trailing slash, build cleanup), `api/lead.js` (Vercel Function, Upstash Redis via REST instead of KV), shared `src/lead-core.js`, `scripts/test-vercel.mjs`, `scripts/vercel-clean.mjs`. Cloudflare demo still works (worker imports the same core). `astro.config.mjs` site = SITE_URL → VERCEL_PROJECT_PRODUCTION_URL → demo URL.
+
+## Go live (2026-11-11)
+Domain: https://www.enesaitelecom.ae (apex enesaitelecom.ae redirects to www; DNS at Tasjeel, A + CNAME → Vercel, MX dallah.tasjeel.ae untouched — it is the client's mail). Branch `go-live`: removed the draft top bar, removed X-Robots-Tag from vercel.json, robots.txt = Allow + Sitemap (www). Vercel env SITE_URL = https://www.enesaitelecom.ae. Auto-renew of the domain is the client's job. Contact email stays admin@enesaitelecom.com (client decision). Still open: Resend env vars (RESEND_API_KEY, LEAD_TO, LEAD_FROM) + Upstash Redis integration; Russian/Arabic native review; legal text review; client's own product photos.
