@@ -109,9 +109,9 @@ a.brandline:hover{text-decoration:underline}
   .menu-extra .langs{display:none}          /* the same buttons now live in the header, so they are not repeated in the menu */
 }
 
-/* ---- iPhone Duo banner (client 11-11: "place iPhone Duo picture here") - large picture under the hero ---- */
-.duo-band{position:relative;overflow:hidden;padding:48px 0;background:radial-gradient(55% 85% at 50% 52%,#4a1428 0%,#1b0a12 50%,#000 86%)}
-.duo-band-in{position:relative;width:min(100%,1100px);margin-inline:auto;display:grid;place-items:center;overflow:hidden}
-.duo-wide{height:min(70vh,560px);width:auto;max-width:100%;object-fit:contain;mix-blend-mode:screen;animation:duoFloat 7s ease-in-out infinite}
-@media (max-width:700px){.duo-band{padding:32px 0}.duo-wide{height:min(58vh,420px)}}
+/* ---- iPhone Duo banner (client 11-11: "place iPhone Duo picture here") - large picture under the hero; the photo is on white, so a light panel + multiply blend ---- */
+.duo-band{position:relative;overflow:hidden;padding:56px 0;background:linear-gradient(180deg,#fff 0%,#eef1f8 100%);border-bottom:1px solid var(--line)}
+.duo-band-in{width:min(92%,840px);margin-inline:auto}
+.duo-wide{display:block;width:100%;height:auto;mix-blend-mode:multiply;animation:duoFloat 8s ease-in-out infinite}
+@media (max-width:700px){.duo-band{padding:36px 0}.duo-band-in{width:94%}}
 @media (prefers-reduced-motion:reduce){.duo-wide{animation:none}}
