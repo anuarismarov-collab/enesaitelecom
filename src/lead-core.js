@@ -98,7 +98,7 @@ export async function handleLead(request, env, ip = 'unknown') {
   if (mail !== null) { configured = true; delivered ||= mail; }
   if (env.LEADS) {
     configured = true;
-    try { await env.LEADS.put(`lead:${record.ts}:${id}`, JSON.stringify(record), { expirationTtl: 60 * 60 * 24 * 90 }); delivered = true; } catch { /* handled below */ }
+    try { await env.LEADS.put(`lead:${record.ts}:${id}`, JSON.stringify(record), { expirationTtl: 60 * 60 * 24 * (Number(env.LEAD_TTL_DAYS) || 90) }); delivered = true; } catch { /* handled below */ }
   }
   if (!configured) return json({ error: 'not_configured' }, 503);
   if (!delivered) return json({ error: 'delivery_failed' }, 502);
