@@ -7,7 +7,6 @@ import BrandShowcase from '../../components/BrandShowcase.astro';
 import WhySection from '../../components/WhySection.astro';
 import { langPaths } from '../../lib/paths';
 import { useT, lp } from '../../i18n/dict';
-import FlagshipStrip from '../../components/FlagshipStrip.astro';
 import { categories, productsOf, imageOf, site, showCatalog } from '../../lib/data';
 export const getStaticPaths = langPaths;
 
@@ -23,7 +22,7 @@ const T = useT(lang), H = T.home, HE = H.hero;
         <p class="lead">{HE.lead}</p>
         <div class="hero-btns">
           <a href={lp(lang, '/partnership/')} class="btn lg">{HE.cta1} <span aria-hidden="true">↗</span></a>
-          <a href={showCatalog ? lp(lang, '/products/') : '#flagships'} class="btn lg ghost">{HE.cta2}</a>
+          <a href={showCatalog ? lp(lang, '/products/') : '#brands'} class="btn lg ghost">{HE.cta2}</a>
         </div>
         <ul class="chips">{H.chips.map((c) => <li>{c}</li>)}</ul>
       </div>
@@ -35,8 +34,6 @@ const T = useT(lang), H = T.home, HE = H.hero;
       </div>
     </div>
   </section>
-
-  <FlagshipStrip lang={lang} />
 
   <section class="stats">
     <div class="wrap stats-in">{H.stats.map((s) => <div class="stat"><b>{s.v}</b><span>{s.l}</span></div>)}</div>

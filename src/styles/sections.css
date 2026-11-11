@@ -31,7 +31,7 @@ body.lang-ar .hero h1 .h1-name{letter-spacing:0}
   .links{position:absolute;top:100%;inset-inline:0;flex-direction:column;gap:0;background:#fff;padding:.4rem 4%;border-bottom:1px solid var(--line);margin:0;display:none;font-size:.95rem}
   .links.open{display:flex}
   .links a{padding:1rem 0;border-bottom:1px solid var(--line)}
-  .langs-d,.cta-nav{display:none}
+  .cta-nav{display:none}
   .menu-extra{display:flex;flex-direction:column;gap:.9rem;padding:1rem 0 .6rem}
   .menu-extra .langs{align-self:flex-start;border-radius:12px}
   .links .menu-extra a{padding:.45rem .9rem;border-bottom:0;font-size:.85rem}
@@ -97,4 +97,14 @@ a.brandline:hover{text-decoration:underline}
   .flag-marquee{overflow-x:auto;-webkit-mask-image:none;mask-image:none}
   .flag-track{animation:none}
   .flag-card[aria-hidden]{display:none}
+}
+
+/* ---- client round 4 (11-11): trademark note smaller; one-click language buttons always visible in the header ---- */
+.brands-sec .fine{font-size:.72rem;line-height:1.5;max-width:520px;margin-inline:auto;opacity:.85}
+@media (max-width:1260px){
+  .nav-in .langs-d{display:flex;order:2;margin-inline-start:auto;padding:2px}
+  .nav-in .langs-d a{padding:.3rem .5rem;font-size:.68rem;min-width:2rem;text-align:center}
+  .nav-in .burger{order:3}
+  .nav-in .quote-btn{order:1}
+  .menu-extra .langs{display:none}          /* the same buttons now live in the header, so they are not repeated in the menu */
 }
