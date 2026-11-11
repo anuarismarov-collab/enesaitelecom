@@ -35,6 +35,13 @@ const T = useT(lang), H = T.home, HE = H.hero;
     </div>
   </section>
 
+  <section class="duo-band" aria-label={HE.stageAlt}>
+    <div class="duo-band-in">
+      <img class="duo-wide" src="/brand/iphone-18-pro-duo.webp" width="900" height="1260" alt={HE.stageAlt} loading="lazy" decoding="async" />
+      <span class="stage-shine" aria-hidden="true"></span>
+    </div>
+  </section>
+
   <section class="stats">
     <div class="wrap stats-in">{H.stats.map((s) => <div class="stat"><b>{s.v}</b><span>{s.l}</span></div>)}</div>
   </section>
