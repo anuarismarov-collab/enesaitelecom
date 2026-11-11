@@ -87,3 +87,5 @@ Client wants it in their GitHub (anuarismarov-collab/enesaitelecom) + THEIR Verc
 
 ## Go live (2026-11-11)
 Domain: https://www.enesaitelecom.ae (apex enesaitelecom.ae redirects to www; DNS at Tasjeel, A + CNAME → Vercel, MX dallah.tasjeel.ae untouched — it is the client's mail). Branch `go-live`: removed the draft top bar, removed X-Robots-Tag from vercel.json, robots.txt = Allow + Sitemap (www). Vercel env SITE_URL = https://www.enesaitelecom.ae. Auto-renew of the domain is the client's job. Contact email stays admin@enesaitelecom.com (client decision). Still open: Resend env vars (RESEND_API_KEY, LEAD_TO, LEAD_FROM) + Upstash Redis integration; Russian/Arabic native review; legal text review; client's own product photos.
+
+- 2026-11-11 (digest): api/digest.js + src/digest-core.js + src/upstash.js; cron 0 14 * * * UTC; needs CRON_SECRET env; leads TTL 7 days on Vercel and deleted after the digest email so storage stays empty.
