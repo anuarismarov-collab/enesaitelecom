@@ -101,3 +101,5 @@ Domain: https://www.enesaitelecom.ae (apex enesaitelecom.ae redirects to www; DN
 - 2026-11-11 (hero duo): client sent the Nero-upscaled foldable iPhone Duo photo -> now the HERO picture (public/brand/iphone-duo-hero.webp, white card, scripts/make-duo-image.mjs trims/resizes); the extra banner section under the hero was removed at the client request ("dont need this section"). Old burgundy duo file iphone-18-pro-duo.webp still in public/brand (unused). Alt text neutral per language.
 
 - 2026-11-11 (hero duo bg): client wants the duo photo on the site background (no white card) -> photo cut out (scripts/cutout.mjs now takes a path + HALO=n edge cleanup; run: node scripts/make-duo-image.mjs <jpg> then HALO=2 node scripts/cutout.mjs public/brand/iphone-duo-hero.webp), card/shine removed, soft drop-shadow instead.
+
+- 2026-11-11 (mobile polish): header language buttons 35x36 px, cookie notice compact (138px in RU), footer links + copyright clear of the WhatsApp float, logo 30px under 380px width. Live mobile audit (390px): no horizontal scroll, nothing wider than the screen.
