@@ -39,3 +39,5 @@ See `SECURITY.md` (security + launch checklist) and `KNOWLEDGE.md` (decisions, g
 
 ### Daily leads spreadsheet (api/digest.js)
 Every day at 14:00 UTC (18:00 Dubai) Vercel Cron calls `/api/digest`: it emails all stored leads of the day as one Excel-ready file (`leads-YYYY-MM-DD.csv`, Arabic/Russian safe, spreadsheet-formula safe) to `LEAD_TO`, then deletes them from storage. If the email fails the leads stay and are retried next run (safety expiry 7 days, `LEAD_TTL_DAYS`). No leads = no email. Needs the env var `CRON_SECRET` (any random text of 16+ characters; the endpoint refuses to run without it). Test: `node scripts/test-digest.mjs`.
+
+> **Current setting (email-only):** each form submission is emailed instantly and **nothing is stored**; the daily digest is switched off (no `crons` entry in `vercel.json`) and `STORE_LEADS` defaults to `false`. Upstash is then used only for the hourly spam counter. To bring the daily spreadsheet back: set `STORE_LEADS=true` in Vercel, add `"crons": [{ "path": "/api/digest", "schedule": "0 14 * * *" }]` to `vercel.json`, and set `CRON_SECRET`.

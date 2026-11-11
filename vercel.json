@@ -3,7 +3,6 @@
   "framework": "astro",
   "buildCommand": "npm run build && node scripts/vercel-clean.mjs",
   "outputDirectory": "dist",
-  "crons": [{ "path": "/api/digest", "schedule": "0 14 * * *" }],
   "redirects": [
     { "source": "/", "has": [{ "type": "header", "key": "accept-language", "value": "^ru.*" }], "destination": "/ru/", "statusCode": 302 },
     { "source": "/", "has": [{ "type": "header", "key": "accept-language", "value": "^ar.*" }], "destination": "/ar/", "statusCode": 302 },

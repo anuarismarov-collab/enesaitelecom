@@ -96,7 +96,7 @@ export async function handleLead(request, env, ip = 'unknown') {
   let delivered = false, configured = false;
   const mail = await sendEmail(env, lead, id).catch(() => false);
   if (mail !== null) { configured = true; delivered ||= mail; }
-  if (env.LEADS) {
+  if (env.LEADS && env.STORE_LEADS !== 'false') {         // STORE_LEADS=false → email only, nothing is kept (storage is then used only for the hourly spam counter)
     configured = true;
     try { await env.LEADS.put(`lead:${record.ts}:${id}`, JSON.stringify(record), { expirationTtl: 60 * 60 * 24 * (Number(env.LEAD_TTL_DAYS) || 90) }); delivered = true; } catch { /* handled below */ }
   }
