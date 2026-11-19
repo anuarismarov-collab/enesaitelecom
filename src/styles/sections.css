@@ -109,3 +109,19 @@ a.brandline:hover{text-decoration:underline}
   .menu-extra .langs{display:none}          /* the same buttons now live in the header, so they are not repeated in the menu */
 }
 .hero .stage-shine{display:none}   /* shine belonged to the old dark card */
+
+/* ---- phone polish (client 11-11 review): bigger language buttons, compact cookie notice, footer clear of the WhatsApp button ---- */
+@media (max-width:1260px){.nav-in .langs-d a{padding:.5rem .5rem;font-size:.74rem;min-width:2.2rem}}
+@media (max-width:380px){.brand .brand-img{height:30px}}
+@media (max-width:700px){
+  .cookie{inset-inline:10px;bottom:10px;padding:.7rem .85rem;gap:.55rem;font-size:.78rem;line-height:1.4;border-radius:14px}
+  .cookie p{margin:0}
+  .foot a{padding:.4rem 0}
+  .foot-bot{padding-bottom:5.5rem}          /* keeps the copyright line clear of the floating WhatsApp button */
+}
+
+/* ---- Contact map: click-to-load Google map (privacy: no request to Google until the visitor clicks) ---- */
+.map-actions{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;margin:.8rem 0 .5rem}
+.map.is-loaded{display:block;padding:0;min-height:0;overflow:hidden;background:none}
+.map-frame{display:block;width:100%;height:380px;border:0}
+@media (max-width:700px){.map-frame{height:320px}}

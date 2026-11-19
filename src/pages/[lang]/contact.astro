@@ -8,6 +8,11 @@ import { site, waLink } from '../../lib/data';
 export const getStaticPaths = langPaths;
 const { lang } = Astro.params as { lang: string };
 const T = useT(lang), C = T.contact;
+// Map: a Google embed that is loaded only after the visitor clicks (see app.ts).
+// site.json → mapQuery decides the pin; mapUrl (optional) = a share link from Google Maps for the exact building.
+const q = encodeURIComponent((site as { mapQuery?: string }).mapQuery || site.address);
+const mapSrc = `https://www.google.com/maps?q=${q}&hl=${lang}&z=16&output=embed`;
+const mapLink = (site as { mapUrl?: string }).mapUrl || `https://www.google.com/maps/search/?api=1&query=${q}`;
 ---
 <Base lang={lang} title={C.title} description={`${C.lead} ${site.address}.`}>
   <PageHead lang={lang} title={C.title} lead={C.lead} />
@@ -23,7 +28,11 @@ const T = useT(lang), C = T.contact;
         {site.linkedin && <li><b>{C.linkedin}</b><a href={site.linkedin} target="_blank" rel="noopener noreferrer">{site.linkedin.replace('https://', '')}</a></li>}
         {site.licence && <li><b>{C.licence}</b>{site.licence}</li>}
       </ul>
-      <div class="map" role="img" aria-label={C.map}><div class="mapcap"><b>{site.address}</b><small>{C.map}</small></div></div>
+      <div class="map" data-map={mapSrc} data-title={C.map}>
+        <div class="mapcap"><b>{site.address}</b>
+          <div class="map-actions"><button class="btn sm" type="button" data-map-load>{C.mapShow}</button><a class="btn sm ghost" href={mapLink} target="_blank" rel="noopener noreferrer">{C.mapOpen}</a></div>
+          <small>{C.mapNote}</small></div>
+      </div>
     </div>
     <div class="form-card">
       <div class="form-intro"><h2>{C.formTitle}</h2><p class="muted">{C.formLead}</p></div>

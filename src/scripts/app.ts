@@ -170,3 +170,16 @@ if (stage && !calm && matchMedia('(pointer: fine)').matches) {
   });
   stage.addEventListener('pointerleave', () => { tilt.style.setProperty('--ry', '0deg'); tilt.style.setProperty('--rx', '0deg'); });
 }
+
+/* ---------- Click-to-load map (Contact page): nothing is requested from Google until the visitor clicks "Show map" ---------- */
+document.querySelectorAll<HTMLElement>('[data-map]').forEach((box) => {
+  box.querySelector<HTMLButtonElement>('[data-map-load]')?.addEventListener('click', () => {
+    const src = box.dataset.map || '';
+    if (!src.startsWith('https://www.google.com/maps?')) return;            // only ever load a Google Maps embed
+    const f = document.createElement('iframe');
+    f.src = src; f.title = box.dataset.title || 'Map'; f.loading = 'lazy'; f.className = 'map-frame';
+    f.referrerPolicy = 'strict-origin-when-cross-origin';
+    f.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox');
+    box.replaceChildren(f); box.classList.add('is-loaded');
+  });
+});
