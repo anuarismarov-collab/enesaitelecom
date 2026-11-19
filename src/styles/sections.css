@@ -119,3 +119,9 @@ a.brandline:hover{text-decoration:underline}
   .foot a{padding:.4rem 0}
   .foot-bot{padding-bottom:5.5rem}          /* keeps the copyright line clear of the floating WhatsApp button */
 }
+
+/* ---- Contact map: click-to-load Google map (privacy: no request to Google until the visitor clicks) ---- */
+.map-actions{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;margin:.8rem 0 .5rem}
+.map.is-loaded{display:block;padding:0;min-height:0;overflow:hidden;background:none}
+.map-frame{display:block;width:100%;height:380px;border:0}
+@media (max-width:700px){.map-frame{height:320px}}
