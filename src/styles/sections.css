@@ -20,7 +20,7 @@ body.lang-ar .hero h1 .h1-name{letter-spacing:0}
 @media (max-width:900px){.hero-stage{width:min(94%,520px);margin-top:.5rem}}
 
 /* ---- header logo: the client's real symbol + wordmark ---- */
-.nav .wrap{width:min(1340px,94%)}
+.nav .wrap{width:min(2000px,94%)}
 .brand .brand-img{height:46px;width:auto;max-width:none;flex:none;display:block}
 /* compact (burger) header already below 1260px — long Russian/Arabic labels do not fit the full menu before that */
 @media (max-width:1260px){
@@ -125,3 +125,21 @@ a.brandline:hover{text-decoration:underline}
 .map.is-loaded{display:block;padding:0;min-height:0;overflow:hidden;background:none}
 .map-frame{display:block;width:100%;height:380px;border:0}
 @media (max-width:700px){.map-frame{height:320px}}
+
+/* ---- wide desktop (client 11-25: "desktop version wide, full screen"): containers are now up to 2000px; on big monitors the hero, text and sections scale up with it ---- */
+@media (min-width:1400px){
+  .hero-in{min-height:min(88vh,860px)}
+  .hero .lead{max-width:640px;font-size:1.2rem}
+  .hero-stage{width:min(100%,760px)}
+  .head{max-width:900px}
+  .phead .lead{max-width:900px}
+}
+@media (min-width:1800px){
+  html{font-size:112.5%}                       /* everything sized in rem grows ~12% on 1800px+ monitors */
+  .hero-stage{width:min(100%,860px)}
+}
+@media (min-width:2300px){
+  html{font-size:125%}
+  .hero-stage{width:min(100%,1000px)}
+}
+@media (max-width:900px){.wrap{width:92%}}      /* phones/tablets keep the earlier side margins */
